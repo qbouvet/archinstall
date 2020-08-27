@@ -11,8 +11,8 @@ steps.yml
 pkgs.sh  
   * List usual packages, split in groups (core, DE, apps, ...)   
   * Formats output for use with pacman / yay. Ex:   
-  *  * pacman -S $(./pkg.sh system)  
-  *  * yay -S $(./pkg.sh plasma) $(./pkg.sh apps)  
+  *  * `pacman -S $(./pkg.sh system)`  
+  *  * `yay -S $(./pkg.sh plasma) $(./pkg.sh apps)`
 
 
 #### 2/ Dotfiles
