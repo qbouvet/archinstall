@@ -9,8 +9,8 @@ steps.yml
   * I don't plan on automating anything in a near future.  
   
 pkgs.sh  
-  * List usual packages in different groups (core packages, DE, apps)   
-  * Outputs lists for pacman / yay. Ex:   
+  * List usual packages, split in groups (core, DE, apps, ...)   
+  * Formats output for use with pacman / yay. Ex:   
   *  * pacman -S $(./pkg.sh system)  
   *  * yay -S $(./pkg.sh plasma) $(./pkg.sh apps)  
 
