@@ -41,7 +41,7 @@ system=(
   # System management
     systemd-swap ntp
     grub-customizer os-prober
-    tlp powertop    
+    tlp thermald powertop    
   # X.org
     xorg-server xorg-xinit xorg-xauth xorg-xrandr	# Core stuff
     xorg-setxkbmap xorg-xmodmap					    # Keyboard stuff

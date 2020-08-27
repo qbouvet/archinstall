@@ -149,6 +149,7 @@
         - "systemctl enable NetworkManager"
         - "systemctl enable bluetooth"
         - "systemctl enable tlp"
+        - "systemctl enable thermald"
         - "systemctl enable systemd-swap"
     - name: "Debrief"
         - "You might want to : "
