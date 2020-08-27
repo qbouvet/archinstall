@@ -1,4 +1,4 @@
-Everything that I like to keep nearby when installing arch linux, version-controlled.
+Everything that I like to keep nearby for installing arch linux, version-controlled.
 
 
 #### 1/ Checklists
