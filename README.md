@@ -1,4 +1,4 @@
-This repository holds everything that I like to have nearby when installing arch linux, version-controlled.
+Everything that I like to keep nearby when installing arch linux, version-controlled.
 
 
 #### 1/ Checklists
