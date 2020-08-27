@@ -1,0 +1,10 @@
+# /etc/systemd/system/gput_ctl.sh.timer
+[Unit]
+Description=gput_ctl.sh.timer : Timer for gput_ctl.sh
+[Timer]
+# Wait 20 seconds at boot
+OnBootSec=20sec
+# Repeat every minute afterwards
+OnUnitActiveSec=1min
+[Install]
+WantedBy=timers.target

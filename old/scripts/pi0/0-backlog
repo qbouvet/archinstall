@@ -1,0 +1,36 @@
+TODO
+
+  + fix watchbot startup bug
+
+  + split data/ into data-1/, data-2/, ...
+  + add more config sections into config (setup-watchbot)
+  + add a cleanup () part in 2-
+
+
+TESTING
+
+
+
+
+DONE
+
+  2-setup-system.sh
+
+	1-mksdcard.sh
+        download linux image
+        partition sd
+        extract os onto sd
+        setup eth over usb
+            /boot/config.txt
+            /boot/cmdline.txt
+            /etc/systemd/network/usb.network
+        setup internet connectivity
+            hostname
+            /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
+            /etc/wpa_supplicant/wpa_supplicant.conf
+            /etc/systemd/network/eth.network
+            /etc/systemd/network/wlan0.network
+
+  + use lists of wifi:password
+  + work a bit more on ssh security
+  + use lists of user:password

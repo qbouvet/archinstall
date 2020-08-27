@@ -1,0 +1,49 @@
+{
+   "checksum": "764e320179dbab39e636c8ec78608eb3",
+   "children": [ {
+      "content": "gnome-screenshot -f ~/Desktop/capture-$(timestamp).jpg -d 3",
+      "date_added": "13180472807416537",
+      "id": "5",
+      "subject": "",
+      "type": "note",
+      "url": "https://web.telegram.org/#/im?p=@bouvet_secu_bot"
+   }, {
+      "content": "gnome-screenshot -f ~/Desktop/capture-$(timestamp).jpg -d 3",
+      "date_added": "13180472807655348",
+      "id": "6",
+      "subject": "",
+      "type": "note",
+      "url": "https://web.telegram.org/#/im?p=@bouvet_secu_bot"
+   }, {
+      "content": "message(STATUS \"Downloading boost ${BoostVersion} to ${BoostCacheDir}\")",
+      "date_added": "13196771423950057",
+      "id": "8",
+      "subject": "",
+      "type": "note",
+      "url": "https://github.com/maidsafe-archive/MaidSafe/blob/master/cmake_modules/add_boost.cmake"
+   }, {
+      "content": "# Get list of components\nexecute_process(COMMAND ./b2 --show-libraries WORKING_DIRECTORY ${BoostSourceDir}\n                ERROR_QUIET OUTPUT_VARIABLE Output)\nstring(REGEX REPLACE \"(^[^:]+:|[- ])\" \"\" BoostComponents \"${Output}\")\nstring(REGEX REPLACE \"\\n\" \";\" BoostComponents \"${BoostComponents}\")",
+      "date_added": "13196773856446254",
+      "id": "9",
+      "subject": "",
+      "type": "note",
+      "url": "https://github.com/maidsafe-archive/MaidSafe/blob/master/cmake_modules/add_boost.cmake"
+   }, {
+      "children": [  ],
+      "date_added": "13176333931445162",
+      "id": "2",
+      "subject": "Other Notes",
+      "type": "other"
+   }, {
+      "children": [  ],
+      "date_added": "13176333931445163",
+      "id": "3",
+      "subject": "Trash",
+      "type": "trash"
+   } ],
+   "date_added": "13176333931445162",
+   "id": "1",
+   "subject": "Notes",
+   "type": "folder",
+   "version": 1
+}

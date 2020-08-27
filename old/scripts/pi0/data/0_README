@@ -1,0 +1,6 @@
+Top-level files/folders in this directory are copied into the new root 
+during installation. 
+Filenames are translated into paths as follows :  
+  - '___' is substituted into '/'
+  - There should be no spaces in the filenames
+  - files/folders that don't start with '___' are ignored

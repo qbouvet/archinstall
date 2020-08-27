@@ -1,0 +1,86 @@
+  
+  UPCOMMING
+ #========#
+
+    Unprioritized cool features
+        telegram monitor bot (ssh login attemps, df, temperature, network scan)
+            https://askubuntu.com/questions/665477/execute-prelogin-scripts-for-ssh
+            https://unix.stackexchange.com/questions/339417/running-a-shell-script-on-n-failed-login-attempts
+        USB-to-FamilyDrive daemon / tgbot
+        VPN
+        DE + VNC
+        pihole  (cf. 0-backlog-pihole)
+    
+    Integrate into setup scripts    > Clean wifi config
+                                    > disks spindown
+                                    
+	clocking / volting
+	    -> useless, usb2 limited anyway
+
+
+
+  TESTING
+ #=======#
+ 
+    zswap
+
+
+
+  COMPLETE
+ #========#
+    
+    Add clean wifi config
+        wifi password in /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
+        static IP / DHCP configuration in 
+            /etc/systemd/network/*
+            cf. https://wiki.archlinux.org/index.php/Systemd-networkd
+        enable+start
+            wpa_supplicant.service
+            systemd-networkd.service
+ 
+    disk spindown
+        https://wiki.archlinux.org/index.php/Hdparm#Power_management_configuration
+ 
+	swap	> swappiness
+	        > swap file
+
+	system-setup.sh > aurman installation
+
+    syncthing setup
+
+    fstab for external disk
+
+	advertise_ip.sh > source functions from bashrc in scripts
+					> write actual script in autostart-login.sh
+
+	setup-user.sh	> git / github setup
+					> ssh-agent setup
+
+	fix autostart-boot.sh.service
+
+	root .bashrc
+
+	locale
+
+	setup-system.sh	> handle user autologin
+					> sudoers configuration
+
+	ssh root login / install as root / remove alarm during install
+
+	wifi autoconnect> Seems to autoconnect
+					> in doubt : https://wiki.archlinux.org/index.php/NetworkManager#Set_up_PolicyKit_permissions
+
+	setup script	> split into setup-system.sh and setup-user.sh
+					> autostart-login.sh - fix dbus "file not found" error on systemctl --user
+					> fixed user home permissions
+					> user auto-login
+					> use pacman cache
+
+	user bashrc
+	bashrc files
+
+	install script	> formatting
+					> extracting
+					> wifi files
+					> pacman cache
+

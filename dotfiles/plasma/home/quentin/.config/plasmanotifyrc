@@ -1,0 +1,6 @@
+[Applications][vivaldi-stable]
+Seen=true
+
+[Notifications]
+PopupPosition=TopRight
+PopupTimeout=3000

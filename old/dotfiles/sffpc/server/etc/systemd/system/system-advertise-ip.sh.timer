@@ -1,0 +1,10 @@
+# /etc/systemd/system/system-advertise-ip.sh.timer
+[Unit]
+Description=system-advertise-ip.sh.service : Timer for system-advertise-ip.sh.service
+[Timer]
+# Wait 20 seconds at boot
+OnBootSec=20sec
+# Repeat every 40m afterwards
+OnUnitActiveSec=40min
+[Install]
+WantedBy=timers.target

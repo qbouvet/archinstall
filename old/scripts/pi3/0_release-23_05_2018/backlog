@@ -1,0 +1,38 @@
+TODO					
+	
+	advertise_ip.sh	> setup ssh-install : 'remember key' setting + add key once
+			> setup ssh-agent service
+			> copy & install ssh-keys
+			
+	fix autostart-boot.sh
+		https://linuxconfig.org/how-to-automatically-execute-shell-script-at-startup-boot-on-systemd-linux
+
+	locale
+	
+	
+	root .bashrc
+	
+
+
+
+DONE
+	
+	advertise_ip.sh > write actual script in autostart-login.sh
+	
+	ssh root login / install as root / remove alarm during install
+	
+	wifi autoconnect> Seems to autoconnect
+			> in doubt : https://wiki.archlinux.org/index.php/NetworkManager#Set_up_PolicyKit_permissions
+			
+	setup script	> autostart-login.sh - fix dbus "file not found" error on systemctl --user
+			> fixed user home permissions
+			> user auto-login
+			> use pacman cache
+	root bashrc
+	user bashrc
+	bashrc files
+	
+	install script	> formatting
+			> extracting
+			> wifi files
+			> pacman cache

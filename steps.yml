@@ -1,0 +1,181 @@
+---
+
+
+- stage: Preparation
+  comments: 
+    - "Create and boot a live system with GUI"
+    - "Format your disks"
+    - "Create and boot the arch live system"
+    - "git clone this repo to run ./pkgs.sh"
+    - "  * cd /tmp"
+    - "  * git clone https://github.com/qbouvet/install-arch"
+    
+    
+- stage: Live-USB
+  comment: "Run this in the live CD"
+  steps: 
+    - name: "Keyboard layout (live)"
+      cmd: "loadkeys fr_CH"
+    - name: "Wireless network configuration (live)"
+      cmds: 
+        - "iwctl device list"
+        - "iwctl station <wlan0> scan"
+        - "iwctl station <wlan0> get-networks"
+        - "iwctl station <wlan0> connect <SSID> --passphrase <pass>"
+    - name: "Get time/date from network (live)"
+      cmd: "timedatectl set-ntp true"
+    - name: "Mount file systems"
+      cmds: 
+        - "mkdir -p /mnt/root"
+        - "mount </dev/sda2> /mnt/root"
+        - "mkdir -p /mnt/root/boot/efi"
+        - "mount </dev/sda1> /mnt/root/boot/efi"
+    - name: "Create new installation"
+      cmd: "pacstrap $(./pkgs.sh system)"
+    - name: "Generate fstab"
+      cmd: "genfstab -U /mnt/root >> /mnt/root/etc/fstab"
+
+
+- stage: "Chroot 1 / Non-interactive"
+  comment: "This does not require user interaction. Run in chroot"
+  steps: 
+    - name: "Configure time"
+      cmds:
+        - "ln -sf /usr/share/zoneinfo/Europe/Zurich /etc/localtime "
+        - "timedatectl set-ntp true"
+        - "hwclock --systohc"
+    - name: "Configure locales"
+      steps: 
+        - uncomment: ["/etc/locale.gen", "en_US.UTF-8"]
+        - cmd: "locale-gen"
+        - overwrite: ["/etc/locale.conf", "LANG=en_US.UTF-8"]
+    - name: "Configure keyboard layout"
+      steps: 
+        - overwrite: ["/etc/vconsole.conf", "KEYMAP=FR_ch"]
+        - cmd: "localectl --no-convert set-x11-keymap fr pc104 ch"
+    - name: "Configure hostname"
+      steps: 
+        - overwrite: ["/etc/hostname", "qbvt-sffpc"]
+        - overwrite: ["/etc/hosts", "127.0.0.1  localhost"]
+        - appendln:  ["/etc/hosts", "::1        localhost  "]
+        - appendln:  ["/etc/hosts", "127.0.0.1  qbvt-sffpc.localdomain qbvt-sffpc"]
+    - name: "Init pacman & makepkg"
+      steps: 
+        - appendln: ["/etc/pacman.conf", ""]
+        - appendln: ["/etc/pacman.conf", "[multilib]"]
+        - appendln: ["/etc/pacman.conf", "Include = /etc/pacman.d/mirrorlist"]
+        - "pacman-key --init"
+        - "pacman-key --populate archlinux"
+        - "pacman -Syu"
+    - name: "Configure makepkg"
+      steps: 
+        - replaceln: ["/etc/makepkg.conf", "#MAKEFLAGS", "MAKEFLAGS=\" -j$(($(nproc)-2))\""]
+        - replaceln: ["/etc/makepkg.conf", "#BUILDDIR", "BUILDDIR=/tmp/makepkg"]
+    - name: "Configure users & sudo "
+      steps:
+        - cmd: "passwd"
+        - cmd: "useradd -m quentin"
+        - cmd: "passwd quentin"
+        - cmd: "gpasswd -a quentin wheel"
+        - cmd: "pacman -S sudo"
+        - uncomment: ["/etc/sudoers", "%wheel ALL=(ALL) ALL"]
+    - name: "Configure Swap"
+      steps: 
+       - cmd: "dd if=/dev/zero bs=1M count=4096 of=/var/swap"
+       - cmd: "chmod 600 /var/swap"
+       - cmd: "mkswap /var/swap"
+       - cmd: "swapon /var/swap"
+       - appendln: ["/etc/fstab", ""]
+       - appendln: ["/etc/fstab", "/var/swap"]
+       - appendln: ["/etc/fstab", "/var/swap    none    swap    defaults    0 0"]
+       - cmd: "echo 'swap: Still need to configure systemd-swap"
+    - name: "Configure SSH"
+      cmd: "echo TODO"
+
+
+- stage: "Chroot 2 / Interactive"
+  comment: "This requires user interaction. Run in chroot"
+  steps:     
+    - name: "Build/Install yay"
+      steps: 
+        - cmd: "mkdir -p /tmp/build/"
+        - dir: "/tmp/build"
+          cmd: "git clone https://aur.archlinux.org/yay.git"
+        - dir: "/tmp/build/yay"
+          cmd: "sudo -u quentin makepkg -si"
+    - name: "Install software"
+      cmd: "sudo -u quentin yay --sudoloop --norebuild --noredownload -Syu $(./pkgs.sh system_aur) $(./pkgs.sh plasma) $(./pkgs.sh apps)"
+    - name: "Install patched kernel"
+      steps: 
+        - cmd: "mkdir -p /tmp/build/"
+        - dir: "/tmp/build"
+          cmd: "git clone https://github.com/Frogging-Family/linux-tkg.git"
+        - dir: "/tmp/build/linux-tkg/linux58-tkg/"
+          cmd: "makepkg -si"
+    - name: "Install patched wine / proton"
+      steps: 
+        - cmd: "mkdir -p /tmp/build/"
+        - dir: "/tmp/build"
+          cmd: "git clone https://github.com/Frogging-Family/wine-tkg-git.git"
+        - dir: "/tmp/build/wine-tkg-git"
+          cmds: 
+            - "pacman -S schedtool"
+            - "makepkg -si"
+        - dir: "/tmp/build/proton-tkg-git"
+          cmds: 
+            - "pacman -S schedtool"
+            - "makepkg -si"
+    - name: "Install Fanctl"
+      cmd: "echo TODO"
+
+
+- stage: "Live-chroot 3 / Non-interactive"
+  steps: 
+    - name: "Configure bootloader"
+      cmds:
+        - "grub-install --target-x86_64-efi --efi-directory=/boot/efi --bootloader-id=Grub"
+        - "grub-mkconfig -o /boot/grub/grub.cfg"
+    - name: "Configure X-at-login"
+      steps: 
+        - overwrite: ["/home/quentin/.xinitrc", "\n#\n#   Start plasma with startx\n#\n"]
+        - appendln: ["/home/quentin/.xinitrc", "export DESKTOP_SESSION=plasma"]
+        - appendln: ["/home/quentin/.xinitrc", "exec startplasma-x11"]
+        - appendln: ["/home/quentin/.bash_profile", "if systemctl -q is-active graphical.target && [[ ! $DISPLAY && XDG_VTNR -eq 1 ]];"]
+        - appendln: ["/home/quentin/.bash_profile", "then"]
+        - appendln: ["/home/quentin/.bash_profile", "  exec startx"]
+        - appendln: ["/home/quentin/.bash_profile", "fi"]
+    - name: "Enable services"
+      cmds: 
+        - "systemctl enable NetworkManager"
+        - "systemctl enable bluetooth"
+        - "systemctl enable systemd-swap"
+    - name: "Debrief"
+        - "You might want to : "
+        - " * Configure SSH keys / agent"
+        - " * Configure your DE / Sofware"
+        - "   * Keyboard shortcuts"
+        - "   * Themes"
+        - "   * Dotfiles...."
+
+
+- stage: "Todo"
+  steps: 
+    - name: "Fanctl"
+      steps:
+        - "write and host a PKGBUILD"
+    - name: "Periodic cleanup"
+      steps: 
+        - "write periodic cleanup scripts"
+        - "write periodic cleanup service files"
+        - "write and host a PKGBUILD"
+    - name: "Configure swap"
+      steps: 
+        - "systemd-swap, zswap, zram "
+        - "swappiness, vfs_cache_pressure"
+        - "swap file"
+        - "hibernation via grub command line"
+    - name: "Provide drop-in files in addition to appendln / overwrite / ..."
+      steps: 
+        - "for example, stored in a static/ subdirectory"
+        - dropin: ["/path/within/static", "/target/path"]
+... 

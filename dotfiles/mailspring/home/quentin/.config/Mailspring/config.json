@@ -1,0 +1,279 @@
+{
+  "*": {
+    "env": "production",
+    "core": {
+      "themes": [
+        "ui-light"
+      ],
+      "disabledPackages": [
+        "message-view-on-github",
+        "personal-level-indicators",
+        "phishing-detection",
+        "nylas-private-salesforce",
+        "github-contact-card",
+        "keybase",
+        "composer-markdown",
+        "composer-scheduler",
+        "composer-mail-merge",
+        "send-and-archive",
+        "main-calendar"
+      ],
+      "workspace": {
+        "mode": "split",
+        "hiddenLocations": {
+          "MessageListSidebar": {
+            "id": "MessageListSidebar",
+            "Toolbar": {
+              "id": "MessageListSidebar:Toolbar"
+            }
+          }
+        }
+      },
+      "keymapTemplate": "Outlook",
+      "tutorial": {
+        "seen": [
+          "ThreadSearchBar",
+          "ActivityListButton",
+          "ModeToggle",
+          "ToolbarSnooze",
+          "SendRemindersPopoverButton",
+          "SendRemindersComposerButton",
+          "SendLaterButton"
+        ]
+      },
+      "translation": {
+        "disabled": [
+          "fr"
+        ],
+        "automatic": []
+      }
+    },
+    "identity": {
+      "id": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+      "firstName": "",
+      "lastName": "",
+      "emailAddress": "",
+      "object": "identity",
+      "createdAt": "2020-01-24T18:41:25.000Z",
+      "stripePlan": "Basic",
+      "stripePlanEffective": "Basic",
+      "stripeCustomerId": "cus_Gbkb1jjCVyCu1W",
+      "stripePeriodEnd": null,
+      "featureUsage": {
+        "snooze": {
+          "quota": 15,
+          "period": "weekly",
+          "usedInPeriod": 0,
+          "featureLimitName": "basic-limit"
+        },
+        "send-later": {
+          "quota": 5,
+          "period": "weekly",
+          "usedInPeriod": 0,
+          "featureLimitName": "basic-limit"
+        },
+        "thread-sharing": {
+          "quota": 3,
+          "period": "weekly",
+          "usedInPeriod": 0,
+          "featureLimitName": "basic-limit"
+        },
+        "link-tracking": {
+          "quota": 5,
+          "period": "weekly",
+          "usedInPeriod": 0,
+          "featureLimitName": "basic-limit"
+        },
+        "open-tracking": {
+          "quota": 5,
+          "period": "weekly",
+          "usedInPeriod": 0,
+          "featureLimitName": "basic-limit"
+        },
+        "contact-profiles": {
+          "quota": 3,
+          "period": "weekly",
+          "usedInPeriod": 1,
+          "featureLimitName": "basic-limit"
+        },
+        "send-reminders": {
+          "quota": 5,
+          "period": "weekly",
+          "usedInPeriod": 0,
+          "featureLimitName": "basic-limit"
+        },
+        "translation": {
+          "quota": 50,
+          "period": "weekly",
+          "usedInPeriod": 0,
+          "featureLimitName": "basic-limit"
+        }
+      }
+    },
+    "accounts": [
+      {
+        "id": "26fbcb88",
+        "metadata": [],
+        "name": "Quentin Bouvet",
+        "provider": "outlook",
+        "emailAddress": "quentin.bouvet@hotmail.fr",
+        "settings": {
+          "imap_allow_insecure_ssl": false,
+          "imap_host": "imap-mail.outlook.com",
+          "imap_port": 993,
+          "imap_security": "SSL / TLS",
+          "imap_username": "quentin.bouvet@hotmail.fr",
+          "smtp_allow_insecure_ssl": false,
+          "smtp_host": "smtp-mail.outlook.com",
+          "smtp_port": 587,
+          "smtp_security": "STARTTLS",
+          "smtp_username": "quentin.bouvet@hotmail.fr"
+        },
+        "label": "@hotmail",
+        "autoaddress": {
+          "type": "bcc",
+          "value": ""
+        },
+        "aliases": [],
+        "syncState": "ok",
+        "syncError": null,
+        "__cls": "Account"
+      },
+      {
+        "id": "c99e5a3b",
+        "metadata": [],
+        "name": "Quentin Bouvet",
+        "provider": "imap",
+        "emailAddress": "quentin.bouvet@bluewin.ch",
+        "settings": {
+          "imap_allow_insecure_ssl": false,
+          "imap_host": "imaps.bluewin.ch",
+          "imap_port": 993,
+          "imap_security": "SSL / TLS",
+          "imap_username": "quentin.bouvet@bluewin.ch",
+          "smtp_allow_insecure_ssl": false,
+          "smtp_host": "smtpauths.bluewin.ch",
+          "smtp_port": 465,
+          "smtp_security": "SSL / TLS",
+          "smtp_username": "quentin.bouvet@bluewin.ch"
+        },
+        "label": "@bluewin",
+        "autoaddress": {
+          "type": "bcc",
+          "value": ""
+        },
+        "aliases": [],
+        "syncState": "ok",
+        "syncError": null,
+        "__cls": "Account"
+      },
+      {
+        "id": "a24b3ffa",
+        "metadata": [],
+        "name": "Quentin Bouvet",
+        "provider": "outlook",
+        "emailAddress": "qbouvet@outlook.com",
+        "settings": {
+          "imap_allow_insecure_ssl": false,
+          "imap_host": "imap-mail.outlook.com",
+          "imap_port": 993,
+          "imap_security": "SSL / TLS",
+          "imap_username": "qbouvet@outlook.com",
+          "smtp_allow_insecure_ssl": false,
+          "smtp_host": "smtp-mail.outlook.com",
+          "smtp_port": 587,
+          "smtp_security": "STARTTLS",
+          "smtp_username": "qbouvet@outlook.com"
+        },
+        "label": "@outlook",
+        "autoaddress": {
+          "type": "bcc",
+          "value": ""
+        },
+        "aliases": [],
+        "syncState": "ok",
+        "syncError": null,
+        "__cls": "Account"
+      },
+      {
+        "id": "7f2a9875",
+        "metadata": [],
+        "name": "sgpepper",
+        "provider": "gmail",
+        "emailAddress": "sergentpepper.us@gmail.com",
+        "settings": {
+          "imap_host": "imap.gmail.com",
+          "imap_port": 993,
+          "imap_username": "sergentpepper.us@gmail.com",
+          "imap_security": "SSL / TLS",
+          "imap_allow_insecure_ssl": false,
+          "smtp_host": "smtp.gmail.com",
+          "smtp_port": 587,
+          "smtp_username": "sergentpepper.us@gmail.com",
+          "smtp_security": "STARTTLS",
+          "smtp_allow_insecure_ssl": false,
+          "refresh_client_id": "662287800555-0a5h4ii0e9hsbpq0mqtul7fja0jhf9uf.apps.googleusercontent.com"
+        },
+        "label": "sergentpepper.us@gmail.com",
+        "autoaddress": {
+          "type": "bcc",
+          "value": ""
+        },
+        "aliases": [],
+        "syncState": "ok",
+        "syncError": null,
+        "__cls": "Account"
+      },
+      {
+        "id": "8eb89699",
+        "metadata": [],
+        "name": "Quentin Bouvet",
+        "provider": "gmail",
+        "emailAddress": "qbouvet.vivadata@gmail.com",
+        "settings": {
+          "imap_host": "imap.gmail.com",
+          "imap_port": 993,
+          "imap_username": "qbouvet.vivadata@gmail.com",
+          "imap_security": "SSL / TLS",
+          "imap_allow_insecure_ssl": false,
+          "smtp_host": "smtp.gmail.com",
+          "smtp_port": 587,
+          "smtp_username": "qbouvet.vivadata@gmail.com",
+          "smtp_security": "STARTTLS",
+          "smtp_allow_insecure_ssl": false,
+          "refresh_client_id": "662287800555-0a5h4ii0e9hsbpq0mqtul7fja0jhf9uf.apps.googleusercontent.com"
+        },
+        "label": "qbouvet.vivadata@gmail.com",
+        "autoaddress": {
+          "type": "bcc",
+          "value": ""
+        },
+        "aliases": [],
+        "syncState": "ok",
+        "__cls": "Account"
+      }
+    ],
+    "accountsVersion": 69,
+    "mailto": {
+      "prompted-about-default": true
+    },
+    "defaultSignatures": {
+      "quentin.bouvet@hotmail.fr": "local-b111b751-11bf",
+      "quentin.bouvet@bluewin.ch": "local-b111b751-11bf",
+      "quentin.bouvet@epfl.ch": "local-b111b751-11bf",
+      "qbouvet@outlook.com": "local-b111b751-11bf"
+    },
+    "signatures": {
+      "local-b111b751-11bf": {
+        "title": "Blank",
+        "id": "local-b111b751-11bf",
+        "body": "<table cellPadding=\"0\" cellSpacing=\"0\"><tbody><tr><td style=\"vertical-align:top\"></td><td><div style=\"font-size:0.9em;min-width:200px;max-width:400px;margin-top:4px;padding-top:4px\"><div><div></div><div></div></div></div></td></tr></tbody></table>",
+        "data": {
+          "title": "",
+          "templateName": "SignatureC",
+          "name": ""
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+##
+## ~/.bashrc
+##
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+
+PS1='[\u@\h \W]\$ '
+
+
+
+EDITOR=nano;
+# Useless because can't source
+#rbpi_git_dir="$HOME"/rbpi-git;
+#ssh_key="$HOME"/.ssh/sshkey_pi_quentin;
+
+
+
+
+alias ll='ls -la';
+
+
+
+function temperature {
+    cput=$(cat /sys/class/thermal/thermal_zone0/temp);
+    #gput=$(/opt/vc/bin/vcgencmd measure_temp);
+    printf "  CPU : $((cput/1000))C\n";
+}
+
+
+
+# print current ip in ip file
+function print_ip {
+    printf "Date : ";
+    date;
+    ip -br -f inet addr | grep UP | while read line ; do 
+        echo $line | awk '{split($3,ip,"/"); print $1 " " ip[1]}';
+    done;
+}
+        
+
+## List all IPs available on all interfaces, put them in a file,
+## push the file to github
+##
+function advertise_ip {
+    printf "\n\n [Advertising IPs]\n";
+        # init
+    pushd "$rpbi_git_dir";
+    rm ip;
+        # print current ip in ip file
+    print_ip > ip;
+        # push on git
+    git add ip;
+    git commit -m "ip autocomit";
+    git push -u origin master;
+        # exit
+    popd;
+}

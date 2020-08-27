@@ -1,0 +1,13 @@
+# /etc/systemd/system/gput_ctl.service
+
+[Unit]
+Description=gput_ctl.service : adjusts GPU power limit to keep it cool
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+ExecStart=/root/gput_ctl.sh
+
+[Install]
+WantedBy=multi-user.target

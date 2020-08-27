@@ -1,0 +1,28 @@
+position=top-left
+toggle_hud=F1
+#
+output_file=/home/quentin/Desktop/mangohud
+toggle_logging=F3
+#
+fps_limit=125
+#vsync=0                # Blocks FPS to 60, don't use
+#
+cpu_text=CPU
+cpu_temp
+#core_load
+ram
+#
+gpu_text=GPU
+gpu_temp
+gpu_core_clock
+#gpu_power              # Doesn't show up
+#
+vram                    
+gpu_mem_clock           
+#
+io_read
+io_write
+
+
+
+

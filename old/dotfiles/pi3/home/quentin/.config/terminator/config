@@ -1,0 +1,21 @@
+[global_config]
+  title_font = Droid Sans Mono 11
+  title_use_system_font = False
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#efefef"
+    cursor_color = "#aaaaaa"
+    font = Droid Sans Mono 11
+    foreground_color = "#000000"
+    show_titlebar = False
+    use_system_font = False

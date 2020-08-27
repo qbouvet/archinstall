@@ -1,0 +1,29 @@
+#### 	Openbox autostart file
+####
+####	~/.config/openbox/autostart
+
+
+
+# taskbar setup
+	tint2 -c ~/.config/tint2/sffpc-main.tint2rc &
+	# connman-ui-gtk &
+	nm-applet &
+	
+# Desktop setup (temporary)
+	pcmanfm --desktop &
+	
+# Guake
+	guake &
+
+
+
+
+
+# setup desktop 
+	#/home/quentin/.scripts/pcmanfm_toggle_desktop_icons.sh setup & 
+		
+# Volume control wrapper for pulseaudio
+
+	## Init alsamixer (On, 100%)
+	amixer set Master on
+	amixer -D pulse sset Master 100%

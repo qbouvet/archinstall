@@ -1,0 +1,96 @@
+<!-- 		------------------------------------------		-->
+<!--   Openbox Right-click menu configuration file	-->
+<!--   		   ~/.config/openbox/menu.xml			-->
+<!-- 		------------------------------------------		-->
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+
+
+<!-- "Terminal" expendable menu	-->
+
+	<menu id="terminal" label="Run in terminal">
+		<item label="Entendre siffler le train">
+			<action name="Execute">
+			<command>
+				terminator --command="sl"
+			</command>
+			</action>
+		</item>
+		<item label="$ openbox --reconfigure">
+			<action name="Reconfigure" />
+		</item>
+	</menu>
+	
+	
+<!-- "Keyboard" expendable menu	-->
+
+	<menu id="Keyboard" label="Change keyboard">
+		<item label="us-intl">
+			<action name="Execute">
+			<command>
+				setxkbmap -layout us -variant intl
+			</command>
+			</action>
+			</item>			
+		<item label="ch-fr">
+			<action name="Execute">
+			<command>
+				setxkbmap -layout ch -variant fr
+			</command>
+			</action>
+			</item>
+	</menu>	
+
+
+
+
+<!-- 	------------------------------------------	-->
+<!-- 	------------------------------------------	-->
+<!-- 	  insertion of menu elements start here 	-->
+<!-- 	------------------------------------------	-->
+<!-- 	------------------------------------------	-->
+
+	<menu id="root-menu" label="Openbox 3">
+
+
+		<!--  Applications -->
+	   	<separator label="Shortcuts" />
+			<item label="Firefox">
+				<action name="Execute">
+				  <command>firefox</command>
+				</action>
+			</item>	
+			<item label="Files">
+				<action name="Execute">
+				  <command>pcmanfm</command>
+				</action>
+			</item>	  	
+		   	<item label="Terminal">
+				<action name="Execute">
+				  <command>terminator</command>
+				</action>
+			</item>	
+	
+		<!--  Run in terminal / keyboard -->
+		<separator />
+			<menu id="terminal"/>
+			<menu id="Keyboard"/>
+	
+		<!--  Shutdown -->
+		<separator label="Exit" />
+			<item label=" Reboot">
+				<action name="Execute">
+					<command>systemctl reboot</command>
+				</action>
+			</item>
+			<item label=" Power off">
+				<action name="Execute">
+					<command>systemctl poweroff</command>
+				</action>
+			</item>
+		
+	</menu>
+
+</openbox_menu>

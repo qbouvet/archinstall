@@ -1,0 +1,13 @@
+# /etc/systemd/system/watchbot.service
+
+[Unit]
+Description=Watchbot at boot
+
+[Service]
+Type=forking
+ExecStart=python /opt/watchbot/main.py
+TimeoutSec=0
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

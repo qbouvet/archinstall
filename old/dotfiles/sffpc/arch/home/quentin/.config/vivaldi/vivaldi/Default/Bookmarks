@@ -1,0 +1,183 @@
+{
+   "checksum": "8ffe8d78c6cdf6695f446c9e0e5f7664",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "children": [ {
+               "date_added": "13176344451834436",
+               "id": "143",
+               "meta_info": {
+                  "Thumbnail": "chrome://thumb/http://bookmark_thumbnail/143",
+                  "last_visited_desktop": "13191537132405474"
+               },
+               "name": "MétéoSuisse",
+               "type": "url",
+               "url": "https://www.meteosuisse.admin.ch/home.html?tab=overview"
+            }, {
+               "date_added": "13177802223379299",
+               "id": "146",
+               "meta_info": {
+                  "Thumbnail": "chrome://thumb/http://bookmark_thumbnail/146?1533328624535",
+                  "last_visited_desktop": "13196776883091296"
+               },
+               "name": "web.telegram.org/",
+               "type": "url",
+               "url": "http://web.telegram.org/"
+            }, {
+               "date_added": "13178027162189772",
+               "id": "148",
+               "meta_info": {
+                  "Thumbnail": "chrome://thumb/http://bookmark_thumbnail/148",
+                  "last_visited_desktop": "13196776531969539"
+               },
+               "name": "https://github.com/",
+               "type": "url",
+               "url": "https://github.com/"
+            } ],
+            "date_added": "13176337322292842",
+            "date_modified": "13178027162189772",
+            "id": "141",
+            "meta_info": {
+               "Speeddial": "true"
+            },
+            "name": "newtab",
+            "type": "folder"
+         } ],
+         "date_added": "13176333931428930",
+         "date_modified": "13176344472061286",
+         "id": "1",
+         "name": "Bookmarks",
+         "type": "folder"
+      },
+      "other": {
+         "children": [ {
+            "children": [ {
+               "children": [ {
+                  "date_added": "13176334639014868",
+                  "id": "120",
+                  "meta_info": {
+                     "last_visited_desktop": "13176344130540950"
+                  },
+                  "name": "Les Morsures de l'aube — Wikipédia",
+                  "type": "url",
+                  "url": "https://fr.wikipedia.org/wiki/Les_Morsures_de_l%27aube"
+               }, {
+                  "date_added": "13176334639015130",
+                  "id": "121",
+                  "meta_info": {
+                     "last_visited_desktop": "13176335165043712"
+                  },
+                  "name": "The Du Droppers — Wikipédia",
+                  "type": "url",
+                  "url": "https://fr.wikipedia.org/wiki/The_Du_Droppers"
+               }, {
+                  "date_added": "13176334639015417",
+                  "id": "122",
+                  "meta_info": {
+                     "last_visited_desktop": "13176335123755302"
+                  },
+                  "name": "Francis Kramarz — Wikipédia",
+                  "type": "url",
+                  "url": "https://fr.wikipedia.org/wiki/Francis_Kramarz"
+               }, {
+                  "date_added": "13176334639015707",
+                  "id": "123",
+                  "meta_info": {
+                     "last_visited_desktop": "13176335123769034"
+                  },
+                  "name": "Imre Nagy (pentathlète) — Wikipédia",
+                  "type": "url",
+                  "url": "https://fr.wikipedia.org/wiki/Imre_Nagy_(pentathl%C3%A8te)"
+               }, {
+                  "date_added": "13176334639015990",
+                  "id": "124",
+                  "meta_info": {
+                     "last_visited_desktop": "13176334639016140"
+                  },
+                  "name": "Project Tab Manager - Chrome Web Store",
+                  "type": "url",
+                  "url": "https://chrome.google.com/webstore/detail/project-tab-manager/iapdnheekciiecjijobcglkcgeckpoia/related"
+               }, {
+                  "date_added": "13176334639016292",
+                  "id": "125",
+                  "meta_info": {
+                     "last_visited_desktop": "13176334639016451"
+                  },
+                  "name": "about:extensions - Bing",
+                  "type": "url",
+                  "url": "https://www.bing.com/search?FORM=INCOH2&PC=IFJ1&PTAG=ICO-c9d0fc87&q=about%3Aextensions"
+               }, {
+                  "date_added": "13176334639016583",
+                  "id": "126",
+                  "meta_info": {
+                     "last_visited_desktop": "13176334639016725"
+                  },
+                  "name": "Project Tab Manager README",
+                  "type": "url",
+                  "url": "chrome-extension://iapdnheekciiecjijobcglkcgeckpoia/README.html"
+               }, {
+                  "date_added": "13176334639016907",
+                  "id": "127",
+                  "meta_info": {
+                     "last_visited_desktop": "13176344383097847"
+                  },
+                  "name": "Settings",
+                  "type": "url",
+                  "url": "chrome-extension://mpognobbkildjkofajifpdfhcoklimli/components/settings/settings.html?path=privacy"
+               }, {
+                  "date_added": "13176334639017200",
+                  "id": "128",
+                  "meta_info": {
+                     "last_visited_desktop": "13196129687163792"
+                  },
+                  "name": "Using Extensions in Vivaldi | Vivaldi Browser Help",
+                  "type": "url",
+                  "url": "https://help.vivaldi.com/article/extensions/"
+               } ],
+               "date_added": "13176334639013170",
+               "date_modified": "13176334639017200",
+               "id": "119",
+               "name": "group1",
+               "type": "folder"
+            } ],
+            "date_added": "13176334417569020",
+            "date_modified": "13176334639013238",
+            "id": "117",
+            "name": "Project Tab Manager",
+            "type": "folder"
+         } ],
+         "date_added": "13176333931428933",
+         "date_modified": "13176334417569078",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13176333931428934",
+         "date_modified": "0",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      },
+      "trash": {
+         "children": [ {
+            "children": [  ],
+            "date_added": "13176344472061199",
+            "date_modified": "13176344472061200",
+            "id": "144",
+            "meta_info": {
+               "Speeddial": "true"
+            },
+            "name": "New Folder",
+            "type": "folder"
+         } ],
+         "date_added": "13176333931428935",
+         "date_modified": "13176344488667773",
+         "id": "4",
+         "name": "Trash",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}

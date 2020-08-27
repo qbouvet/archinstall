@@ -1,0 +1,67 @@
+[Desktop Entry]
+
+
+##
+## Basic compulsory fields
+##
+Name=NewDesktopFile
+	# {Application, link}
+Type=Application
+
+
+##
+## For 'Application' .destkop files
+##
+	# Absolute path (?) where to execute commands
+Path=
+	# Exec can take variables : 
+	#   %f 	a single filename                   
+	#	%F 	multiple filenames.
+	#   %u 	a single URL.                       
+	#	%U 	multiple URLs.
+	#   %d 	a single directory. Used in conjunction with %f to locate a file.
+	#   %D 	multiple directories. Used in conjunction with %F to locate files.
+	#   %n 	a single filename without a path.   
+	#	%N multiple filenames without paths.
+	#   %k 	a URI or local filename of the location of the desktop file.
+	#   %v 	the name of the Device entry.
+Exec=
+	# MUST NOT be autostarted if the value of TryExec is not a path to
+	# an executable file on disk (used to determine if the program is  
+	# actually installed) Ex for vlc : 'TryExec=/usr/bin/vlc'
+TryExec=
+
+
+##
+## For 'Link' .destkop files
+##
+URL=
+
+
+##
+## Referencing
+##
+	# add new icons with $ xdg-icon-resource install --size 128 icon.png 
+	# or use absolute path
+Icon=
+	# AudioVideo, Audio, Video, Development, Education, Game, 
+	# Graphics, Network, Office, Science, Settings, System, Utility
+Categories=
+	# (?)
+Keywords=
+
+
+##
+## Misc stuff
+##
+	# Mime association
+MimeType=
+	# Generic name and comment
+GenericName=
+Comment=
+	# Wether or not to run in terminal (?)
+Terminal=false
+	# ...
+Version=1.0
+	#ftp,http,https,mms,rtmp,rtsp,sftp,smb
+X-KDE-Protocols=

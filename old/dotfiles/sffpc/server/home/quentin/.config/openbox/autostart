@@ -1,0 +1,85 @@
+#### 	Openbox autostart file
+####
+####	~/.config/openbox/autostart
+
+
+
+# taskbar setup
+	tint2 -c ~/.config/tint2/sffpc-main.tint2rc &
+	# connman-ui-gtk &
+	nm-applet &
+	
+# Desktop setup 
+	xfdesktop & 
+	
+# Guake
+	guake &
+
+
+
+
+
+# setup desktop 
+	#/home/quentin/.scripts/pcmanfm_toggle_desktop_icons.sh setup & 
+		
+# Volume control wrapper for pulseaudio
+
+	## Init alsamixer (On, 100%)
+	amixer set Master on
+	amixer -D pulse sset Master 100%
+	
+# TODO : do this better	
+
+	## Init pulseaudio (On, 30%)
+	pactl set-sink-mute 0 0
+	pactl set-sink-mute 1 0
+	pactl set-sink-mute 2 0
+	pactl set-sink-mute 3 0
+	pactl set-sink-mute 4 0
+	pactl set-sink-mute 5 0	
+	pactl set-sink-volume 0 30%
+	pactl set-sink-volume 1 30%
+	pactl set-sink-volume 2 30%
+	pactl set-sink-volume 3 30%
+	pactl set-sink-volume 4 30%
+	pactl set-sink-volume 5 30%
+	
+	function pavu_mute_toggle
+	{
+		pactl set-sink-mute 0 toggle
+		pactl set-sink-mute 1 toggle
+		pactl set-sink-mute 2 toggle
+		pactl set-sink-mute 3 toggle
+		pactl set-sink-mute 4 toggle
+		pactl set-sink-mute 5 toggle
+	}
+	
+	function pavu_vol_up
+	{
+		incr=5
+		
+		pactl set-sink-mute 0 0 
+		pactl set-sink-mute 1 0 
+		pactl set-sink-mute 2 0 
+		pactl set-sink-mute 3 0 
+		pactl set-sink-mute 4 0 
+		pactl set-sink-mute 5 0 
+		
+		pactl set-sink-volume 0 +$incr%
+		pactl set-sink-volume 1 +$incr%
+		pactl set-sink-volume 2 +$incr%
+		pactl set-sink-volume 3 +$incr%
+		pactl set-sink-volume 4 +$incr%
+		pactl set-sink-volume 5 +$incr%
+	}
+	
+	function pavu_vol_down
+	{
+		decr = 5%
+		pactl set-sink-volume 0 -$decr%
+		pactl set-sink-volume 1 -$decr%
+		pactl set-sink-volume 2 -$decr%
+		pactl set-sink-volume 3	-$decr%
+		pactl set-sink-volume 4 -$decr%
+		pactl set-sink-volume 5 -$decr%
+	}

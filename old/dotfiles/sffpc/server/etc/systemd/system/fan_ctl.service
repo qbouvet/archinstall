@@ -1,0 +1,17 @@
+# /etc/systemd/system/fan_ctl.service
+
+[Unit]
+Description=Starts fan control at boot.
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=/bin/bash /root/fan_ctl.sh
+Restart=always
+RestartSec=500ms
+
+[Install]
+WantedBy=multi-user.target
+
+# https://www.freedesktop.org/software/systemd/man/systemd.service.html

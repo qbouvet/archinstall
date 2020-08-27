@@ -1,0 +1,105 @@
+##
+## data/dotfiles
+##
+## Usage : cf pull_dotfiles.sh
+##
+## WARNING : THIS FILE DOES NOT USE BASH SYNTAX
+##  1. List one file/directory per line
+##  2. A comment needs its own line, DON'T WRITE COMMENTS AFTER FILENAMES
+##
+
+##
+##	sffpc-server
+##
+
+
+## Shell, DE & applications stuff
+##
+	# Openbox / tint2 / fonts / themes
+/home/quentin/.xinitrc
+/home/quentin/.config/openbox/autostart
+/home/quentin/.config/openbox/menu.xml
+/home/quentin/.config/openbox/rc.xml
+/home/quentin/.config/tint2
+/home/quentin/.config/gtk-3.0
+#/home/quentin/.fonts
+#/home/quentin/.templates
+/home/quentin/.Xmodmap
+	#  Midori (config, search engines, keyboard shortcuts, pinned tabs)
+/home/quentin/.config/midori/config			
+/home/quentin/.config/midori/search
+/home/quentin/.config/midori/accels
+/home/quentin/.config/midori/tabtrash.xbel
+	# geany
+/home/quentin/.config/geany/geany.conf
+/home/quentin/.config/geany/keybindings.conf
+	# Misc applications 
+/home/quentin/.config/pcmanfm/default/pcmanfm.conf
+#/home/quentin/.gitconfig
+#/home/quentin/.imwheelrc
+/home/quentin/.config/synapse/config.json
+/home/quentin/.config/terminator/config
+	# Scripts
+/home/quentin/.bashrc
+/home/quentin/.bash_profile
+
+
+
+## Server stuff
+##
+	# VNC
+/etc/systemd/system/sshd.socket.d/override.conf
+/home/quentin/.vnc/config
+/home/quentin/.vnc/xstartup
+	# fan ctl
+/etc/systemd/system/fan_ctl.service
+/root/fan_ctl.sh 
+	# gput_ctl
+/etc/systemd/system/gput_ctl.sh.timer 
+/etc/systemd/system/gput_ctl.sh.service
+/root/fan_ctl.sh
+	# advertise-ip
+/etc/systemd/system/system-advertise-ip.sh.timer
+/etc/systemd/system/system-advertise-ip.sh.service
+/root/system-advertise-ip.sh
+
+
+
+## System-wide config files
+##	
+/etc/fstab
+#/etc/default/tlp
+#/usr/share/themes/QuentinOB
+#/usr/share/themes/Adwaita
+/etc/NetworkManager/system-connections/
+/etc/sudoers
+	# replace monospace font by droid sans mono
+/etc/fonts/local.conf
+	# automount disks, ignore disks in pcmanfm, hibernate on low bat
+#/etc/udev/rules.d/99-udisks2.rules
+/etc/udev/rules.d/10-local.rules
+#/etc/udev/rules.d/99-lowbat.rules	
+	# prevents audacious from opening pcmanfm bookmarks 
+#/usr/share/applications/mimeinfo.cache	
+	# gparted with added gksudo
+#/usr/share/applications/gparted.desktop	
+	# hybrid sleep service
+#/etc/systemd/system/suspend-to-hibernate.service
+	# Xorg : touchpad, keyboard layout, lower screen hz, intel tearfree
+/etc/X11/xorg.conf
+/etc/X11/xorg.conf.d/00-keyboard.conf
+
+
+
+## Kernel, boot stuff
+##
+	# custom grub entries (shutdown / reboot)
+#/boot/grub/custom.cfg
+#/etc/default/grub	
+
+
+
+## Oddly specific stuff
+##
+	# disables power button, sleep on lid close
+/etc/systemd/logind.conf

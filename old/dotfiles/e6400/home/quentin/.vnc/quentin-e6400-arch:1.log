@@ -1,0 +1,1283 @@
+
+Xvnc TigerVNC 1.9.0 - built Jul 20 2018 11:32:25
+Copyright (C) 1999-2018 TigerVNC Team and many others (see README.rst)
+See http://www.tigervnc.org for information on TigerVNC.
+Underlying X server release 12000000, The X.Org Foundation
+
+
+Fri Aug 17 07:18:45 2018
+ vncext:      VNC extension running!
+ vncext:      Listening for VNC connections on all interface(s), port 5901
+ vncext:      Listening for HTTP connections on all interface(s), port 5801
+ vncext:      created VNC server for screen 0
+The XKEYBOARD keymap compiler (xkbcomp) reports:
+> Warning:          Unsupported high keycode 372 for name <I372> ignored
+>                   X11 cannot support keycodes above 255.
+>                   This warning only shows for the first high keycode.
+> Internal error:   Could not resolve keysym XF86WWAN
+> Internal error:   Could not resolve keysym XF86RFKill
+> Internal error:   Could not resolve keysym XF86Keyboard
+Errors from xkbcomp are not fatal to the X server
+/home/quentin/.config/openbox/autostart: line 7: SCRIPTS_DIR: command not found
+/scripts/pcmanfm_toggle_desktop_icons.sh: line 98: pushd: /home/quentin/test: No such file or directory
+tint2: xRandr: Found crtc's: 1
+cat: /scripts/data/pcmanfm_desktop_icons_state: No such file or directory
+ [ pcmanfm_toggle:desktop_icons.sh ]   Performing setup
+[1;34mtint2: xRandr: Linking output VNC-0 with crtc 0, resolution 1600x900, DPI 96[0m
+tint2: No XSETTINGS manager, tint2 uses config option 'launcher_icon_theme'.
+tint2: Loading config file: /home/quentin/.config/tint2/e6400-horizontal.tint2rc
+tint2: real transparency off.... depth: 24
+INFO: imwheel started (pid=782)
+** Message: 07:18:50.687: main.vala:102: Session is (null)
+** Message: 07:18:50.689: main.vala:103: DE is (null)
+** Message: 07:18:50.689: main.vala:107: No session set, fallback to LXDE session
+** Message: 07:18:50.689: main.vala:113: No desktop environnement set, fallback to LXDE
+tint2: panel items: T:SC:
+tint2: Systray composited rendering on
+tint2: nb monitors 1, nb monitors used 1, nb desktops 1
+[1;34mtint2: panel 1 uses scale 1 [0m
+tint2: pixmap background detection failed
+tint2: Kernel uevent interface initialized...
+tint2: systray window 4194316
+[1;32mtint2: systray started[0m
+tint2: pixmap background detection failed
+** Message: 07:18:51.319: main.vala:134: log directory: /home/quentin/.cache/lxsession/LXDE
+** Message: 07:18:51.319: main.vala:135: log path: /home/quentin/.cache/lxsession/LXDE/run.log
+
+** (pcmanfm:781): WARNING **: 07:18:52.128: The directory '~/Templates' doesn't exist, ignoring it
+
+(pcmanfm:781): Gtk-WARNING **: 07:18:52.928: Unable to locate theme engine in module_path: "adwaita",
+
+(pcmanfm:781): Gtk-WARNING **: 07:18:52.972: Unable to locate theme engine in module_path: "adwaita",
+
+Fri Aug 17 07:18:54 2018
+ Connections: accepted: 192.168.1.28::52960
+ SConnection: Client needs protocol version 3.8
+ SConnection: Client requests security type VncAuth(2)
+
+** (zeitgeist-datahub:866): WARNING **: 07:18:55.525: zeitgeist-datahub.vala:224: Unable to get name "org.gnome.zeitgeist.datahub" on the bus!
+
+(tilda:771): Gtk-WARNING **: 07:18:57.403: Attempting to read the recently used resources file at '/home/quentin/.local/share/recently-used.xbel', but the parser failed: Failed to open file “/home/quentin/.local/share/recently-used.xbel”: Permission denied.
+[1;32madd_icon: 18874371 (NetworkManager Applet), pid 770, visual 0x5602a030c200, colormap 18874370, depth 32, width 1, height 1[0m
+
+Fri Aug 17 07:18:59 2018
+ VNCSConnST:  Server default pixel format depth 24 (32bpp) little-endian rgb888
+ VNCSConnST:  Client pixel format depth 6 (8bpp) rgb222
+Tilda has started. Press <Primary>Menu to pull down the window.
+blueman-applet version 2.0.5 starting
+Traceback (most recent call last):
+  File "/usr/lib/python3.7/site-packages/dbus/bus.py", line 175, in activate_name_owner
+    return self.get_name_owner(bus_name)
+  File "/usr/lib/python3.7/site-packages/dbus/bus.py", line 361, in get_name_owner
+    's', (bus_name,), **keywords)
+  File "/usr/lib/python3.7/site-packages/dbus/connection.py", line 651, in call_blocking
+    message, timeout)
+dbus.exceptions.DBusException: org.freedesktop.DBus.Error.NameHasNoOwner: Could not get owner of name 'org.bluez': no such name
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/bin/blueman-applet", line 121, in <module>
+    BluemanApplet()
+  File "/usr/bin/blueman-applet", line 63, in __init__
+    self.Plugins.Load()
+  File "/usr/lib/python3.7/site-packages/blueman/main/PluginManager.py", line 90, in Load
+    __import__(self.module_path.__name__ + ".%s" % plugin, None, None, [])
+  File "/usr/lib/python3.7/site-packages/blueman/plugins/applet/AuthAgent.py", line 9, in <module>
+    import blueman.main.applet.BluezAgent as BluezAgent
+  File "/usr/lib/python3.7/site-packages/blueman/main/applet/BluezAgent.py", line 23, in <module>
+    from blueman.bluez.Agent import Agent, AgentMethod
+  File "/usr/lib/python3.7/site-packages/blueman/bluez/Agent.py", line 48, in <module>
+    class Agent(dbus.service.Object):
+  File "/usr/lib/python3.7/site-packages/blueman/bluez/Agent.py", line 56, in Agent
+    @AgentMethod
+  File "/usr/lib/python3.7/site-packages/blueman/bluez/Agent.py", line 38, in AgentMethod
+    if BlueZInterface.get_interface_version()[0] < 5:
+  File "/usr/lib/python3.7/site-packages/blueman/bluez/BlueZInterface.py", line 16, in get_interface_version
+    obj = dbus.SystemBus().get_object('org.bluez', '/')
+  File "/usr/lib/python3.7/site-packages/dbus/bus.py", line 241, in get_object
+    follow_name_owner_changes=follow_name_owner_changes)
+  File "/usr/lib/python3.7/site-packages/dbus/proxies.py", line 248, in __init__
+    self._named_service = conn.activate_name_owner(bus_name)
+  File "/usr/lib/python3.7/site-packages/dbus/bus.py", line 180, in activate_name_owner
+    self.start_service_by_name(bus_name)
+  File "/usr/lib/python3.7/site-packages/dbus/bus.py", line 278, in start_service_by_name
+    'su', (bus_name, flags)))
+  File "/usr/lib/python3.7/site-packages/dbus/connection.py", line 651, in call_blocking
+    message, timeout)
+dbus.exceptions.DBusException: org.freedesktop.systemd1.NoSuchUnit: Unit dbus-org.bluez.service not found.
+[1;32madd_icon: 8388625 (synapse), pid 978, visual 0x5602a030c200, colormap 8388624, depth 32, width 1, height 1[0m
+[1;31mtint2: systray: error code 9[0m
+[1;31mtint2: systray: error code 9[0m
+[1;33mtint2: remove_icon: 8388625 (synapse)[0m
+[94m[INFO 07:19:09.274728][0m [synapse-main:267] Starting up...
+[94m[INFO 07:19:09.374894][0m [synapse-main:209] Binding activation to Menu
+[94m[INFO 07:19:09.388151][0m [view-base:251] Screen is NOT composited.
+[94m[INFO 07:19:09.388369][0m [controller:56] Using gtk-im-context-simple input method.
+[93m[WARN 07:19:10.018629][0m [ssh-plugin:114] /home/quentin/.ssh/config: Error opening file /home/quentin/.ssh/config: No such file or directory
+[93m[WARN 07:19:10.020301][0m [hybrid-search-plugin:184] Unable to parse /home/quentin/.local/share/recently-used.xbel
+
+Fri Aug 17 07:19:41 2018
+ VNCSConnST:  Client pixel format depth 24 (32bpp) little-endian rgb888
+
+(midori4:1013): Gtk-WARNING **: 07:19:46.911: Theme parsing error: gtk3.css:2:31: The style property GtkButton:default-border is deprecated and shouldn't be used anymore. It will be removed in a future version
+
+(midori4:1013): Gtk-WARNING **: 07:19:46.911: Theme parsing error: gtk3.css:3:39: The style property GtkButton:default-outside-border is deprecated and shouldn't be used anymore. It will be removed in a future version
+
+(midori4:1013): Gtk-WARNING **: 07:19:46.911: Theme parsing error: gtk3.css:4:29: The style property GtkButton:inner-border is deprecated and shouldn't be used anymore. It will be removed in a future version
+
+(midori4:1013): Gtk-WARNING **: 07:19:46.911: Theme parsing error: gtk3.css:5:33: The style property GtkWidget:focus-line-width is deprecated and shouldn't be used anymore. It will be removed in a future version
+
+(midori4:1013): Gtk-WARNING **: 07:19:46.912: Theme parsing error: gtk3.css:6:30: The style property GtkWidget:focus-padding is deprecated and shouldn't be used anymore. It will be removed in a future version
+
+(midori4:1013): Gtk-WARNING **: 07:19:46.912: Theme parsing error: gtk3.css:26:20: The :insensitive pseudo-class is deprecated. Use :disabled instead.
+
+(tilda:771): Gtk-WARNING **: 07:20:45.372: Attempting to read the recently used resources file at '/home/quentin/.local/share/recently-used.xbel', but the parser failed: Failed to open file “/home/quentin/.local/share/recently-used.xbel”: Permission denied.
+
+Fri Aug 17 07:20:54 2018
+ Input:       Added unknown keysym 0xfe52 to keycode 253
+
+(tilda:771): Gtk-WARNING **: 07:23:16.307: Attempting to read the recently used resources file at '/home/quentin/.local/share/recently-used.xbel', but the parser failed: Failed to open file “/home/quentin/.local/share/recently-used.xbel”: Permission denied.
+[94m[INFO 07:23:30.858787][0m [synapse-main:267] Starting up...
+[94m[INFO 07:23:30.869108][0m [synapse-main:289] Synapse is already running, activating...
+[94m[INFO 07:23:35.178848][0m [synapse-main:267] Starting up...
+[94m[INFO 07:23:35.189415][0m [synapse-main:289] Synapse is already running, activating...
+
+(tilda:1155): Gtk-WARNING **: 07:23:37.153: Attempting to read the recently used resources file at '/home/quentin/.local/share/recently-used.xbel', but the parser failed: Failed to open file “/home/quentin/.local/share/recently-used.xbel”: Permission denied.
+Tilda has started. Press F2 to pull down the window.
+[94m[INFO 07:24:01.712982][0m [synapse-main:267] Starting up...
+[94m[INFO 07:24:01.723395][0m [synapse-main:289] Synapse is already running, activating...
+Gtk-Message: 07:28:12.427: GtkDialog mapped without a transient parent. This is discouraged.
+
+(midori4:1013): Gtk-WARNING **: 07:28:14.727: Error loading theme icon 'text-x-javascript' for stock: Icon 'text-x-javascript' not present in theme elementary
+
+(midori4:1013): Gtk-WARNING **: 07:28:18.855: Attempting to read the recently used resources file at '/home/quentin/.local/share/recently-used.xbel', but the parser failed: Failed to open file “/home/quentin/.local/share/recently-used.xbel”: Permission denied.
+javaldx: Could not find a Java Runtime Environment!
+Warning: failed to read path from javaldx
+Gtk-Message: 07:28:50.099: GtkDialog mapped without a transient parent. This is discouraged.
+
+(midori4:1013): GLib-GObject-WARNING **: 07:28:52.807: g_object_disconnect: invalid signal name "download-requested::after"
+[1;31mtint2: !ximg[0m
+[1;31mtint2: !ximg[0m
+[1;31mtint2: !ximg[0m
+Draw rectangle: left
+Draw rectangle: left
+Draw rectangle: left
+Draw rectangle: left
+Draw rectangle: left
+Draw rectangle: left
+Draw rectangle: left
+Draw rectangle: left
+Draw rectangle: left
+Draw rectangle: left
+Draw rectangle: left
+Draw rectangle: left
+Draw rectangle: left
+Draw rectangle: left
+Draw rectangle: left
+Draw rectangle: left
+Draw rectangle: left
+<window.Window object at 0x7ff2b913d0f0 (terminatorlib+window+Window at 0x555609e0e280)> is not in registered window list
+Memory pressure relief: Total: res = 11468800/11231232/-237568, res+swap = 7245824/7008256/-237568
+Memory pressure relief: Total: res = 18984960/13697024/-5287936, res+swap = 14385152/9097216/-5287936
+Memory pressure relief: Total: res = 33034240/27844608/-5189632, res+swap = 28594176/23519232/-5074944
+Memory pressure relief: Total: res = 13697024/13684736/-12288, res+swap = 9097216/9084928/-12288
+Memory pressure relief: Total: res = 25640960/25468928/-172032, res+swap = 21315584/21143552/-172032
+Memory pressure relief: Total: res = 11223040/11223040/0, res+swap = 7000064/7000064/0
+Memory pressure relief: Total: res = 7651328/917504/-6733824, res+swap = 7659520/897024/-6762496
+Memory pressure relief: Total: res = 14090240/14880768/790528, res+swap = 14295040/14479360/184320
+Memory pressure relief: Total: res = 1114112/1122304/8192, res+swap = 978944/978944/0
+Memory pressure relief: Total: res = 1024000/1028096/4096, res+swap = 1228800/1224704/-4096
+
+(xfce4-taskmanager:1648): Gtk-WARNING **: 07:34:40.667: Unable to locate theme engine in module_path: "adwaita",
+
+(xfce4-taskmanager:1648): Gtk-WARNING **: 07:34:40.827: Unable to locate theme engine in module_path: "adwaita",
+[1;32madd_icon: 39845892 (Task Manager), pid 1648, visual 0x5602a030c200, colormap 39845891, depth 32, width 200, height 200[0m
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Draw rectangle: bottom
+Memory pressure relief: Total: res = 14974976/15036416/61440, res+swap = 14503936/14508032/4096
+[1;31mtint2: systray: error code 9[0m
+[1;33mtint2: remove_icon: 39845892 (Task Manager)[0m
+
+(xfce4-taskmanager:1648): Wnck-WARNING **: 07:34:49.351: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(xfce4-taskmanager:1648): Wnck-WARNING **: 07:34:49.353: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(xfce4-taskmanager:1648): Wnck-WARNING **: 07:34:49.373: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(xfce4-taskmanager:1648): Wnck-WARNING **: 07:34:49.389: Unhandled action type _OB_WM_ACTION_UNDECORATE
+Memory pressure relief: Total: res = 1089536/1118208/28672, res+swap = 925696/925696/0
+[1;31mtint2: !ximg[0m
+Memory pressure relief: Total: res = 1028096/1036288/8192, res+swap = 1232896/1232896/0
+Memory pressure relief: Total: res = 15040512/15044608/4096, res+swap = 14508032/14516224/8192
+
+(xfce4-taskmanager:1648): Wnck-WARNING **: 07:35:17.828: Unhandled action type _OB_WM_ACTION_UNDECORATE
+Memory pressure relief: Total: res = 1175552/1507328/331776, res+swap = 970752/1331200/360448
+/usr/lib/python2.7/site-packages/SCRIBES/GladeObjectManager.py:14: GtkWarning: Unable to locate theme engine in module_path: "adwaita",
+  self.__glade = XML(glade_file, "Window", "scribes")
+
+(xfce4-taskmanager:1648): Wnck-WARNING **: 07:35:44.509: Unhandled action type _OB_WM_ACTION_UNDECORATE
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 90 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/Toolbar/ToolbarVisibility/SizeUpdater.py:51: Warning: Source ID 57 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/Utils.py:485: GtkWarning: Unable to locate theme engine in module_path: "adwaita",
+  gui.add_from_file(file_)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/Animator.py:133: Warning: Source ID 1482 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/DeltaCalculator.py:36: Warning: Source ID 74 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 1523 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 1457 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 103 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 992 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 1709 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 993 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 1750 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 1742 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 1748 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 1746 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 1756 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/TextGetter.py:42: Warning: Source ID 12 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/DictionaryGenerator.py:32: Warning: Source ID 15 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 1763 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/Feedback/MessageSystem/MessageFormatter.py:61: Warning: Source ID 1690 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/TextGetter.py:42: Warning: Source ID 17 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 1696 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 1700 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/DeltaCalculator.py:36: Warning: Source ID 1699 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/Animator.py:133: Warning: Source ID 1484 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 1813 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 1819 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/Animator.py:133: Warning: Source ID 1822 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 1815 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 1764 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 1796 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 1801 was not found when attempting to remove it
+  source_remove(timers[_timer])
+
+(xfce4-taskmanager:1648): Wnck-WARNING **: 07:37:34.645: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(midori4:1013): Gtk-WARNING **: 07:37:52.442: Attempting to read the recently used resources file at '/home/quentin/.local/share/recently-used.xbel', but the parser failed: Failed to open file “/home/quentin/.local/share/recently-used.xbel”: Permission denied.
+
+(tilda:1155): Gtk-WARNING **: 07:37:52.771: Attempting to read the recently used resources file at '/home/quentin/.local/share/recently-used.xbel', but the parser failed: Failed to open file “/home/quentin/.local/share/recently-used.xbel”: Permission denied.
+
+(tilda:771): Gtk-WARNING **: 07:37:52.916: Attempting to read the recently used resources file at '/home/quentin/.local/share/recently-used.xbel', but the parser failed: Failed to open file “/home/quentin/.local/share/recently-used.xbel”: Permission denied.
+[1;31mtint2: !ximg[0m
+[1;31mtint2: !ximg[0m
+[1;31mtint2: !ximg[0m
+[1;31mtint2: !ximg[0m
+[1;31mtint2: !ximg[0m
+[1;31mtint2: !ximg[0m
+[1;31mtint2: !ximg[0m
+[1;31mtint2: !ximg[0m
+[1;31mtint2: !ximg[0m
+[1;31mtint2: !ximg[0m
+[1;31mtint2: !ximg[0m
+[1;31mtint2: !ximg[0m
+[1;31mtint2: !ximg[0m
+[1;31mtint2: !ximg[0m
+[1;31mtint2: !ximg[0m
+[1;31mtint2: !ximg[0m
+[1;31mtint2: !ximg[0m
+[1;31mtint2: !ximg[0m
+
+(midori4:1013): GLib-GObject-WARNING **: 07:43:49.957: g_object_disconnect: invalid signal name "download-requested::after"
+
+(xfce4-taskmanager:5264): Gtk-WARNING **: 07:43:52.712: Unable to locate theme engine in module_path: "adwaita",
+
+(xfce4-taskmanager:5264): Gtk-WARNING **: 07:43:52.712: Unable to locate theme engine in module_path: "adwaita",
+[1;32madd_icon: 23068676 (Task Manager), pid 5264, visual 0x5602a030c200, colormap 23068675, depth 32, width 200, height 200[0m
+[1;31mtint2: systray: error code 9[0m
+[1;33mtint2: remove_icon: 23068676 (Task Manager)[0m
+
+(xfce4-taskmanager:5264): Wnck-WARNING **: 07:43:52.908: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(xfce4-taskmanager:5264): Wnck-WARNING **: 07:43:52.910: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(xfce4-taskmanager:5264): Wnck-WARNING **: 07:43:52.920: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(xfce4-taskmanager:5264): Wnck-WARNING **: 07:43:52.922: Unhandled action type _OB_WM_ACTION_UNDECORATE
+
+(midori4:1013): GLib-GObject-WARNING **: 07:45:00.690: g_object_disconnect: invalid signal name "download-requested::after"
+
+Fri Aug 17 07:50:09 2018
+ Input:       Added unknown keysym 0xa7 to keycode 253
+failed to create drawable
+
+(midori4:1013): GLib-GObject-WARNING **: 08:10:19.332: g_object_disconnect: invalid signal name "download-requested::after"
+
+(midori4:1013): GLib-GObject-WARNING **: 08:10:23.773: g_object_disconnect: invalid signal name "download-requested::after"
+
+(midori4:1013): GLib-GObject-WARNING **: 08:12:57.521: g_object_disconnect: invalid signal name "download-requested::after"
+/scripts/pcmanfm_toggle_desktop_icons.sh: line 98: pushd: /home/quentin/test: No such file or directory
+cat: /scripts/data/pcmanfm_desktop_icons_state: No such file or directory
+ [ pcmanfm_toggle_desktop_icons.sh ] Illegal $pcmanfm_desktop_icons_state
+[94m[INFO 08:25:01.518224][0m [synapse-main:267] Starting up...
+[94m[INFO 08:25:01.562539][0m [synapse-main:289] Synapse is already running, activating...
+
+** (pcmanfm:5712): WARNING **: 08:25:09.065: The directory '~/Templates' doesn't exist, ignoring it
+
+(pcmanfm:5712): Gtk-WARNING **: 08:25:09.069: Unable to locate theme engine in module_path: "adwaita",
+
+(pcmanfm:5712): Gtk-WARNING **: 08:25:09.070: Unable to locate theme engine in module_path: "adwaita",
+scribes 'file:///home/quentin/Desktop/e6400.log' 
+/usr/lib/python2.7/site-packages/SCRIBES/GladeObjectManager.py:14: GtkWarning: Unable to locate theme engine in module_path: "adwaita",
+  self.__glade = XML(glade_file, "Window", "scribes")
+/usr/lib/python2.7/site-packages/SCRIBES/RecentManager.py:17: GtkWarning: Attempting to read the recently used resources file at `/home/quentin/.local/share/recently-used.xbel', but the parser failed: Failed to open file “/home/quentin/.local/share/recently-used.xbel”: Permission denied.
+  self.__manager = recent_manager_get_default()
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/Toolbar/ToolbarVisibility/SizeUpdater.py:51: Warning: Source ID 57 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 1473 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/Utils.py:485: GtkWarning: Unable to locate theme engine in module_path: "adwaita",
+  gui.add_from_file(file_)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 1508 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 1514 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 1522 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 1534 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/Animator.py:133: Warning: Source ID 150 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/DeltaCalculator.py:36: Warning: Source ID 69 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/Toolbar/ToolbarVisibility/SizeUpdater.py:51: Warning: Source ID 163 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 1656 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 1672 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/ScrollbarVisibilityUpdater.py:48: Warning: Source ID 1678 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/ScrollbarVisibilityUpdater.py:48: Warning: Source ID 126 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/ScrollbarVisibilityUpdater.py:48: Warning: Source ID 158 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/ScrollbarVisibilityUpdater.py:48: Warning: Source ID 1691 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 1741 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 1787 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 100 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 1738 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 1774 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 1739 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 1813 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 1809 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 1845 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 1851 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 1848 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 1858 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/TextGetter.py:42: Warning: Source ID 12 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 1865 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 1874 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 1876 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 1867 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 1871 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/TextGetter.py:42: Warning: Source ID 17 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 1885 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 1894 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 1896 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 1900 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 1886 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 1887 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 1888 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/TextGetter.py:42: Warning: Source ID 21 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 1918 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 1911 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 1912 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/TextGetter.py:42: Warning: Source ID 25 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 1927 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 1937 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 1939 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 1940 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 1928 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 1929 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 1962 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 1957 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 1973 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 1994 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 1988 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/TriggerDetector.py:94: Warning: Source ID 2012 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 2006 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/TriggerDetector.py:94: Warning: Source ID 2007 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/TriggerDetector.py:94: Warning: Source ID 2029 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 2031 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 2024 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/TriggerDetector.py:94: Warning: Source ID 2025 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/TriggerDetector.py:94: Warning: Source ID 2048 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 2042 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 1930 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/TextGetter.py:42: Warning: Source ID 29 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/DictionaryGenerator.py:32: Warning: Source ID 15 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/scribes/GenericPlugins/WordCompletion/TriggerDetector.py:94: Warning: Source ID 2043 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 2068 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 2060 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 2080 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/TriggerDetector.py:94: Warning: Source ID 2081 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 2096 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/TriggerDetector.py:94: Warning: Source ID 2097 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 2117 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 2111 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/TriggerDetector.py:94: Warning: Source ID 2112 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 2135 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 2129 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/TriggerDetector.py:94: Warning: Source ID 2130 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 2152 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 2146 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/TriggerDetector.py:94: Warning: Source ID 2147 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 2163 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/TriggerDetector.py:94: Warning: Source ID 2164 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 2184 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 2179 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/TriggerDetector.py:94: Warning: Source ID 2180 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 2194 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 2202 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 2204 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 2196 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/TriggerDetector.py:94: Warning: Source ID 2197 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 2213 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 2220 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 2222 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 2215 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/TriggerDetector.py:94: Warning: Source ID 2216 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 2233 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/TriggerDetector.py:94: Warning: Source ID 2234 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 2248 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/TriggerDetector.py:94: Warning: Source ID 2249 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 2263 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/TriggerDetector.py:94: Warning: Source ID 2264 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 2277 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/Feedback/MessageSystem/MessageFormatter.py:61: Warning: Source ID 1506 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/TextGetter.py:42: Warning: Source ID 33 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 1687 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 1701 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/DeltaCalculator.py:36: Warning: Source ID 1657 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/DictionaryGenerator.py:32: Warning: Source ID 36 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/Animator.py:133: Warning: Source ID 152 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 2324 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 2331 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/Animator.py:133: Warning: Source ID 2334 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 2286 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 2307 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 2512 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 2278 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 2279 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 2312 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 2552 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 2562 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 2061 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/ProcessCommunicator.py:74: Warning: Source ID 2311 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/ProcessCommunicator.py:74: Warning: Source ID 2065 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/TextGetter.py:42: Warning: Source ID 38 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 2785 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 2802 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 2798 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 2835 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 2574 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 2506 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 2525 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 2577 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/Feedback/MessageSystem/MessageBarDisplayer.py:37: Warning: Source ID 2321 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/DisplayerManager.py:50: Warning: Source ID 2330 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/Feedback/MessageSystem/MessageFormatter.py:61: Warning: Source ID 2316 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/Animator.py:133: Warning: Source ID 2336 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/ProcessCommunicator.py:74: Warning: Source ID 2578 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/ClipboardManager.py:9: GtkWarning: Unable to locate theme engine in module_path: "adwaita",
+  clipboard.request_text(self.__text_cb, manager)
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/TextGetter.py:42: Warning: Source ID 43 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/Animator.py:133: Warning: Source ID 2858 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/DeltaCalculator.py:36: Warning: Source ID 2325 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/Animator.py:133: Warning: Source ID 2862 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/ScrollbarVisibilityUpdater.py:48: Warning: Source ID 1696 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 3061 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 3068 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/Animator.py:133: Warning: Source ID 3071 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/ScrollbarVisibilityUpdater.py:48: Warning: Source ID 3079 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/ScrollbarVisibilityUpdater.py:48: Warning: Source ID 3259 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/Toolbar/ToolbarVisibility/SizeUpdater.py:51: Warning: Source ID 1681 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 3244 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 3248 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 2956 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 2842 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 3250 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 2843 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/Feedback/MessageSystem/MessageBarDisplayer.py:37: Warning: Source ID 3058 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/DisplayerManager.py:50: Warning: Source ID 3067 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/Animator.py:133: Warning: Source ID 3073 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/Feedback/MessageSystem/FallbackMessageHandler.py:60: Warning: Source ID 148 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 3273 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 3276 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/Animator.py:133: Warning: Source ID 3329 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/Feedback/MessageSystem/MessageFormatter.py:61: Warning: Source ID 2857 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/DeltaCalculator.py:36: Warning: Source ID 3062 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/scribes/GenericPlugins/WordCompletion/TriggerDetector.py:94: Warning: Source ID 2326 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/TriggerDetector.py:94: Warning: Source ID 2280 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 3300 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 3305 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 3313 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 3526 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 3301 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 2844 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 2853 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 3534 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 3538 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/Feedback/MessageSystem/TimedMessageHandler.py:68: Warning: Source ID 2856 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/Feedback/MessageSystem/MessageFormatter.py:61: Warning: Source ID 3528 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/scribes/GenericPlugins/WordCompletion/ProcessCommunicator.py:74: Warning: Source ID 2859 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/TextGetter.py:42: Warning: Source ID 48 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/DeltaCalculator.py:36: Warning: Source ID 3535 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/DictionaryGenerator.py:32: Warning: Source ID 41 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/Animator.py:133: Warning: Source ID 3333 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 3582 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 3590 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/Animator.py:133: Warning: Source ID 3593 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 3554 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/ProcessCommunicator.py:74: Warning: Source ID 3574 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/TextGetter.py:42: Warning: Source ID 52 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 3584 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 3782 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 3789 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 3555 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 3801 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 3797 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 3803 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 3811 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 3815 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 3821 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 3556 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 3565 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 3760 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 3788 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/ProcessCommunicator.py:74: Warning: Source ID 3785 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/TextGetter.py:42: Warning: Source ID 57 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 3850 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 3840 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 3846 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/ProcessCommunicator.py:74: Warning: Source ID 3847 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/TextGetter.py:42: Warning: Source ID 61 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 3859 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/ProcessCommunicator.py:74: Warning: Source ID 3865 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/TextGetter.py:42: Warning: Source ID 65 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/Feedback/MessageSystem/MessageBarDisplayer.py:37: Warning: Source ID 3579 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/DisplayerManager.py:50: Warning: Source ID 3587 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/Animator.py:133: Warning: Source ID 3595 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/Feedback/MessageSystem/FallbackMessageHandler.py:60: Warning: Source ID 3330 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 3845 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 3869 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 3870 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 3891 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 3897 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 3860 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/Animator.py:133: Warning: Source ID 3900 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/Feedback/MessageSystem/MessageFormatter.py:61: Warning: Source ID 3569 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/DeltaCalculator.py:36: Warning: Source ID 3583 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 4028 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 4118 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 4107 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 4130 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 4120 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 4029 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 3861 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 3862 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 4115 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 4119 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/ProcessCommunicator.py:74: Warning: Source ID 3894 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/TextGetter.py:42: Warning: Source ID 69 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 4147 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 4157 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 4160 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 4149 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/TriggerMarker.py:85: Warning: Source ID 2845 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 4170 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 4177 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 4179 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 4172 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/TriggerMarker.py:85: Warning: Source ID 4173 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 4154 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 4161 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 4150 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/ProcessCommunicator.py:74: Warning: Source ID 4155 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/TextGetter.py:42: Warning: Source ID 73 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 4188 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/ProcessCommunicator.py:74: Warning: Source ID 4198 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/Feedback/MessageSystem/TimedMessageHandler.py:68: Warning: Source ID 3568 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/Feedback/MessageSystem/MessageFormatter.py:61: Warning: Source ID 4109 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/TextGetter.py:42: Warning: Source ID 77 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 4196 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 4203 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/DeltaCalculator.py:36: Warning: Source ID 4116 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 4200 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 4222 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/Animator.py:133: Warning: Source ID 3904 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 4239 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 4244 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/Animator.py:133: Warning: Source ID 4258 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 4372 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 4252 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 4443 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 4439 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 4457 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 4454 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 4472 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 4468 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 4482 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 4488 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 4486 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 4496 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 4490 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 4483 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 4190 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/TriggerMarker.py:85: Warning: Source ID 4191 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 4426 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 4444 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 4197 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/ProcessCommunicator.py:74: Warning: Source ID 4226 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/TextGetter.py:42: Warning: Source ID 81 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 4517 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 4531 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 4525 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 4533 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/ScrollbarVisibilityUpdater.py:48: Warning: Source ID 3264 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/Toolbar/ToolbarVisibility/SizeUpdater.py:51: Warning: Source ID 3267 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 4512 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 4530 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/ScrollbarVisibilityUpdater.py:48: Warning: Source ID 4730 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 4760 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 4750 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/ScrollbarVisibilityUpdater.py:48: Warning: Source ID 4753 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 4780 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 4773 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 4790 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 4794 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 4797 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 4505 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 4513 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/python2.7/site-packages/SCRIBES/ScrollbarVisibilityUpdater.py:48: Warning: Source ID 4776 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 4739 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 4763 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/Feedback/MessageSystem/MessageBarDisplayer.py:37: Warning: Source ID 4236 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/DisplayerManager.py:50: Warning: Source ID 4243 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/Feedback/MessageSystem/MessageFormatter.py:61: Warning: Source ID 4231 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/Animator.py:133: Warning: Source ID 4260 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/ProcessCommunicator.py:74: Warning: Source ID 4515 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/TextGetter.py:42: Warning: Source ID 86 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/DictionaryGenerator.py:32: Warning: Source ID 55 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/Animator.py:133: Warning: Source ID 4829 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/DeltaCalculator.py:36: Warning: Source ID 4240 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/Animator.py:133: Warning: Source ID 4833 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 5032 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 5039 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 4946 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 4806 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/Animator.py:133: Warning: Source ID 5042 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 5061 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 5191 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 5226 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 4808 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/TriggerMarker.py:85: Warning: Source ID 4506 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 4820 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/ProcessCommunicator.py:74: Warning: Source ID 4830 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/TextGetter.py:42: Warning: Source ID 90 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/scribes/GenericPlugins/Templates/TriggerMonitor.py:111: Warning: Source ID 5246 was not found when attempting to remove it
+  source_remove(self.__cursor_id)
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 5237 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/TriggerMarker.py:85: Warning: Source ID 5238 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 5221 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 5245 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexRequester.py:80: Warning: Source ID 5242 was not found when attempting to remove it
+  source_remove(timers[timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/ProcessCommunicator.py:74: Warning: Source ID 5243 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/TextGetter.py:42: Warning: Source ID 95 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 5255 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/ProcessCommunicator.py:74: Warning: Source ID 5265 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/TextGetter.py:42: Warning: Source ID 99 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/Feedback/MessageSystem/MessageBarDisplayer.py:37: Warning: Source ID 5029 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/DisplayerManager.py:50: Warning: Source ID 5038 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/Animator.py:133: Warning: Source ID 5044 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/Feedback/MessageSystem/FallbackMessageHandler.py:60: Warning: Source ID 3901 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 5263 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 5276 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/Animator.py:133: Warning: Source ID 5353 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/Feedback/MessageSystem/MessageFormatter.py:61: Warning: Source ID 4824 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/DeltaCalculator.py:36: Warning: Source ID 5033 was not found when attempting to remove it
+  source_remove(self.__timer)
+scribes 'file:///home/quentin/Desktop/dotfiles' 
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/Toolbar/ToolbarVisibility/SizeUpdater.py:51: Warning: Source ID 5572 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/Toolbar/ToolbarVisibility/SizeUpdater.py:51: Warning: Source ID 5625 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/TextGetter.py:42: Warning: Source ID 103 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/scribes/GenericPlugins/WordCompletion/IndexerProcess/DictionaryGenerator.py:32: Warning: Source ID 93 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 7058 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 7073 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 7100 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 7108 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 7115 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 7122 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/ViewSizeUpdater.py:49: Warning: Source ID 7149 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/Animator.py:133: Warning: Source ID 5666 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/GUI/MainGUI/StatusBar/MessageBar/DeltaCalculator.py:36: Warning: Source ID 5585 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/scribes/GenericPlugins/RecentOpen/ExternalProcess/GUI/TreeView/ModelDataGenerator.py:43: Warning: Source ID 18 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/scribes/GenericPlugins/RecentOpen/ExternalProcess/GUI/TreeView/RowSelector.py:33: Warning: Source ID 20 was not found when attempting to remove it
+  source_remove(self.__timer)
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 7086 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 7253 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 5610 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 5622 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 5310 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/scribes/GenericPlugins/SelectionSearcher/SelectionDetector.py:47: Warning: Source ID 5256 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 5294 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 7205 was not found when attempting to remove it
+  source_remove(timers[_timer])
+/usr/lib/python2.7/site-packages/SCRIBES/SaveSystem/AutomaticSaver.py:47: Warning: Source ID 5290 was not found when attempting to remove it
+  source_remove(timers[_timer])

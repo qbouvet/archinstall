@@ -1,0 +1,46 @@
+##
+## ~/.bashrc
+##
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+PS1='[\u@\h \W]\$ '
+
+
+user="quentin";
+
+
+alias ll='ls -la';
+
+
+function temperature {
+    cput=$(cat /sys/class/thermal/thermal_zone0/temp);
+    #gput=$(/opt/vc/bin/vcgencmd measure_temp);
+    printf "  CPU : $((cput/1000))C\n";
+}
+
+
+## List all IPs available on all interfaces, put them in a file,
+## push the file to github
+##
+function advertise_ip {
+    printf "\n\n [Advertising IPs]\n";
+        # variables
+    dir="/home/"$user"/rbpi-git";
+    res="ip";
+        # init
+    pushd "$dir"
+    rm "$res";
+        # print current ip in ip file
+    ip -br -f inet addr | grep UP | while read line ; do 
+        echo $line | awk '{split($3,ip,"/"); print $1 " " ip[1]}' > "$res";
+    done;
+        # push on git
+    git add $res;
+    git commit -m "ip autocomit - ";
+    git push;
+        # exit
+    popd;
+}

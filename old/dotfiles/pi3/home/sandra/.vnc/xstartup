@@ -1,0 +1,4 @@
+#!/bin/sh
+
+## start openbox session
+exec dbus-launch openbox-session

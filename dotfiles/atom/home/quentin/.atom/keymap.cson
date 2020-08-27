@@ -1,0 +1,3 @@
+'atom-workspace atom-text-editor:not([mini])':
+  'ctrl-alt-<': 'editor:fold-all'
+  'ctrl-alt->': 'editor:unfold-all'

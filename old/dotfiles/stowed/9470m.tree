@@ -1,0 +1,334 @@
+/home/quentin/stowed/9470m
+├── .bash_logout
+├── .bash_profile
+├── .bashrc
+├── .config
+│   ├── Code - OSS
+│   │   ├── keybindings.json
+│   │   ├── settings.json
+│   │   └── User
+│   ├── geany
+│   │   ├── filedefs
+│   │   │   └── filetypes.README
+│   │   ├── geany.conf
+│   │   ├── keybindings.conf
+│   │   ├── tags
+│   │   └── templates
+│   │       ├── files
+│   │       └── templates.README
+│   ├── midori
+│   │   ├── accels
+│   │   ├── config
+│   │   └── search
+│   ├── mimeapps.list
+│   ├── openbox
+│   │   ├── autostart
+│   │   ├── menu_simple.xml
+│   │   ├── menu.xml
+│   │   └── rc.xml
+│   ├── opensnap
+│   │   ├── hit_bottom
+│   │   ├── hit_left
+│   │   ├── hit_right
+│   │   └── hit_top
+│   ├── pcmanfm
+│   │   └── default
+│   │       └── pcmanfm.conf
+│   ├── remmina
+│   │   └── remmina.pref
+│   ├── terminator
+│   │   └── config
+│   ├── tint2
+│   │   ├── default
+│   │   │   ├── horizontal-dark-opaque.tint2rc
+│   │   │   ├── horizontal-dark-transparent.tint2rc
+│   │   │   ├── horizontal-light-opaque.tint2rc
+│   │   │   ├── horizontal-light-transparent.tint2rc
+│   │   │   ├── icon_and_text_1.tint2rc
+│   │   │   ├── icon_and_text_2.tint2rc
+│   │   │   ├── icon_and_text_3.tint2rc
+│   │   │   ├── icon_and_text_4.tint2rc
+│   │   │   ├── icon_only_1.tint2rc
+│   │   │   ├── icon_only_2.tint2rc
+│   │   │   ├── icon_only_3.tint2rc
+│   │   │   ├── icon_only_4.tint2rc
+│   │   │   ├── icon_only_6.tint2rc
+│   │   │   ├── icon_only_7.tint2rc
+│   │   │   ├── text_only_1.tint2rc
+│   │   │   ├── text_only_2.tint2rc
+│   │   │   ├── text_only_3.tint2rc
+│   │   │   ├── text_only_4.tint2rc
+│   │   │   ├── text_only_5.tint2rc
+│   │   │   ├── text_only_6.tint2rc
+│   │   │   ├── vertical-dark-opaque.tint2rc
+│   │   │   ├── vertical-dark-transparent.tint2rc
+│   │   │   ├── vertical-light-opaque.tint2rc
+│   │   │   └── vertical-light-transparent.tint2rc
+│   │   ├── dock-like.tint2rc
+│   │   ├── horizontal-light-transparent.tint2rc
+│   │   ├── sffpc-main.tint2rc
+│   │   ├── sidear-dark-tint2rc
+│   │   ├── sidebar.dark.tint2rc
+│   │   ├── sidebar.tint2rc
+│   │   ├── tint2rc
+│   │   └── vertical-neutral-icons.tint2rc
+│   ├── user-dirs.dirs
+│   └── user-dirs.locale
+├── .fonts
+│   ├── Bronx Bystreets 1.4 c PERSONAL USE ONLY.ttf
+│   ├── Cantarell-BoldItalic.ttf
+│   ├── Cantarell-Bold.ttf
+│   ├── Cantarell-Italic.ttf
+│   ├── Cantarell-Regular.ttf
+│   ├── comicSansMs.ttf
+│   ├── Courier Prime Bold Italic.ttf
+│   ├── Courier Prime Bold.ttf
+│   ├── Courier Prime Italic.ttf
+│   ├── Courier Prime.ttf
+│   ├── Flesh Wound.ttf
+│   ├── FontAwesome.otf
+│   ├── impact_condensed.ttf
+│   ├── Inconsolata-Bold.ttf
+│   ├── Inconsolata-Regular.ttf
+│   ├── Jura-Bold.ttf
+│   ├── Jura-Light.ttf
+│   ├── Jura-Medium.ttf
+│   ├── Jura-Regular.ttf
+│   ├── Monospace.ttf
+│   ├── OFL.txt
+│   ├── texgyrebonum-bolditalic.otf
+│   ├── texgyrebonum-bold.otf
+│   ├── texgyrebonum-italic.otf
+│   ├── texgyrebonum-regular.otf
+│   ├── TF2build.ttf
+│   ├── TF2.ttf
+│   ├── .uuid
+│   ├── X-Classified Italic.ttf
+│   └── X-Classified.ttf
+├── .gimp-2.8
+│   ├── brushes
+│   ├── colorrc
+│   ├── controllerrc
+│   ├── curves
+│   ├── dockrc
+│   ├── dynamics
+│   ├── environ
+│   ├── fonts
+│   │   ├── Jura-Bold.ttf
+│   │   ├── Jura-Light.ttf
+│   │   ├── Jura-Medium.ttf
+│   │   ├── Jura-Regular.ttf
+│   │   └── .uuid
+│   ├── fractalexplorer
+│   ├── gfig
+│   ├── gflare
+│   ├── gimprc
+│   ├── gimpressionist
+│   ├── gradients
+│   ├── gtkrc
+│   ├── interpreters
+│   ├── levels
+│   ├── menurc
+│   ├── modules
+│   ├── palettes
+│   ├── parasiterc
+│   ├── patterns
+│   ├── pluginrc
+│   ├── plug-ins
+│   │   └── export-layers-to-pdf.py
+│   ├── print-page-setup
+│   ├── print-settings
+│   ├── scripts
+│   ├── sessionrc
+│   ├── tags.xml
+│   ├── templaterc
+│   ├── templates
+│   ├── themerc
+│   ├── themes
+│   ├── tmp
+│   ├── tool-options
+│   │   └── gimp-brightness-contrast-tool.settings
+│   ├── tool-presets
+│   ├── toolrc
+│   └── unitrc
+├── .gitconfig
+├── .icc_9470m.icm
+├── .imwheelrc
+├── .templates
+│   ├── New Internet Link.desktop
+│   ├── New Program Shortcut.desktop
+│   ├── Office Calc Document.ods
+│   ├── Office Writer Document.odt
+│   ├── Python Script.py
+│   └── Shell script.sh
+├── .themes
+│   ├── Adwaita
+│   │   ├── backgrounds
+│   │   │   ├── adwaita-timed.xml
+│   │   │   ├── bright-day.jpg
+│   │   │   ├── good-night.jpg
+│   │   │   └── morning.jpg
+│   │   ├── gtk-2.0
+│   │   │   ├── Arrows
+│   │   │   │   ├── arrow-down-insens.png
+│   │   │   │   ├── arrow-down.png
+│   │   │   │   ├── arrow-down-prelight.png
+│   │   │   │   ├── arrow-down-small-insens.png
+│   │   │   │   ├── arrow-down-small.png
+│   │   │   │   ├── arrow-down-small-prelight.png
+│   │   │   │   ├── arrow-left-insens.png
+│   │   │   │   ├── arrow-left.png
+│   │   │   │   ├── arrow-left-prelight.png
+│   │   │   │   ├── arrow-right-insens.png
+│   │   │   │   ├── arrow-right.png
+│   │   │   │   ├── arrow-right-prelight.png
+│   │   │   │   ├── arrow-up-insens.png
+│   │   │   │   ├── arrow-up.png
+│   │   │   │   ├── arrow-up-prelight.png
+│   │   │   │   ├── arrow-up-small-insens.png
+│   │   │   │   ├── arrow-up-small.png
+│   │   │   │   ├── arrow-up-small-prelight.png
+│   │   │   │   ├── menu-arrow.png
+│   │   │   │   └── menu-arrow-prelight.png
+│   │   │   ├── Buttons
+│   │   │   │   ├── button-default-nohilight.png
+│   │   │   │   ├── button-default.png
+│   │   │   │   ├── button-insensitive-nohilight.png
+│   │   │   │   ├── button-insensitive.png
+│   │   │   │   ├── button-prelight-nohilight.png
+│   │   │   │   ├── button-prelight.png
+│   │   │   │   ├── button-pressed-nohilight.png
+│   │   │   │   └── button-pressed.png
+│   │   │   ├── Check-Radio
+│   │   │   │   ├── checkbox-checked-insensitive.png
+│   │   │   │   ├── checkbox-checked.png
+│   │   │   │   ├── checkbox-unchecked-insensitive.png
+│   │   │   │   ├── checkbox-unchecked.png
+│   │   │   │   ├── menucheck.png
+│   │   │   │   ├── menucheck_prelight.png
+│   │   │   │   ├── menuoption.png
+│   │   │   │   ├── menuoption_prelight.png
+│   │   │   │   ├── option-checked-insensitive.png
+│   │   │   │   ├── option-checked.png
+│   │   │   │   ├── option-unchecked-insensitive.png
+│   │   │   │   └── option-unchecked.png
+│   │   │   ├── Entry
+│   │   │   │   ├── combo-entry-border-active-bg.png
+│   │   │   │   ├── combo-entry-border-active-notebook.png
+│   │   │   │   ├── combo-entry-border-active-rtl-bg.png
+│   │   │   │   ├── combo-entry-border-active-rtl-notebook.png
+│   │   │   │   ├── combo-entry-border-bg.png
+│   │   │   │   ├── combo-entry-border-disabled-bg.png
+│   │   │   │   ├── combo-entry-border-disabled-notebook.png
+│   │   │   │   ├── combo-entry-border-disabled-rtl-bg.png
+│   │   │   │   ├── combo-entry-border-disabled-rtl-notebook.png
+│   │   │   │   ├── combo-entry-border-notebook.png
+│   │   │   │   ├── combo-entry-border-rtl-bg.png
+│   │   │   │   ├── combo-entry-border-rtl-notebook.png
+│   │   │   │   ├── combo-entry-button-active.png
+│   │   │   │   ├── combo-entry-button-active-rtl.png
+│   │   │   │   ├── combo-entry-button-disabled.png
+│   │   │   │   ├── combo-entry-button-disabled-rtl.png
+│   │   │   │   ├── combo-entry-button.png
+│   │   │   │   ├── combo-entry-button-rtl.png
+│   │   │   │   ├── entry-border-active-bg.png
+│   │   │   │   ├── entry-border-active-bg-solid.png
+│   │   │   │   ├── entry-border-active-notebook.png
+│   │   │   │   ├── entry-border-bg.png
+│   │   │   │   ├── entry-border-bg-solid.png
+│   │   │   │   ├── entry-border-disabled-bg.png
+│   │   │   │   ├── entry-border-disabled-notebook.png
+│   │   │   │   ├── entry-border-fill-plain.png
+│   │   │   │   ├── entry-border-fill.png
+│   │   │   │   ├── entry-border-fill-solid.png
+│   │   │   │   └── entry-border-notebook.png
+│   │   │   ├── Expanders
+│   │   │   │   ├── minus.png
+│   │   │   │   └── plus.png
+│   │   │   ├── gtkrc
+│   │   │   ├── Handles
+│   │   │   │   ├── handle-h.png
+│   │   │   │   └── handle-v.png
+│   │   │   ├── Lines
+│   │   │   │   ├── line-h.png
+│   │   │   │   ├── line-v.png
+│   │   │   │   └── menu_line_h.png
+│   │   │   ├── Menu-Menubar
+│   │   │   │   ├── menubar_button.png
+│   │   │   │   └── menubar.png
+│   │   │   ├── Others
+│   │   │   │   ├── focus.png
+│   │   │   │   ├── null.png
+│   │   │   │   └── tree_header.png
+│   │   │   ├── ProgressBar
+│   │   │   │   ├── progressbar.png
+│   │   │   │   ├── progressbar_v.png
+│   │   │   │   ├── trough-progressbar.png
+│   │   │   │   └── trough-progressbar_v.png
+│   │   │   ├── Range
+│   │   │   │   ├── slider-horiz.png
+│   │   │   │   ├── slider-horiz-prelight.png
+│   │   │   │   ├── slider-vert.png
+│   │   │   │   ├── slider-vert-prelight.png
+│   │   │   │   ├── trough-horizontal.png
+│   │   │   │   └── trough-vertical.png
+│   │   │   ├── Scrollbars
+│   │   │   │   ├── slider-horiz-active.png
+│   │   │   │   ├── slider-horiz-insens.png
+│   │   │   │   ├── slider-horiz.png
+│   │   │   │   ├── slider-horiz-prelight.png
+│   │   │   │   ├── slider-vert-active.png
+│   │   │   │   ├── slider-vert-insens.png
+│   │   │   │   ├── slider-vert.png
+│   │   │   │   ├── slider-vert-prelight.png
+│   │   │   │   ├── trough-scrollbar-horiz.png
+│   │   │   │   └── trough-scrollbar-vert.png
+│   │   │   ├── Shadows
+│   │   │   │   ├── frame-gap-end.png
+│   │   │   │   ├── frame-gap-start.png
+│   │   │   │   └── frame.png
+│   │   │   ├── Spin
+│   │   │   │   ├── down-background-disable.png
+│   │   │   │   ├── down-background-disable-rtl.png
+│   │   │   │   ├── down-background.png
+│   │   │   │   ├── down-background-rtl.png
+│   │   │   │   ├── up-background-disable.png
+│   │   │   │   ├── up-background-disable-rtl.png
+│   │   │   │   ├── up-background.png
+│   │   │   │   └── up-background-rtl.png
+│   │   │   ├── Tabs
+│   │   │   │   ├── notebook-gap-horiz.png
+│   │   │   │   ├── notebook-gap-vert.png
+│   │   │   │   ├── notebook.png
+│   │   │   │   ├── tab-bottom-active.png
+│   │   │   │   ├── tab-bottom.png
+│   │   │   │   ├── tab-left-active.png
+│   │   │   │   ├── tab-left.png
+│   │   │   │   ├── tab-right-active.png
+│   │   │   │   ├── tab-right.png
+│   │   │   │   ├── tab-top-active.png
+│   │   │   │   └── tab-top.png
+│   │   │   └── Toolbar
+│   │   │       └── inline-toolbar.png
+│   │   ├── gtk-3.0
+│   │   │   ├── gtk.css
+│   │   │   ├── gtk-dark.css
+│   │   │   ├── gtk.gresource
+│   │   │   └── settings.ini
+│   │   ├── index.theme
+│   │   └── metacity-1
+│   │       ├── metacity-theme-2.xml
+│   │       └── metacity-theme-3.xml
+│   └── QuentinOB
+│       └── openbox-3
+│           ├── close.xbm
+│           ├── iconify.xbm
+│           ├── max_toggle.xbm
+│           ├── max.xbm
+│           ├── shade.xbm
+│           ├── themerc
+│           └── themerc~
+├── .xinitrc
+└── .Xmodmap
+
+66 directories, 265 files

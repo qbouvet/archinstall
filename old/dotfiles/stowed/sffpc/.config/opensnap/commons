@@ -1,0 +1,36 @@
+#!/bin/bash
+
+echo "opensnap:commons"
+
+printf "
+SCREEN_WIDTH    $SCREEN_WIDTH
+SCREEN_HEIGHT   $SCREEN_HEIGHT   
+SCREEN_OFFSET_X $SCREEN_OFFSET_X 
+SCREEN_OFFSET_Y $SCREEN_OFFSET_y
+"
+
+    #  Ugly, but no choice
+    #  https://github.com/lawl/opensnap/issues/15
+    #  Put mouse position in X, Y variables
+eval $(xdotool getmouselocation --shell)
+mouse_x="$X"
+mouse_y="$Y"
+
+    #   Boundaries definitions
+horiz_divider=6 # divide screen in x parts, then only 1st and last parts will trigger snaps
+vert_divider=6  # divide screen in x parts, then only 1st and last parts will trigger snaps    
+x_left_boundary=$(( SCREEN_WIDTH / "$horiz_divider"))                           # Before this, we snap left
+x_right_boundary=$(( ("$horiz_divider"-1) * SCREEN_WIDTH / "$horiz_divider" ))  # Beyond this, we snap right
+y_top_boundary=$(( SCREEN_HEIGHT / "$vert_divider" ))                           # Before this, we snap top
+y_bot_boundary=$(( ("$vert_divider"-1) * SCREEN_HEIGHT / "$vert_divider" ))     # Beyond this, we snap bot
+
+    #   Some precomputed values
+tint2_width="44"        # hardcoded dock/bar width
+decoration_height="30"  # Hardcoded windows decoration (= header, topbar) height
+full_screen_width="$(( $SCREEN_WIDTH - $tint2_width ))"
+full_screen_height="$(( SCREEN_HEIGHT - $decoration_height ))"
+half_screen_width="$(( ($(($SCREEN_WIDTH-$tint2_width)) /2 ) -1 ))"
+half_screen_height="$(( ($SCREEN_HEIGHT /2) - $decoration_height ))"
+half_screen_x="$(( $half_screen_width +1 +$tint2_width ))"
+half_screen_y="$(( $SCREEN_HEIGHT /2 ))"
+

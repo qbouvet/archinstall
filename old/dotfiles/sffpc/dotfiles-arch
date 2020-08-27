@@ -1,0 +1,110 @@
+##
+## data/dotfiles
+##
+## Usage : cf pull_dotfiles.sh
+##
+## WARNING : THIS FILE DOES NOT USE BASH SYNTAX
+##  1. List one file/directory per line
+##  2. A comment needs its own line, DON'T WRITE COMMENTS AFTER FILENAMES
+##
+
+##
+##	sffpc-arch
+##
+
+
+## DE and applications
+##
+	# Openbox / tint2 / fonts / themes
+/home/quentin/.config/openbox/autostart
+/home/quentin/.config/openbox/menu.xml
+/home/quentin/.config/openbox/rc.xml
+	# openbox pipe menus
+/opt/openbox
+	# Opensnap
+/home/quentin/.config/opensnap
+	# tint2
+/home/quentin/.config/tint2
+	# pcmanfm
+/home/quentin/.config/pcmanfm/default/pcmanfm.conf
+	# Terminator
+/home/quentin/.config/terminator/config
+	# tilda
+/home/quentin/.config/tilda
+	# imwheel
+/home/quentin/.imwheelrc
+	# synapse
+/home/quentin/.config/synapse/config.json
+	# vivaldi
+/home/quentin/.config/vivaldi
+	#  Midori (config, search engines, keyboard shortcuts, pinned tabs)
+/home/quentin/.config/midori/config			
+/home/quentin/.config/midori/search
+/home/quentin/.config/midori/accels
+/home/quentin/.config/midori/tabtrash.xbel
+	# geany
+/home/quentin/.config/geany/geany.conf
+/home/quentin/.config/geany/keybindings.conf
+
+
+
+## X11, shell, ...
+##
+	# X11
+/home/quentin/.xinitrc
+/home/quentin/.Xmodmap
+/home/quentin/.config/user-dirs.dirs
+	# Fonts, templates, icons, gtk
+/home/quentin/.local/share/icons
+/home/quentin/.fonts
+/home/quentin/.templates
+/home/quentin/.config/gtk-3.0
+/home/quentin/.gitconfig
+	# Scripts
+/home/quentin/.bashrc
+/home/quentin/.bash_profile
+
+
+
+## Scripts, services, timers
+##
+	# fan_ctl
+/etc/systemd/system/fan_ctl.service
+/root/fan_ctl.sh
+
+
+
+## System-wide config files
+##	
+/etc/fstab
+/usr/share/themes/QuentinOB
+/usr/share/themes/Adwaita/
+/etc/NetworkManager/system-connections/
+/etc/sudoers
+	# replace monospace font by droid sans mono
+/etc/fonts/local.conf
+	# automount disks, ignore disks in pcmanfm
+/etc/udev/rules.d/99-udisks2.rules
+/etc/udev/rules.d/10-local.rules
+	# Have synapse open gnome bookmarks with pcmanfm 
+/usr/share/applications/mimeinfo.cache	
+	# Xorg
+/etc/X11/xorg.conf.d/00-keyboard.conf
+/etc/X11/xorg.conf.d/50-mouse-acceleration.conf
+	# replace suspend by hyrid-sleep
+/etc/systemd/sleep.conf
+	# disables power button, sleep on lid close
+/etc/systemd/logind.conf
+
+
+
+## Kernel, boot stuff
+##
+	# custom grub entries (shutdown / reboot)
+# /etc/grub.d/40_custom	# replaced by proxifiedScripts/custom
+/etc/grub.d/proxifiedScripts/custom
+/etc/default/grub	
+	# 'boot-process breaking' bugfix, hibernation support in kernel, ...
+/etc/mkinitcpio.conf
+	# fix blueman asking for permissions at boot
+/etc/polkit-1/rules.d/81-blueman.rules

@@ -1,0 +1,14 @@
+
+# Backups and copies
+*.old
+
+# Latex compilation files
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+
+# General compilation files
+.build

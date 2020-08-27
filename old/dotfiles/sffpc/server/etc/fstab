@@ -1,0 +1,38 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/sda3 LABEL=LINUX-2
+UUID=72f1a793-2383-479b-b6d8-5ae31c9ca2d3	/         	ext4      	rw,relatime,data=ordered	0 1
+
+# /dev/sda1
+UUID=6019-889B      	/boot/efi 	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro	0 2
+
+# Swap file
+/SWAP_10G	none	swap	defaults,pri=1 	0	0
+
+# Swap partitions
+	# SWAP_30
+UUID=db39b649-cce6-479f-ae03-2aca07c11e8a	none	swap	defaults,pri=3 	0	0
+	# SWAP_130
+UUID=9d60e8ef-ad23-42a6-a45b-aa8765c3aa27	none	swap	defaults,pri=2 	0	0
+
+
+# Data partition
+# <file system>             					<mount point>  		<type>  <options>  														<dump>  <pass>
+#UUID=2762e5ec-033f-4089-9dc0-832e042ee430		/mnt/DATA_700      	ext4    defaults,nofail,noauto,x-systemd.automount,noatime,nodiratime 	0 		2
+
+# Windows partitions
+# <file system>			<mount point>	<type>  <options>  																		<dump>  <pass>
+#UUID=32F889634CCBD5A7   /mnt/WIN_DATA	ntfs	defaults,nofail,noauto,x-systemd.automount,rw,windows_names,dmask=022,fmask=133	0		0	
+#UUID=56F6C724F6C7036B   /mnt/WIN_OS	ntfs	defaults,nofail,noauto,x-systemd.automount,rw,windows_names,dmask=022,fmask=133	0		0	
+
+
+
+# Notes :
+#	noatime,nodiratime 	: dont write access times & save io
+# 	nofail				: don't interrupt boot process if mounting fails
+#	noauto,x-systemd.automount	: mount automatically with systemd, allows boot process to carry on while volume is being fsck'ed
+#									alternative : auto,nofail
+#	windows_names 		: preventes writing illegal ntfs names
+#	dmask,fmask			: directory/file permissions mask (022=755 for firectories & 133=644 for files)

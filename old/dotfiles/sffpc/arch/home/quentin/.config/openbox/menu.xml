@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+	<menu id="root-menu" label="Openbox 3">
+		<item label="TODO">
+			<action name="Execute">
+				<command>scribes /home/quentin/DOCS/MA2/TODO</command>
+			</action>
+		</item>
+		<separator/>
+		<item label="Terminal">
+			<action name="Execute">
+				<execute>terminator </execute>
+			</action>
+		</item>
+		<item label="Files">
+			<action name="Execute">
+				<command>pcmanfm</command>
+			</action>
+		</item>
+		<item label="RemoteDroid">
+			<action name="Execute">
+				<command>java -jar /home/quentin/PERSO/Scripts/RemoteDroidServer.jar</command>
+			</action>
+		</item>
+		<menu id="terminal" label="Run in terminal">
+			<menu id="terminal-redshift" label="Redshift">
+				<item label="pkill">
+					<action name="Execute">
+						<execute>pkill redshift</execute>
+					</action>
+				</item>
+				<item label="restart">
+					<action name="Execute">
+						<execute>redshift -l 46:7 -t 6500:5500 -b 1:0.92</execute>
+					</action>
+				</item>
+			</menu>
+			<item label="wineserver -k">
+				<action name="Execute">
+					<execute>wineserver -k</execute>
+				</action>
+			</item>
+			<item label="powertop">
+				<action name="Execute">
+					<execute>terminator --command=&quot;powertop; sleep 2s&quot;</execute>
+				</action>
+			</item>
+			<menu id="terminal-pkill" label="pkill">
+				<item label="imwheel">
+					<action name="Execute">
+						<execute>pkill imwheel</execute>
+					</action>
+				</item>
+				<item label="powertop">
+					<action name="Execute">
+						<execute>pkill powertop</execute>
+					</action>
+				</item>
+			</menu>
+			<separator/>
+			<menu id="terminal-obexit" label="exit openbox">
+				<item label="(confirm)">
+					<action name="Exit"/>
+				</item>
+			</menu>
+			<separator/>
+			<item label="Clean pacman cache">
+				<action name="Execute">
+					<execute>terminator --command=&quot;echo 'sudo paccache -ruk0; sudo paccache -rk 1';  sudo paccache -ruk0; sudo paccache -rk 1; sleep 2s&quot;</execute>
+				</action>
+			</item>
+			<item label="Clear journal">
+				<action name="Execute">
+					<execute>terminator --command=&quot; echo 'rm -f /var/log/journal/b80cd9be0bdd40fa92510e3d74fe6a21/*.journal'; sudo rm -f /var/log/journal/b80cd9be0bdd40fa92510e3d74fe6a21/*.journal; sleep 2s&quot;</execute>
+				</action>
+			</item>
+			<item label="Wipe pacman cache">
+				<action name="Execute">
+					<execute>terminator --command=&quot;echo 'sudo paccache -rk 0'; sudo paccache -rk 0; sleep 2s&quot;</execute>
+				</action>
+			</item>
+			<item label="Regen pacman mirrors (!!!)">
+				<action name="Execute">
+					<execute>terminator --command='/usr/bin/rankmirrors -n 12 /etc/pacman.d/mirrorlist; sleep 2s' </execute>
+				</action>
+			</item>
+		</menu>
+		<separator/>
+		<menu execute="/opt/openbox/dirs.sh /home/quentin" id="files_home" label="home"/>
+		<menu execute="/opt/openbox/dirs.sh /scripts" id="files_scripts" label="scripts"/>
+		<menu execute="/opt/openbox/dirs.sh /home/quentin/DATA_700/DOCS" id="files_docs" label="docs"/>
+		<separator/>
+		<menu id="configuration" label="Configuration">
+			<item label="Screen Settings ">
+				<action name="Execute">
+					<execute>arandr</execute>
+				</action>
+			</item>
+			<item label="Desktop settings">
+				<action name="Execute">
+					<execute>pcmanfm --desktop-pref</execute>
+				</action>
+			</item>
+			<separator label="System settings"/>
+			<item label=".bashrc">
+				<action name="Execute">
+					<execute>scribes ~/.bashrc</execute>
+				</action>
+			</item>
+			<item label="Autostart">
+				<action name="Execute">
+					<execute>scribes ~/.config/openbox/autostart</execute>
+				</action>
+			</item>
+			<item label="Grub-customizer">
+				<action name="Execute">
+					<execute>grub-customizer</execute>
+				</action>
+			</item>
+			<item label="fstab">
+				<action name="Execute">
+					<execute>scribes /etc/fstab</execute>
+				</action>
+			</item>
+			<item label="tint2rc">
+				<action name="Execute">
+					<execute>tint2conf ~/.config/tint2/sffpc-main.tint2rc</execute>
+				</action>
+			</item>
+			<menu id="configuration-keyboard" label="Keyboard">
+				<item label="fr_CH">
+					<action name="Execute">
+						<execute>setxkbmap -layout ch -variant fr</execute>
+					</action>
+				</item>
+				<item label="en_US intl.">
+					<action name="Execute">
+						<execute>setxkbmap -layout us -variant intl</execute>
+					</action>
+				</item>
+			</menu>
+			<separator label="Openbox settings"/>
+			<item label="ObMenu">
+				<action name="Execute">
+					<execute>obmenu</execute>
+				</action>
+			</item>
+			<item label="openbox menu - menu.xml">
+				<action name="Execute">
+					<execute>scribes ~/.config/openbox/menu.xml</execute>
+				</action>
+			</item>
+			<item label="ObKey">
+				<action name="Execute">
+					<execute>obkey</execute>
+				</action>
+			</item>
+			<item label="keyboard shortcuts - rc.xml">
+				<action name="Execute">
+					<execute>scribes ~/.config/openbox/rc.xml</execute>
+				</action>
+			</item>
+			<item label="LxApperance">
+				<action name="Execute">
+					<execute>lxappearance</execute>
+				</action>
+			</item>
+			<item label="ObConf">
+				<action name="Execute">
+					<execute>obconf</execute>
+				</action>
+			</item>
+			<separator/>
+			<item label="openbox --reconfigure">
+				<action name="Reconfigure"/>
+			</item>
+		</menu>
+		<separator/>
+		<separator/>
+		<item label="lock">
+			<action name="Execute">
+				<execute>slock &amp; xset dpsm force off</execute>
+			</action>
+		</item>
+		<menu id="root-menu-48309" label="suspend">
+			<item label="(confirm)">
+				<action name="Execute">
+					<execute>systemctl suspend</execute>
+				</action>
+			</item>
+		</menu>
+		<menu id="root-menu-41309" label="hibernate">
+			<item label="(confirm)">
+				<action name="Execute">
+					<execute>systemctl hibernate</execute>
+				</action>
+			</item>
+		</menu>
+		<menu id="logout-poweroff" label="poweroff">
+			<item label="(confirm)">
+				<action name="Execute">
+					<execute>poweroff</execute>
+				</action>
+			</item>
+		</menu>
+	</menu>
+</openbox_menu>

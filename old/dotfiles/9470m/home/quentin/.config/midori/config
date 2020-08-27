@@ -1,0 +1,34 @@
+[settings]
+javascript-can-open-windows-automatically=true
+default-font-family=Cantarell
+monospace-font-family=Nimbus Mono PS
+default-charset=UTF-8
+enable-developer-extras=true
+enable-site-specific-quirks=false
+zoom-text-and-images=true
+last-window-width=843
+last-window-height=899
+last-panel-position=322
+last-panel-page=3
+last-web-search=1
+last-window-state=MIDORI_WINDOW_MAXIMIZED
+location-entry-search=http://www.google.com/search?q=%s
+show-statusbar=false
+toolbar-items=Back,ReloadStop,Location,NextForward,Search,CompactMenu,
+zoom-level=1.2999999523162842
+homepage=about:blank
+tabhome=about:dial
+download-folder=/home/quentin/Desktop
+maximum-cookie-age=7
+maximum-history-age=7
+load-on-startup=MIDORI_STARTUP_DELAYED_PAGES
+preferred-encoding=MIDORI_ENCODING_UNICODE
+identify-as=MIDORI_IDENT_GENUINE
+user-agent=Mozilla/5.0 (X11; Linux) AppleWebKit/537.32+ Midori/0.5
+
+[extensions]
+libtoolbar-editor.so=true
+libadblock.so=true
+libshortcuts.so=true
+libstatus-clock.so=true
+libstatusbar-features.so=true

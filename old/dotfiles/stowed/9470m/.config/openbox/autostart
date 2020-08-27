@@ -1,0 +1,85 @@
+#### 	Openbox autostart file
+####
+####	~/.config/openbox/autostart
+
+
+exec 3>&1 4>&2 >"$HOME/.config/openbox/autostart.log" 2>&1
+printf "
+
+	[Output redirected]
+	
+";
+
+
+#printf "
+#  
+#    [Sourcing config.sh]
+#    
+#";
+#source /scripts/config.sh;
+
+
+    #
+    # Desktop & DE
+    #
+printf "\n\n\n\t[Starting DE]\n\n";
+lxsession &
+pcmanfm --desktop &
+tint2 -c ~/.config/tint2/tint2rc &
+synapse &
+nm-applet &
+/scripts/keyboard-shortcuts/fingerscroll_toggle.sh --init &
+tilda & 
+
+
+    #
+    # Brightness & color calibration
+    #
+printf "\n\n\n\t[Applying color calibration and brightness]\n\n";
+xcalib ~/.icc_9470m.icm &
+xbacklight =15 &&
+#redshift -l 46:7 -t 6500:5500 -b 1:0.92 &
+	
+	
+    #
+    # Volume control wrapper for pulseaudio
+    #
+printf "\n\n\n\t[Setting up volume]\n\n";
+    # Init alsamixer (On, 100%)
+amixer set Master on &&
+amixer -D pulse sset Master 100% &&
+    # Init pulseaudio (On, 30%)
+pa-vol.sh reset && 
+pa-vol.sh up && 
+pa-vol.sh toggle &
+	
+
+    #
+    # setup middle click emulation for logitech usb mouse 
+    #
+printf "\n\n\n\t[Setting up mouse]\n\n";
+# cf. http://unix.stackexchange.com/questions/9973/configuring-mouse-for-rightleft-button-simulating-middle-click-for-copy-paste
+# xinput set-prop 'pointer:Logitech USB Receiver' "libinput Middle Emulation Enabled" 1 & 
+
+
+    #
+    # SSH stuff
+    #
+printf "\n\n\n\t[Configuring SSH]\n\n";
+ssh-add /home/quentin/.ssh/quentin.qbvt-9470m &
+ssh-add /home/quentin/.ssh/id_rsa & 
+
+
+    #
+    # Applications startup
+    #
+printf "\n\n\n\t[Starting applications]\n\n";    
+opensnap --daemon &
+syncthing-gtk &
+mailspring &
+/opt/franz-mod-5.4.1/franz %U &
+#slack &
+
+exit
+
+

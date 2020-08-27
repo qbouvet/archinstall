@@ -1,0 +1,68 @@
+#### 	Openbox autostart file
+####
+####	~/.config/openbox/autostart
+
+
+    #
+    # Desktop & DE
+    #
+# /scripts/pcmanfm_toggle_desktop_icons.sh setup &
+pcmanfm --desktop &
+tint2 -c ~/.config/tint2/tint2rc &
+nm-applet &
+blueman-applet &
+lxsession & 
+#imwheel &
+#opensnap &
+
+
+    #
+    # SSH stuff 
+    #
+sleep 1s && ssh-add /home/quentin/.ssh/id_rsa &
+
+  
+    #
+    #	Spindown hard drives
+    #
+#sleep 2s && (
+#  sudo hdparm -B 128 /dev/sdb
+#  sudo hdparm -S 180 /dev/sdb
+#  #spindown /dev/sdb
+#) &  
+#sleep 2s && (
+#  sudo hdparm -B 127 /dev/sdc
+#  sudo hdparm -S 180 /dev/sdc
+#  spindown /dev/sdc
+#) &
+
+
+    #
+    # Screen & Sound
+    #
+# Restore brightness
+brightnessctl.sh restore; 
+# Redshift 
+#redshift -l 46:7 -t 6500:5500 -b 1:0.92 &
+# Alsamixer (on, 100%)
+amixer set Master on ;
+amixer -D pulse sset Master 100% ;
+# Pulseaudio (On, 30%) 
+#/scripts/pavuctl reset;
+
+
+    #
+    # Startup applications
+    #
+#tilda &
+#syncthing-gtk &
+#mailspring &
+#slack &
+#source /scripts/bashsnippets.sh \
+#  && start_minimized "franz.Franz" /opt/franz-mod-5.4.1/franz \
+#  &
+
+# Close steam to tray
+export STEAM_FRAME_FORCE_CLOSE=1
+
+

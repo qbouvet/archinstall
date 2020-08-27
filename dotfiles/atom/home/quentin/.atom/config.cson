@@ -1,0 +1,17 @@
+"*":
+  core:
+    telemetryConsent: "no"
+    themes: [
+      "one-light-ui"
+      "github-atom-light-syntax"
+    ]
+  editor:
+    fontSize: 13
+    invisibles:
+      eol: "~"
+    scrollPastEnd: true
+    showInvisibles: true
+    tabLength: 4
+    tabType: "soft"
+  "exception-reporting":
+    userId: "f38843c0-c9d9-46f4-9193-fc977731fa2d"

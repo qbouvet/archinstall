@@ -1,0 +1,31 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system>                                 <mount point>   	<type>  <options>                                                                                                       		<dump>  <pass>
+
+# /dev/sda1
+UUID=4EBE-FC82                                  /boot/efi       	vfat    rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro       0 2
+
+# /dev/sda2 LABEL=ARCH-MAIN
+UUID=df66af76-d218-4ee1-b43e-673a71f128ba       /                       ext4    rw,noatime,nodiratime,discard,data=ordered                                                                                        0 1
+
+# Swap file
+/SWAP_10G                                       none                    swap    defaults,nofail,pri=1                                                                                   		0 0
+
+# Data partition
+UUID=2762e5ec-033f-4089-9dc0-832e042ee430       /home/quentin/DATA_700  ext4    defaults,nofail,noauto,x-systemd.automount,noatime,nodiratime   0               2
+
+
+# Windows partitions	
+#UUID=70EA1748EA1709CC   /mnt/WIN_OS     ntfs    	defaults,nofail,noauto,x-systemd.automount,rw,windows_names,dmask=022,fmask=133,uid=quentin,gid=users     0 0
+#UUID=22C3-3049          /mnt/WIN_DATA   exfat-fuse    	defaults,nofail,noauto,x-systemd.automount,rw,windows_names,dmask=022,fmask=133,uid=quentin,gid=users     0 0
+
+
+
+# Notes :
+#       noatime,nodiratime      : dont write access times & save io
+#       nofail                          : don't interrupt boot process if mounting fails
+#       noauto,x-systemd.automount      : mount automatically with systemd, allows boot process to carry on while volume is being fsck'ed
+#                                                                       alternative : auto,nofail
+#       windows_names           : preventes writing illegal ntfs names
+#       dmask,fmask                     : directory/file permissions mask (022=755 for firectories & 133=644 for files)

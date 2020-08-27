@@ -1,0 +1,13 @@
+[Desktop Entry]
+
+##
+## Internet link fields
+##
+Name=New Internet Link
+	# {Application, link}
+Type=Link
+URL=https://en.wikipedia.org/wiki/Special:Random
+Icon=firefox
+
+
+

@@ -1,0 +1,20 @@
+[PlasmaRunnerManager]
+LaunchCounts=1 services_applications:emoticons.desktop,4 services_applications:terminator.desktop,1 services_applications:org.kde.partitionmanager.desktop,1 services_applications:kcm_keyboard.desktop,1 services_applications:org.kde.dolphin.desktop,2 services_applications:geany.desktop,2 services_applications:gnome-system-monitor-kde.desktop,2 services_applications:org.kde.ksysguard.desktop,2 services_applications:vivaldi-stable.desktop,1 services_applications:xsensors.desktop
+
+[PlasmaViews][Panel 2][Defaults]
+thickness=42
+
+[PlasmaViews][Panel 2][Horizontal1920]
+thickness=42
+
+[PlasmaViews][Panel 22][Defaults]
+thickness=42
+
+[PlasmaViews][Panel 22][Horizontal1920]
+thickness=42
+
+[ScreenConnectors]
+0=DP-2
+
+[Updates]
+performed=/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/move_desktop_layout_config.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/unlock_widgets.js,/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/obsolete_kickoffrc.js

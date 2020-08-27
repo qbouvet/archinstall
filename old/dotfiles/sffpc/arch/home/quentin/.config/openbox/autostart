@@ -1,0 +1,60 @@
+#### 	Openbox autostart file
+####
+####	~/.config/openbox/autostart
+
+    #
+    # setup some useful variables for this script
+    #
+SCRIPTS_DIR="/scripts";
+
+    #
+    # Desktop & DE
+    #
+sleep 0.5s; /scripts/pcmanfm_toggle_desktop_icons.sh setup &
+#pcmanfm --Desktop &
+tint2 -c ~/.config/tint2/sffpc-main.tint2rc &
+nm-applet &
+blueman-applet &
+tilda &
+#imwheel &
+lxsession & 
+redshift -l 46:7 -t 6500:5500 -b 1:0.92 &
+sleep 2s && opensnap &
+	
+    #
+	# Mouse (increase pointer speed, acceleration disabled in xorg.conf)
+    #
+# mouse_device=10 	# using xinput list
+# speed_divider=0.8
+# xinput set-prop "$mouse_device" "Coordinate Transformation Matrix" 1 0 0 0 1 0 0 0 "$speed_divider"
+	
+    #
+	# Sound
+    #
+# Alsamixer (on, 100%)
+amixer set Master on
+amixer -D pulse sset Master 100%
+# Pulseaudio (On, 30%)
+/scripts/pavuctl reset
+
+    #
+    # SSH stuff 
+    #
+sleep 1s ; 
+ssh-add /home/quentin/.ssh/id_rsa ;
+
+	#
+	# Startup applications
+	#
+sleep 1s && scribes /home/quentin/DATA_700/DOCS/MA4/TODO &
+sleep 1s && syncthing-gtk &
+	# Close steam to tray
+export STEAM_FRAME_FORCE_CLOSE=1
+
+
+    #
+    # xmodmap for custom keyboard layout
+    #	
+#    [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap ;
+
+
