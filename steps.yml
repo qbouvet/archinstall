@@ -148,6 +148,7 @@
       cmds: 
         - "systemctl enable NetworkManager"
         - "systemctl enable bluetooth"
+        - "systemctl enable tlp"
         - "systemctl enable systemd-swap"
     - name: "Debrief"
         - "You might want to : "
@@ -160,20 +161,22 @@
 
 - stage: "Todo"
   steps: 
-    - name: "Fanctl"
-      steps:
-        - "write and host a PKGBUILD"
+    - name: "Configure 'hibernate on low battery'"    
+      steps: "?"
     - name: "Periodic cleanup"
       steps: 
+        - "OR limit journal size + pacman clean hook"
         - "write periodic cleanup scripts"
         - "write periodic cleanup service files"
-        - "write and host a PKGBUILD"
-    - name: "Configure swap"
+        - "write and host a PKGBUILD"    
+    - name: "Advanced configure swap"
       steps: 
         - "systemd-swap, zswap, zram "
         - "swappiness, vfs_cache_pressure"
-        - "swap file"
         - "hibernation via grub command line"
+    - name: "Fanctl"
+      steps:
+        - "write and host a PKGBUILD"
     - name: "Provide drop-in files in addition to appendln / overwrite / ..."
       steps: 
         - "for example, stored in a static/ subdirectory"
