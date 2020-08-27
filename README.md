@@ -1,7 +1,7 @@
 This repository holds everything that I like to have nearby when installing arch linux, version-controlled.
 
 
-### 1/ Checklists
+#### 1/ Checklists
 
 steps.yml  
   * List of the usual install steps.  
@@ -21,7 +21,7 @@ Managed with dotdrop.
 
 
 
-### 3/ Homemade install scripts
+#### 3/ Homemade install scripts
 
 For various devices, in particular raspbery pi3 / pi0.  
 Not really used anymore. 
