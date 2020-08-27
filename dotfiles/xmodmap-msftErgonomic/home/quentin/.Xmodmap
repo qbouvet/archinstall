@@ -1,0 +1,30 @@
+
+! --	custom keymaps 		--
+
+! https://wiki.archlinux.org/index.php/Xmodmap#Custom_table
+!
+! Test keycodes :  
+!   $ xinput list; 
+!   $ xinput test <id>;
+! 
+! Syntax: 
+!   Key / Shift+Key / AltGr+Key / AltGr+Shift+Key  / 
+!   ISO_Level3_Shift+Key / ISO_Level3_Shift+Shift+Key
+! 
+! Multimedia keys are defined in /usr/include/X11/XF86keysym.h
+!
+! Note: You should probably use xkb instead
+
+
+!
+! Microsoft Ergonomic Keyboard  
+!
+!    110 home       -->     home
+!    115 end        -->     pgUp
+!    112 pgUp       -->     pgDown
+!    117 pgDown     -->     end
+!
+!keycode 110 = Home NoSymbol Home
+!keycode 115 = Prior NoSymbol Prior	
+!keycode 112 = Next NoSymbol Next	
+!keycode 117 = End NoSymbol End

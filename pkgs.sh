@@ -44,8 +44,9 @@ system=(
     tlp thermald powertop    
   # X.org
     xorg-server xorg-xinit xorg-xauth xorg-xrandr	# Core stuff
-    xorg-setxkbmap xorg-xmodmap					    # Keyboard stuff
-    # xorg-xkbcomp xorg-xkbevd xorg-xkbutils  # ? ...
+    xorg-setxkbmap                                  # Keyboard layout 
+    xorg-xmodmap xorg-xinput  	                    # Customize Kb layout (old way)
+    xorg-xkbutils xorg-xkbevd xorg-xkbcomp          # Customize Kb layout (modern way)
     # xorg-xhost xorg-xinput xorg-xev         # ? ...
     # xorg-xset xorg-xbacklight			      # ? ...    
 )
@@ -54,6 +55,7 @@ system_aur=(
     xrandr-invert-colors 
     apfsprogs-git
     python36
+    hid-apple-patched-git-dkms
 )
 
 

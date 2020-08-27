@@ -1,0 +1,32 @@
+
+! --	custom keymaps 		--
+
+! https://wiki.archlinux.org/index.php/Xmodmap#Custom_table
+!
+! Test keycodes :  
+!   $ xinput list; 
+!   $ xinput test <id>;
+! 
+! Syntax: 
+!   Key / Shift+Key / AltGr+Key / AltGr+Shift+Key  / 
+!   ISO_Level3_Shift+Key / ISO_Level3_Shift+Shift+Key
+! 
+! Multimedia keys are defined in /usr/include/X11/XF86keysym.h
+!
+! Note: You should probably use xkb instead
+
+
+!
+! MacAir 13
+!
+!   /   Fn      --> / 
+!   37  L/Ctrl  --> / 
+!   64  L/Alt   --> L/Cmd
+!   133 L/Cmd   --> L/Alt
+!   134 R/Cmd   --> R/Alt
+!   108 R/Alt   --> R/Cmd
+!
+! Use hid-apple-patched instead : 
+!   https://github.com/free5lot/hid-apple-patched
+!   https://wiki.archlinux.org/index.php/Apple_Keyboard#Use_a_patch_to_hid-apple
+!
