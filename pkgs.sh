@@ -153,4 +153,8 @@ function fprint_array () {
   done
 }
 
-fprint_array $1
+for arg in "$@"
+do 
+  fprint_array "$arg"
+done
+

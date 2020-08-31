@@ -104,7 +104,7 @@
         - dir: "/tmp/build/yay"
           cmd: "sudo -u quentin makepkg -si"
     - name: "Install software"
-      cmd: "sudo -u quentin yay --sudoloop --norebuild --noredownload -Syu $(./pkgs.sh system_aur) $(./pkgs.sh plasma) $(./pkgs.sh apps)"
+      cmd: "sudo -u quentin yay --removemake --sudoloop --norebuild --noredownload -Syu $(./pkgs.sh system_aur) $(./pkgs.sh plasma) $(./pkgs.sh apps)"
     - name: "Install patched kernel"
       steps: 
         - cmd: "mkdir -p /tmp/build/"
