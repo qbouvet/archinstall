@@ -43,7 +43,7 @@ system=(
     udisks2 smartmontools hdparm 
     gnome-disk-utility gparted   
     exfat-utils ntfs-3g f2fs-tools dosfstools fatresize
-    ext4magic, e2fsprogs    # badblocks, recovery
+    ext4magic e2fsprogs    # badblocks, recovery
   # System management
     systemd-swap ntp
     #grub-customizer os-prober	# replaced by systemd-boot
