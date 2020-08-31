@@ -11,15 +11,21 @@
 #
 #	Core packages
 #
+hw_amd=(
+    amd-ucode 
+)
+hw_intel=(
+    intel-ucode thermald
+)
+hw_nvidia=(
+    nvidia-dkms nvidia-settings 
+)
 system=(
   # Base packages 
 	base base-devel 
 	linux-lts linux-lts-headers 
 	linux-firmware
   # Drivers / firmware 
-    amd-ucode 
-    intel-ucode
-    nvidia-dkms nvidia-settings 
     lm_sensors xsensors 
   # Core CLI utilities
     sudo nano gnu-netcat wget git git-lfs  
@@ -40,8 +46,8 @@ system=(
     ext4magic, e2fsprogs    # badblocks, recovery
   # System management
     systemd-swap ntp
-    grub-customizer os-prober
-    tlp thermald powertop    
+    #grub-customizer os-prober	# replaced by systemd-boot
+    tlp powertop
   # X.org
     xorg-server xorg-xinit xorg-xauth xorg-xrandr	# Core stuff
     xorg-setxkbmap                                  # Keyboard layout 
