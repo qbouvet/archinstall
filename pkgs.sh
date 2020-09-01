@@ -8,96 +8,76 @@
 #     yay -Syu $($0 applications)
 #
 
+
 #
-#	Core packages
+#	Pacstrap packages
 #
-hw_amd=(
-    amd-ucode 
-)
-hw_intel=(
-    intel-ucode thermald
-)
-hw_nvidia=(
-    nvidia-dkms nvidia-settings 
-)
-system=(
-  # Base packages 
+
+pacstrap=(
 	base base-devel 
-	linux-lts linux-lts-headers 
-	linux-firmware
-  # Drivers / firmware 
-    lm_sensors xsensors 
-  # Core CLI utilities
-    sudo nano gnu-netcat wget git git-lfs  
-    openconnect openssh sshfs 
-    iftop htop s-tui 
-    shellcheck nmap par2cmdline unrar p7zip    
-    stress
-  # Wireless, network
-    networkmanager bluez
-    sshuttle 
-  # Sound
-    alsa-utils
-    pulseaudio pulseaudio-alsa pulseaudio-bluetooth pavucontrol    
-  # Disks 
-    udisks2 smartmontools hdparm 
-    gnome-disk-utility gparted   
-    exfat-utils ntfs-3g f2fs-tools dosfstools fatresize
-    ext4magic e2fsprogs    # badblocks, recovery
-  # System management
-    systemd-swap ntp
-    #grub-customizer os-prober	# replaced by systemd-boot
-    tlp powertop
-  # X.org
-    xorg-server xorg-xinit xorg-xauth xorg-xrandr	# Core stuff
-    xorg-setxkbmap                                  # Keyboard layout 
-    xorg-xmodmap xorg-xinput  	                    # Customize Kb layout (old way)
-    xorg-xkbutils xorg-xkbevd xorg-xkbcomp          # Customize Kb layout (modern way)
-    # xorg-xhost xorg-xinput xorg-xev         # ? ...
-    # xorg-xset xorg-xbacklight			      # ? ...    
+	linux-lts linux-lts-headers linux-firmware
+	nano sudo
 )
 
-system_aur=(
-    xrandr-invert-colors 
-    apfsprogs-git
-    python36
+
+#
+#	Vendor-specific packages
+#
+
+amd=(
+    amd-ucode lm_sensors 
+)
+
+intel=(  
+    intel-ucode thermald lm_sensors 
+)
+
+nvidia=( 
+    nvidia-dkms nvidia-settings lm_sensors 
+)
+
+apple=(
     hid-apple-patched-git-dkms
 )
 
 
 #
-#   Plasma DE
+#	Core packages
 #
-plasma=(
-    plasma-desktop
-    plasma-wayland-session
-  # Applets  
-    plasma-nm bluedevil
-    kmix
-    powerdevil
-  # Terminal, Files, text editor, image viewer, pdf viewer, video player, archive
-    terminator dolphin geany gpicview evince vlc file-roller
-  # Other applications
-    synapse tilda syncthingtray baobab konsole caffeine-ng
-    spectacle 		# screenshots
-  # Theming  
-    colord-kde kde-gtk-config breeze-gtk
-    ttf-dejavu ttf-liberation cantarell-fonts ttf-droid 
-)
 
-
-#
-#	Minimalist DE based on openbox+tint2
-#
-qde=(
-    openbox tint2
-  # Terminal, Files, text editor, image viewer, pdf viewer, video player, archive
-    terminator pcmanfm geany gpicview evince vlc file-roller
-    tilda syncthing-gtk baobab caffeine
-    gnome-screenshot gnome-system-monitor
-  # Theming  
-    ttf-dejavu ttf-liberation cantarell-fonts ttf-droid 
-    # ... obkey, lxappearance, ...
+system=(
+  # Core services
+    systemd-swap ntp tlp 
+    powertop
+  # CLI utilities (Core)
+    sudo nano git git-lfs gnu-netcat wget 
+    openconnect openssh 
+  # FS & Disks 
+    udisks2 smartmontools hdparm
+    exfat-utils ntfs-3g f2fs-tools dosfstools fatresize apfsprogs-git 
+    ext4magic e2fsprogs    # badblocks, recovery
+  # Wireless, network
+    networkmanager bluez
+  # Sound
+    alsa-utils
+    pulseaudio pulseaudio-alsa pulseaudio-bluetooth pavucontrol    
+  # Scripting utilities  
+    nmap par2cmdline unrar p7zip    
+  # System management
+    sshfs sshuttle python36
+    gparted gnome-disk-utility 
+    htop iftop s-tui stress
+    shellcheck
+  # X.org
+    xorg-server xorg-xinit xorg-xauth xorg-xrandr	# Core stuff
+    xorg-setxkbmap                                  # Keyboard layout 
+    xorg-xmodmap xorg-xinput  	                    # Customize Kb layout (old way)
+    xorg-xkbutils xorg-xkbevd xorg-xkbcomp          # Customize Kb layout (modern way)
+    # xorg-xhost xorg-xinput xorg-xev         		# ? ...
+    # xorg-xset xorg-xbacklight			      		# ? ...  
+    xrandr-invert-colors 							# AUR
+  #  
+    
 )
 
 #
@@ -139,6 +119,37 @@ apps=(
 	imwheel
 )
 
+
+#
+#	Desktop Environments
+#
+
+plasma=(												 # KDE Plasma DE
+    plasma-desktop plasma-wayland-session
+  # Applets  
+    plasma-nm bluedevil
+    kmix
+    powerdevil
+  # Terminal, Files, text editor, pdf, image, video, archive
+    terminator dolphin geany gpicview evince vlc file-roller
+  # Other applications
+    synapse tilda syncthingtray baobab konsole caffeine-ng
+    spectacle 		# screenshots
+  # Theming  
+    colord-kde kde-gtk-config breeze-gtk
+    ttf-dejavu ttf-liberation cantarell-fonts ttf-droid 
+)
+
+qde=(							# Minimalistic DE based on openbox+tint2
+    openbox tint2
+  # Terminal, Files, text editor, pdf, image, video, archive
+    terminator pcmanfm geany gpicview evince vlc file-roller
+    tilda syncthing-gtk baobab caffeine-ng
+    gnome-screenshot gnome-system-monitor
+  # Theming  
+    ttf-dejavu ttf-liberation cantarell-fonts ttf-droid 
+    # ... obkey, lxappearance, ...
+)
 
 
 #

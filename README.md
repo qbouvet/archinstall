@@ -1,4 +1,5 @@
-Everything that I like to keep nearby for installing arch linux, version-controlled.
+Everything that I like to keep nearby while installing arch linux, version-controlled.
+
 
 
 #### 1/ Checklists
@@ -6,13 +7,14 @@ Everything that I like to keep nearby for installing arch linux, version-control
 steps.yml  
   * List of the usual install steps.  
   * YAML formatting is only for clarity / structure.  
-  * I don't plan on automating anything in a near future.  
+  * Nothing is automated, nor will be in a near future
   
 pkgs.sh  
-  * List usual packages, split in groups (core, DE, apps, ...)   
-  * Formats output for use with pacman / yay. Ex:   
-  *  * `pacman -S $(./pkg.sh system)`  
+  * Reference packages & output lists for use with pacman / yay.
+  * Ex:   
+  *  * `pacman -S $(./pkg.sh hw_amd hw_nvidia system)`  
   *  * `yay -S $(./pkg.sh plasma) $(./pkg.sh apps)`
+
 
 
 #### 2/ Dotfiles
@@ -24,4 +26,5 @@ Managed with dotdrop.
 #### 3/ Homemade install scripts
 
 For various devices, in particular raspbery pi3 / pi0.  
-Not really used anymore. 
+
+Kept for reference, but it's old stuff.

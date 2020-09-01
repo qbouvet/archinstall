@@ -7,7 +7,7 @@
     - "Format your disks"
     - "Create and boot the arch live system"
     - "git clone this repo to run ./pkgs.sh"
-    - "  * cd /tmp"
+    - "  * cd /"
     - "  * git clone https://github.com/qbouvet/install-arch"
     
     
@@ -26,14 +26,19 @@
       cmd: "timedatectl set-ntp true"
     - name: "Mount file systems"
       cmds: 
-        - "mkdir -p /mnt/root"
-        - "mount </dev/sda2> /mnt/root"
-        - "mkdir -p /mnt/root/boot/efi"
-        - "mount </dev/sda1> /mnt/root/boot/efi"
+        - "mkdir -p /mnt/arch"
+        - "mount </dev/sda2> /mnt/arch"
+        - "mkdir -p /mnt/arch/boot"
+        - "mount </dev/sda1> /mnt/arch/boot"
+        - "mkdir -p /mnt/arch/mnt/a"
+        - "mount </dev/sdb1> /mnt/arch/mnt/a"
+        - "echo ' ... and your other mounts'"
     - name: "Create new installation"
-      cmd: "pacstrap $(./pkgs.sh system)"
+      cmd: "pacstrap $(./pkgs.sh pacstrap)"
     - name: "Generate fstab"
       cmd: "genfstab -U /mnt/root >> /mnt/root/etc/fstab"
+    - name: "Enter chroot"  
+      cmd: "arch-chroot /mnt/arch"
 
 
 - stage: "Chroot 1 / Non-interactive"
@@ -89,8 +94,15 @@
        - appendln: ["/etc/fstab", "/var/swap"]
        - appendln: ["/etc/fstab", "/var/swap    none    swap    defaults    0 0"]
        - cmd: "echo 'swap: Still need to configure systemd-swap"
-    - name: "Configure SSH"
-      cmd: "echo TODO"
+    - name: "Bootloader v1"
+      cmds:
+        - "pacman -S grub os-prober"
+        - "grub-install --target-x86_64-efi --efi-directory=/boot/efi --bootloader-id=Grub"
+        - "grub-mkconfig -o /boot/grub/grub.cfg"
+    - name: "Bootloader v1"
+      cmds:
+        - "bootctl install --efi-partition=/boot"
+        
 
 
 - stage: "Chroot 2 / Interactive"
@@ -104,7 +116,7 @@
         - dir: "/tmp/build/yay"
           cmd: "sudo -u quentin makepkg -si"
     - name: "Install software"
-      cmd: "sudo -u quentin yay --removemake --sudoloop --norebuild --noredownload -Syu $(./pkgs.sh system_aur) $(./pkgs.sh plasma) $(./pkgs.sh apps)"
+      cmd: "sudo -u quentin yay --removemake --sudoloop --norebuild --noredownload -Syu $(./pkgs.sh amd nvidia system apps plasma)"
     - name: "Install patched kernel"
       steps: 
         - cmd: "mkdir -p /tmp/build/"
@@ -125,16 +137,6 @@
           cmds: 
             - "pacman -S schedtool"
             - "makepkg -si"
-    - name: "Install Fanctl"
-      cmd: "echo TODO"
-
-
-- stage: "Live-chroot 3 / Non-interactive"
-  steps: 
-    - name: "Configure bootloader"
-      cmds:
-        - "grub-install --target-x86_64-efi --efi-directory=/boot/efi --bootloader-id=Grub"
-        - "grub-mkconfig -o /boot/grub/grub.cfg"
     - name: "Configure X-at-login"
       steps: 
         - overwrite: ["/home/quentin/.xinitrc", "\n#\n#   Start plasma with startx\n#\n"]
@@ -162,8 +164,16 @@
 
 - stage: "Todo"
   steps: 
+    - name: "Fix"    
+      steps: 
+        - "Resume hook"
+        - "bootloader"
     - name: "Configure 'hibernate on low battery'"    
       steps: "?"
+    - name: "Configure SSH"
+      cmd: "echo TODO"
+    - name: "Install Fanctl"
+      cmd: "echo TODO"
     - name: "Periodic cleanup"
       steps: 
         - "OR limit journal size + pacman clean hook"
