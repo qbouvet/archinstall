@@ -1,12 +1,5 @@
 Everything that I like to keep nearby while installing arch linux, version-controlled.
 
-    $ curl https://codeload.github.com/qbouvet/install-arch/zip/master --output tmp.zip
-    $ unzip tmp.zip
-
-or:  
-
-    $ curl https://raw.githubusercontent.com/qbouvet/install-arch/master/pkgs.sh --output pkgs.sh
-
 
 #### 1/ Checklists
 
