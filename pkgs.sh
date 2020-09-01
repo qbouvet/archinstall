@@ -17,6 +17,7 @@ pacstrap=(
 	base base-devel 
 	linux-lts linux-lts-headers linux-firmware
 	nano sudo
+	git
 )
 
 
