@@ -100,8 +100,8 @@ apps=(
 	libreoffice-still ms-office-online
 	gimp
   # Multimedia
-  	spotify youtube-dl
-    audacious audacity
+  	#spotify 	# always has GPG problems
+  	youtube-dl audacious audacity
 	gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly	
 	libdvdcss
   # Gaming
