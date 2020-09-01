@@ -12,8 +12,8 @@ steps.yml
 pkgs.sh  
   * Reference packages & output lists for use with pacman / yay.
   * Ex:   
-  *  * `pacman -S $(./pkg.sh amd nvidia pacstrap)`  
-  *  * `yay -S $(./pkg.sh system apps plasma)`
+  *  * `pacman -S $(./pkg.sh pacstrap)`  
+  *  * `yay -S $(./pkg.sh amd nvidia system apps plasma)`
 
 
 
