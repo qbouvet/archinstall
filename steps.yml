@@ -7,7 +7,8 @@
     - "Format your disks"
     - "Create and boot the arch live system"
     - "git clone this repo to run ./pkgs.sh"
-    - "  * cd /"
+    - "  * mkdir /install"
+    - "  * cd /install"
     - "  * git clone https://github.com/qbouvet/archinstall"
     
     
@@ -62,7 +63,7 @@
          - cmd: "locale > /etc/locale.conf"
     - name: "Configure keyboard layout"
       steps: 
-        - overwrite: ["/etc/vconsole.conf", "KEYMAP=FR_ch"]
+        - overwrite: ["/etc/vconsole.conf", "KEYMAP=fr_CH"]
         - cmd: "localectl --no-convert set-x11-keymap fr pc104 ch"
         - overwrite: ["/etc/X11/xorg.conf.d/00-keyboard.conf", 'Section "InputClass"']
         - overwrite: ["/etc/X11/xorg.conf.d/00-keyboard.conf", '        Identifier "system-keyboard"']
@@ -100,28 +101,29 @@
         - uncomment: ["/etc/sudoers", "%wheel ALL=(ALL) ALL"]
     - name: "Configure Swap"
       steps: 
-       - cmd: "dd if=/dev/zero bs=1M count=10240	 of=/var/swap"
+       - cmd: "dd if=/dev/zero bs=1M count=16384 of=/var/swap"
        - cmd: "chmod 600 /var/swap"
        - cmd: "mkswap /var/swap"
        - cmd: "swapon /var/swap"
        - appendln: ["/etc/fstab", ""]
        - appendln: ["/etc/fstab", "/var/swap"]
        - appendln: ["/etc/fstab", "/var/swap    none    swap    defaults    0 0"]
+       - cmd: "mount remount,size=24G /tmp"
        - cmd: "echo 'swap: Still need to configure systemd-swap"
-    - name: "Bootloader v1"
-      cmds:
-        - "pacman -S grub os-prober"
-        - "grub-install --target-x86_64-efi --efi-directory=/boot/efi --bootloader-id=Grub"
-        - "grub-mkconfig -o /boot/grub/grub.cfg"
-    - name: "Bootloader v1"
+    - name: "Configure resume"
+      steps:
+        - replaceln: ["/etc/mkinitcpio.conf", "Hooks=(", "HOOKS=(base udev resume autodetect keyboard modconf block filesystems fsck)"]
+        - cmd: "mkinitcpio -P"
+        - cmd: "filefrag -v /var/swap"
+    - name: "Bootloader"
       steps:
         - cmd: "bootctl install --esp-path=/boot"
         - overwrite: ["/boot/loader/entries/arch.conf", "title Arch-LTS"]
         - appendln: ["/boot/loader/entries/arch.conf", "linux /vmlinuz-linux-lts"]
         - appendln: ["/boot/loader/entries/arch.conf", "initrd /amd-ucode.img"]
         - appendln: ["/boot/loader/entries/arch.conf", "initrd /initramfs-linux-lts.img"]
-        - appendln: ["/boot/loader/entries/arch.conf", 'options root="LABEL=arch" rw quiet splash']
-        
+        - appendln: ["/boot/loader/entries/arch.conf", 'options root="LABEL=arch" rw quiet splash resume=/dev/nvme0n1p2 resume_offset=<...>']
+    
         
 
 
@@ -139,24 +141,19 @@
       cmd: "sudo -u quentin yay --removemake --sudoloop --norebuild --noredownload -Syu $(./pkgs.sh amd nvidia system apps plasma)"
     - name: "Install patched kernel"
       steps: 
-        - cmd: "mkdir -p /tmp/build/"
-        - dir: "/tmp/build"
+        - dir: "/tmp/"
           cmd: "git clone https://github.com/Frogging-Family/linux-tkg.git"
-        - dir: "/tmp/build/linux-tkg/linux58-tkg/"
+        - dir: "/tmp/linux-tkg/linux58-tkg/"
           cmd: "makepkg -si"
     - name: "Install patched wine / proton"
       steps: 
-        - cmd: "mkdir -p /tmp/build/"
-        - dir: "/tmp/build"
+        - cmd: "pacman -S schedtool"
+        - dir: "/tmp/"
           cmd: "git clone https://github.com/Frogging-Family/wine-tkg-git.git"
-        - dir: "/tmp/build/wine-tkg-git"
-          cmds: 
-            - "pacman -S schedtool"
-            - "makepkg -si"
-        - dir: "/tmp/build/proton-tkg-git"
-          cmds: 
-            - "pacman -S schedtool"
-            - "makepkg -si"
+        - dir: "/tmp/wine-tkg-git"
+          cmd: "makepkg -si"
+        - dir: "/tmp/proton-tkg-git"
+          cmd: "makepkg -si"
     - name: "Configure X-at-login"
       steps: 
         - overwrite: ["/home/quentin/.xinitrc", "\n#\n#   Start plasma with startx\n#\n"]
@@ -168,31 +165,20 @@
         - appendln: ["/home/quentin/.bash_profile", "fi"]
     - name: "Enable services"
       cmds: 
+        - "systemctl enable systemd-swap"
         - "systemctl enable NetworkManager"
         - "systemctl enable bluetooth"
         - "systemctl enable tlp"
         - "systemctl enable thermald"
-        - "systemctl enable systemd-swap"
     - name: "Debrief"
         - "You might want to : "
-        - " * Configure SSH keys / agent"
+        - " * Purge pacman cache, yay cache, journal, and take a disk image"
         - " * Configure your DE / Sofware"
-        - "   * Keyboard shortcuts"
-        - "   * Themes"
-        - "   * Dotfiles...."
+        - " * Configure SSH keys / agent"
 
 
 - stage: "Todo"
   steps: 
-    - name: "Fix"    
-      steps: 
-        - "bootloader"
-    - name: "Configure hibernate w/ resume hoot"    
-      steps: 
-        - "..."
-    - name: "Configure 'hibernate on low battery'"    
-      steps: 
-        - "?"
     - name: "Install Fanctl"
       steps:
         - "echo TODO"
@@ -204,16 +190,18 @@
         - "    + OR limit journal size + pacman clean hook"
         - "Setup some reflector thing"
         - "https://wiki.archlinux.org/index.php/systemd-boot#Updating_the_EFI_boot_manager"
-    - name: "Advanced configure swap"
-      steps: 
-        - "systemd-swap, zswap, zram "
-        - "swappiness, vfs_cache_pressure"
-        - "hibernation via grub command line"
-    - name: "Configure SSH"
-      cmd: 
-        - "echo TODO"
     - name: "Provide drop-in files in addition to appendln / overwrite / ..."
       steps: 
         - "for example, stored in a static/ subdirectory"
         - dropin: ["/path/within/static", "/target/path"]
+        - templating with jinja2
+    - name: "permanently resize /tmp"    
+      steps: 
+        - "?"
+    - name: "Configure 'hibernate on low battery'"    
+      steps: 
+        - "?"
+    - name: "Configure SSH"
+      cmd: 
+        - "echo TODO"
 ... 

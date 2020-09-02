@@ -16,8 +16,7 @@
 pacstrap=(
 	base base-devel 
 	linux-lts linux-lts-headers linux-firmware
-	nano sudo
-	git
+	sudo git screen nano 	# Screen: https://gist.github.com/zigmoo/b67b11cd7bc8a5c66a44b91fcf37898e
 )
 
 
@@ -65,6 +64,7 @@ system=(
   # Scripting utilities  
     nmap par2cmdline unrar p7zip    
   # System management
+    screen
     sshfs sshuttle python36
     gparted gnome-disk-utility 
     htop iftop s-tui stress
