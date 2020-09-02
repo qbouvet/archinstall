@@ -1,7 +1,6 @@
 Everything that I like to keep nearby while installing arch linux, version-controlled.
 
 
-
 #### 1/ Checklists
 
 steps.yml  
@@ -12,8 +11,8 @@ steps.yml
 pkgs.sh  
   * Reference packages & output lists for use with pacman / yay.
   * Ex:   
-  *  * `pacman -S $(./pkg.sh hw_amd hw_nvidia system)`  
-  *  * `yay -S $(./pkg.sh plasma) $(./pkg.sh apps)`
+  *  * `pacman -S $(./pkg.sh pacstrap)`  
+  *  * `yay -S $(./pkg.sh amd nvidia system apps plasma)`
 
 
 
