@@ -8,7 +8,7 @@
     - "Create and boot the arch live system"
     - "git clone this repo to run ./pkgs.sh"
     - "  * cd /"
-    - "  * git clone https://github.com/qbouvet/install-arch"
+    - "  * git clone https://github.com/qbouvet/archinstall"
     
     
 - stage: Live-USB
@@ -24,21 +24,26 @@
         - "iwctl station <wlan0> connect <SSID> --passphrase <pass>"
     - name: "Get time/date from network (live)"
       cmd: "timedatectl set-ntp true"
+    - name: "Download helper script"
+      cmds:
+        - "curl https://raw.githubusercontent.com/qbouvet/archinstall/master/pkgs.sh --output /pkgs.sh"
+        - "cat /pkgs.sh"
+        - "chmod +x /pkgs.sh"
     - name: "Mount file systems"
       cmds: 
-        - "mkdir -p /mnt/arch"
-        - "mount </dev/sda2> /mnt/arch"
-        - "mkdir -p /mnt/arch/boot"
-        - "mount </dev/sda1> /mnt/arch/boot"
-        - "mkdir -p /mnt/arch/mnt/a"
-        - "mount </dev/sdb1> /mnt/arch/mnt/a"
-        - "echo ' ... and your other mounts'"
-    - name: "Create new installation"
-      cmd: "pacstrap $(./pkgs.sh pacstrap)"
-    - name: "Generate fstab"
-      cmd: "genfstab -U /mnt/root >> /mnt/root/etc/fstab"
-    - name: "Enter chroot"  
-      cmd: "arch-chroot /mnt/arch"
+        - "mkdir -p /mnt/arch/"
+        - "mount /dev/nvme0n1p2 /mnt/arch"
+        - "mkdir -p /mnt/arch/{boot,mnt/{a,b,c}}"
+        - "mount /dev/nvme0n1p1 /mnt/arch/boot"
+        - "mount /dev/sda4> /mnt/arch/mnt/a"
+        - "mount /dev/sdb1> /mnt/arch/mnt/b"
+        - "echo ' ...'"
+        - "genfstab -U /mnt/arch > /mnt/arch/etc/fstab"
+    - name: "Create & chroot new installation"
+      cmds: 
+        - "reflector --latest 200 --sort rate --save /etc/pacman.d/mirrorlist"    
+        - "pacstrap /mnt/arch $(/pkgs.sh pacstrap)"
+        - "arch-chroot /mnt/arch"
 
 
 - stage: "Chroot 1 / Non-interactive"
@@ -46,7 +51,7 @@
   steps: 
     - name: "Configure time"
       cmds:
-        - "ln -sf /usr/share/zoneinfo/Europe/Zurich /etc/localtime "
+        - "ln -sf /usr/share/zoneinfo/Europe/Zurich /etc/localtime"
         - "timedatectl set-ntp true"
         - "hwclock --systohc"
     - name: "Configure locales"
@@ -54,10 +59,19 @@
         - uncomment: ["/etc/locale.gen", "en_US.UTF-8"]
         - cmd: "locale-gen"
         - overwrite: ["/etc/locale.conf", "LANG=en_US.UTF-8"]
+         - cmd: "locale > /etc/locale.conf"
     - name: "Configure keyboard layout"
       steps: 
         - overwrite: ["/etc/vconsole.conf", "KEYMAP=FR_ch"]
         - cmd: "localectl --no-convert set-x11-keymap fr pc104 ch"
+        - overwrite: ["/etc/X11/xorg.conf.d/00-keyboard.conf", 'Section "InputClass"']
+        - overwrite: ["/etc/X11/xorg.conf.d/00-keyboard.conf", '        Identifier "system-keyboard"']
+        - overwrite: ["/etc/X11/xorg.conf.d/00-keyboard.conf", '        MatchIsKeyboard "on"']
+        - overwrite: ["/etc/X11/xorg.conf.d/00-keyboard.conf", '        Option "XkbLayout" "fr"']
+        - overwrite: ["/etc/X11/xorg.conf.d/00-keyboard.conf", '        Option "XkbModel" "pc104"']
+        - overwrite: ["/etc/X11/xorg.conf.d/00-keyboard.conf", '        Option "XkbVariant" "ch"']
+        - overwrite: ["/etc/X11/xorg.conf.d/00-keyboard.conf", '        Option "XkbOptions" "grp:alt_shift_toggle"']
+        - overwrite: ["/etc/X11/xorg.conf.d/00-keyboard.conf", 'EndSection']        
     - name: "Configure hostname"
       steps: 
         - overwrite: ["/etc/hostname", "qbvt-sffpc"]
@@ -80,13 +94,13 @@
       steps:
         - cmd: "passwd"
         - cmd: "useradd -m quentin"
-        - cmd: "passwd quentin"
         - cmd: "gpasswd -a quentin wheel"
+        - cmd: "passwd quentin"
         - cmd: "pacman -S sudo"
         - uncomment: ["/etc/sudoers", "%wheel ALL=(ALL) ALL"]
     - name: "Configure Swap"
       steps: 
-       - cmd: "dd if=/dev/zero bs=1M count=4096 of=/var/swap"
+       - cmd: "dd if=/dev/zero bs=1M count=10240	 of=/var/swap"
        - cmd: "chmod 600 /var/swap"
        - cmd: "mkswap /var/swap"
        - cmd: "swapon /var/swap"
@@ -100,8 +114,14 @@
         - "grub-install --target-x86_64-efi --efi-directory=/boot/efi --bootloader-id=Grub"
         - "grub-mkconfig -o /boot/grub/grub.cfg"
     - name: "Bootloader v1"
-      cmds:
-        - "bootctl install --efi-partition=/boot"
+      steps:
+        - cmd: "bootctl install --esp-path=/boot"
+        - overwrite: ["/boot/loader/entries/arch.conf", "title Arch-LTS"]
+        - appendln: ["/boot/loader/entries/arch.conf", "linux /vmlinuz-linux-lts"]
+        - appendln: ["/boot/loader/entries/arch.conf", "initrd /amd-ucode.img"]
+        - appendln: ["/boot/loader/entries/arch.conf", "initrd /initramfs-linux-lts.img"]
+        - appendln: ["/boot/loader/entries/arch.conf", 'options root="LABEL=arch" rw quiet splash']
+        
         
 
 
@@ -110,10 +130,10 @@
   steps:     
     - name: "Build/Install yay"
       steps: 
-        - cmd: "mkdir -p /tmp/build/"
-        - dir: "/tmp/build"
+        - dir: "/tmp"
           cmd: "git clone https://aur.archlinux.org/yay.git"
-        - dir: "/tmp/build/yay"
+          cmd: "chown -R quentin:users yay"
+        - dir: "/tmp/yay"
           cmd: "sudo -u quentin makepkg -si"
     - name: "Install software"
       cmd: "sudo -u quentin yay --removemake --sudoloop --norebuild --noredownload -Syu $(./pkgs.sh amd nvidia system apps plasma)"
@@ -166,28 +186,32 @@
   steps: 
     - name: "Fix"    
       steps: 
-        - "Resume hook"
         - "bootloader"
+    - name: "Configure hibernate w/ resume hoot"    
+      steps: 
+        - "..."
     - name: "Configure 'hibernate on low battery'"    
-      steps: "?"
-    - name: "Configure SSH"
-      cmd: "echo TODO"
+      steps: 
+        - "?"
     - name: "Install Fanctl"
-      cmd: "echo TODO"
+      steps:
+        - "echo TODO"
+        - "write and host a PKGBUILD"   
     - name: "Periodic cleanup"
       steps: 
-        - "OR limit journal size + pacman clean hook"
-        - "write periodic cleanup scripts"
-        - "write periodic cleanup service files"
-        - "write and host a PKGBUILD"    
+        - " + write periodic cleanup scripts"
+        - " + write periodic cleanup service files"
+        - "    + OR limit journal size + pacman clean hook"
+        - "Setup some reflector thing"
+        - "https://wiki.archlinux.org/index.php/systemd-boot#Updating_the_EFI_boot_manager"
     - name: "Advanced configure swap"
       steps: 
         - "systemd-swap, zswap, zram "
         - "swappiness, vfs_cache_pressure"
         - "hibernation via grub command line"
-    - name: "Fanctl"
-      steps:
-        - "write and host a PKGBUILD"
+    - name: "Configure SSH"
+      cmd: 
+        - "echo TODO"
     - name: "Provide drop-in files in addition to appendln / overwrite / ..."
       steps: 
         - "for example, stored in a static/ subdirectory"
