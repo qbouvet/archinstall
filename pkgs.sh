@@ -52,6 +52,7 @@ system=(
   # CLI utilities (Core)
     sudo nano git git-lfs gnu-netcat wget 
     openconnect openssh 
+    pacman-contrib
   # FS & Disks 
     udisks2 smartmontools hdparm
     exfat-utils ntfs-3g f2fs-tools dosfstools fatresize apfsprogs-git 
@@ -64,11 +65,10 @@ system=(
   # Scripting utilities  
     nmap par2cmdline unrar p7zip    
   # System management
-    screen
+    screen shellcheck 
     sshfs sshuttle python36
     gparted gnome-disk-utility 
     htop iftop s-tui stress
-    shellcheck
   # X.org
     xorg-server xorg-xinit xorg-xauth xorg-xrandr	# Core stuff
     xorg-setxkbmap                                  # Keyboard layout 

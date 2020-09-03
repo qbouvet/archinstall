@@ -91,6 +91,9 @@
       steps: 
         - replaceln: ["/etc/makepkg.conf", "#MAKEFLAGS", "MAKEFLAGS=\" -j$(($(nproc)-2))\""]
         - replaceln: ["/etc/makepkg.conf", "#BUILDDIR", "BUILDDIR=/tmp/makepkg"]
+    - name: "Configure journal"
+      steps: 
+        - replaceln: ["/etc/systemd/journald.conf", "SystemMaxUse=", "SystemMaxUse=200M"]
     - name: "Configure users & sudo "
       steps:
         - cmd: "passwd"
@@ -108,7 +111,7 @@
        - appendln: ["/etc/fstab", ""]
        - appendln: ["/etc/fstab", "/var/swap"]
        - appendln: ["/etc/fstab", "/var/swap    none    swap    defaults    0 0"]
-       - cmd: "mount remount,size=24G /tmp"
+       - cmd: "mount remount,size=20G /tmp"
        - cmd: "echo 'swap: Still need to configure systemd-swap"
     - name: "Configure resume"
       steps:
