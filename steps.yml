@@ -60,7 +60,8 @@
         - uncomment: ["/etc/locale.gen", "en_US.UTF-8"]
         - cmd: "locale-gen"
         - overwrite: ["/etc/locale.conf", "LANG=en_US.UTF-8"]
-         - cmd: "locale > /etc/locale.conf"
+        - cmd: "locale > /etc/locale.conf"
+        - overwrite: ["/etc/locale.conf", "LC_ALL=C"]
     - name: "Configure keyboard layout"
       steps: 
         - overwrite: ["/etc/vconsole.conf", "KEYMAP=fr_CH"]
@@ -186,6 +187,8 @@
       steps:
         - "echo TODO"
         - "write and host a PKGBUILD"   
+    - name: "Configure kwallet/pam"
+      steps: "https://wiki.archlinux.org/index.php/KDE_Wallet#Configure_PAM"    
     - name: "Periodic cleanup"
       steps: 
         - " + write periodic cleanup scripts"

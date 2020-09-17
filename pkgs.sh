@@ -25,15 +25,15 @@ pacstrap=(
 #
 
 amd=(
-    amd-ucode lm_sensors 
+    amd-ucode nct6775-master-dkms-git
 )
 
 intel=(  
-    intel-ucode thermald lm_sensors 
+    intel-ucode thermald 
 )
 
 nvidia=( 
-    nvidia-dkms nvidia-settings lm_sensors 
+    nvidia-dkms nvidia-settings 
 )
 
 apple=(
@@ -48,13 +48,13 @@ apple=(
 system=(
   # Core services
     systemd-swap ntp tlp 
-    powertop
+    lm_sensors xsensors powertop
   # CLI utilities (Core)
     sudo nano git git-lfs gnu-netcat wget 
     openconnect openssh 
     pacman-contrib
   # FS & Disks 
-    udisks2 smartmontools hdparm
+    udisks2 nvme-cli smartmontools hdparm
     exfat-utils ntfs-3g f2fs-tools dosfstools fatresize apfsprogs-git 
     ext4magic e2fsprogs    # badblocks, recovery
   # Wireless, network
@@ -63,7 +63,7 @@ system=(
     alsa-utils
     pulseaudio pulseaudio-alsa pulseaudio-bluetooth pavucontrol    
   # Scripting utilities  
-    nmap par2cmdline unrar p7zip    
+    nmap par2cmdline pigz unrar p7zip    
   # System management
     screen shellcheck 
     sshfs sshuttle python36
@@ -94,6 +94,7 @@ apps=(
 	discord slack-desktop skypeforlinux-stable-bin zoom-system-qt
     remmina logmein-hamachi 
     firefox vivaldi vivaldi-codecs-ffmpeg-extra-bin chromium
+    ferdi
   # Office
 	mailspring-libre
 	syncthing 
@@ -139,6 +140,8 @@ plasma=(												 # KDE Plasma DE
   # Theming  
     colord-kde kde-gtk-config breeze-gtk
     ttf-dejavu ttf-liberation cantarell-fonts ttf-droid 
+  # Other
+    kwallet-pam  
 )
 
 qde=(							# Minimalistic DE based on openbox+tint2
