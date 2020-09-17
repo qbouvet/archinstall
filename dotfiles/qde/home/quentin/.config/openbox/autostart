@@ -1,30 +1,92 @@
-#### 	Openbox autostart file
-####
-####	~/.config/openbox/autostart
+#    Openbox autostart file
+#    ~/.config/openbox/autostart
+#
 
 
-    #
-    # Desktop & DE
-    #
-# /scripts/pcmanfm_toggle_desktop_icons.sh setup &
+#
+# Output to logfile
+#
+logfile="$HOME/Desktop/ob-autostart.log" # "$HOME/.config/openbox/autostart.log"
+exec 3>&1 4>&2 >"$logfile" 2>&1
+printf "[Output redirected]\n";
+
+
+#
+# Desktop & DE
+#
+printf "\n\n\n\t[Starting DE]\n\n";
+lxsession &
 pcmanfm --desktop &
 tint2 -c ~/.config/tint2/tint2rc &
+synapse &
 nm-applet &
-blueman-applet &
-lxsession & 
-#imwheel &
-#opensnap &
+#blueman/applet &
+tilda & 
+opensnap --daemon &
+#/scripts/keyboard-shortcuts/fingerscroll_toggle.sh --init &
+#/scripts/pcmanfm_toggle_desktop_icons.sh setup &
 
 
-    #
-    # SSH stuff 
-    #
-sleep 1s && ssh-add /home/quentin/.ssh/id_rsa &
+#
+#   Ugly workaround: this should be a systemd service
+#
+/usr/lib/xfce4/notifyd/xfce4-notifyd &
+/usr/lib/bluetooth/obexd -n &
 
-  
-    #
-    #	Spindown hard drives
-    #
+
+#
+#   Screen
+#
+printf "\n\n\n\t[Screen]\n\n";
+# Restore brightness
+#brightnessctl.sh restore &
+# Color calibration
+#xcalib ~/.icc_9470m.icm &
+# Redshift 
+#redshift -l 46:7 -t 6500:5500 -b 1:0.92 &
+
+
+#
+#   Sound
+#
+printf "\n\n\n\t[Sound]\n\n";
+# Alsamixer (on, 100%)
+amixer set Master on ;
+amixer -D pulse sset Master 100% ;
+# Pulseaudio (On, 30%) 
+#/scripts/pavuctl reset;
+#volctl ??
+
+	
+
+#
+#   Mouse 
+#
+printf "\n\n\n\t[Mouse]\n\n";
+#middle click emulation for logitech usb mouse 
+#cf. http://unix.stackexchange.com/questions/9973/configuring-mouse-for-rightleft-button-simulating-middle-click-for-copy-paste
+#xinput set-prop 'pointer:Logitech USB Receiver' "libinput Middle Emulation Enabled" 1 & 
+
+
+
+#
+#   Applications
+#
+printf "\n\n\n\t[applications]\n\n";
+syncthing-gtk &
+mailspring &
+ferdi &
+#/opt/franz-mod-5.4.1/franz %U &
+#source /scripts/bashsnippets.sh \
+#  && start_minimized "franz.Franz" /opt/franz-mod-5.4.1/franz \
+#  &
+#slack &
+
+
+
+#
+#	Spindown hard drives
+#
 #sleep 2s && (
 #  sudo hdparm -B 128 /dev/sdb
 #  sudo hdparm -S 180 /dev/sdb
@@ -37,32 +99,6 @@ sleep 1s && ssh-add /home/quentin/.ssh/id_rsa &
 #) &
 
 
-    #
-    # Screen & Sound
-    #
-# Restore brightness
-brightnessctl.sh restore; 
-# Redshift 
-#redshift -l 46:7 -t 6500:5500 -b 1:0.92 &
-# Alsamixer (on, 100%)
-amixer set Master on ;
-amixer -D pulse sset Master 100% ;
-# Pulseaudio (On, 30%) 
-#/scripts/pavuctl reset;
-
-
-    #
-    # Startup applications
-    #
-#tilda &
-#syncthing-gtk &
-#mailspring &
-#slack &
-#source /scripts/bashsnippets.sh \
-#  && start_minimized "franz.Franz" /opt/franz-mod-5.4.1/franz \
-#  &
-
-# Close steam to tray
-export STEAM_FRAME_FORCE_CLOSE=1
+exit
 
 

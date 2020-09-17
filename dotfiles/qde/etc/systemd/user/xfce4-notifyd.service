@@ -1,0 +1,13 @@
+# Doesn't work
+
+[Unit]
+Description=XFCE notification services 
+
+[Service]
+Type=simple
+Environment="DISPLAY=:0"
+Environment="XAUTHORITY=%h/.Xauthority"
+ExecStart=/usr/lib/xfce4/notifyd/xfce4-notifyd 
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,11 @@
+# Doesn't work
+
+[Unit]
+Description=obex bluetooth file transfer daemon
+
+[Service]
+Type=simple
+ExecStart=/usr/lib/bluetooth/obexd -n
+
+[Install]
+WantedBy=multi-user.target

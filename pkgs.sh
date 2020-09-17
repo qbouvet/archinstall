@@ -116,9 +116,9 @@ apps=(
     modemmanager modem-manager-gui mobile-broadband-provider-info
     usb_modeswitch wvdial
   # ...
-	apache archiso 
-	memtest86-efi		# in AUR
-	imwheel
+    apache archiso 
+    memtest86-efi        # in AUR
+    imwheel
 )
 
 
@@ -126,7 +126,7 @@ apps=(
 #	Desktop Environments
 #
 
-plasma=(												 # KDE Plasma DE
+plasma=(                                                                # KDE Plasma DE
     plasma-desktop plasma-wayland-session
   # Applets  
     plasma-nm bluedevil
@@ -144,15 +144,21 @@ plasma=(												 # KDE Plasma DE
     kwallet-pam  
 )
 
-qde=(							# Minimalistic DE based on openbox+tint2
-    openbox tint2
-  # Terminal, Files, text editor, pdf, image, video, archive
+qde=(                                                                   # Minimalistic DE based on openbox+tint2
+    openbox tint2 opensnap
+    lxsession
+    obconf lxappearance obkey
+    notification-daemon xfce4-notifyd
+    gvfs gvfs-mtp gvfs-gphoto2
+  # applets  
+    nm-applet blueman
+  # Applications
     terminator pcmanfm geany gpicview evince vlc file-roller
     tilda syncthing-gtk baobab caffeine-ng
     gnome-screenshot gnome-system-monitor
   # Theming  
+    elementary-icon-theme
     ttf-dejavu ttf-liberation cantarell-fonts ttf-droid 
-    # ... obkey, lxappearance, ...
 )
 
 
