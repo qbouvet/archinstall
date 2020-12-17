@@ -1,2 +1,13 @@
+
+#
+#   Raspberry Pi Images
+#
 *.tar.gz
 *.tar.gz.md5
+
+
+#
+#   Archiso work and output directories
+#
+out/*
+work/*
