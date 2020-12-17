@@ -1,9 +1,0 @@
-2018/08/02-20:44:06.534 8030 Reusing MANIFEST /home/quentin/.config/vivaldi/Default/IndexedDB/https_www.thenerdmag.com_0.indexeddb.leveldb/MANIFEST-000001
-2018/08/02-20:45:27.857 8030 Current memtable full; waiting...
-2018/08/02-20:45:27.857 9560 Level-0 table #5: started
-2018/08/02-20:45:27.862 9560 Level-0 table #5: 448 bytes OK
-2018/08/02-20:45:27.870 9560 Delete type=0 #3
-2018/08/02-20:45:27.871 9560 Level-0 table #7: started
-2018/08/02-20:45:27.871 9560 Level-0 table #7: 0 bytes OK
-2018/08/02-20:45:27.881 9560 Delete type=0 #4
-2018/08/02-20:45:27.882 9560 Manual compaction at level-0 from '\x00\x01\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x02\x00\x00\x00' @ 0 : 0; will stop at (end)

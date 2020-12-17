@@ -1,6 +1,0 @@
-## 	Makes the partitions /dev/sda, /dev/sda2, ... not appear on the desktop / in the left bar of pcmanfm ...
-
-KERNEL=="sda1", ENV{UDISKS_IGNORE}="1"
-#KERNEL=="sda2", ENV{UDISKS_IGNORE}="1"
-KERNEL=="sda3", ENV{UDISKS_IGNORE}="1"
-KERNEL=="sda4", ENV{UDISKS_IGNORE}="1"
