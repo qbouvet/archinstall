@@ -9,5 +9,11 @@
 #
 #   Archiso work and output directories
 #
-out/*
-work/*
+archiso*/out
+archiso*/work
+
+
+#
+#   VSCode's metals plugin
+#
+.metals/

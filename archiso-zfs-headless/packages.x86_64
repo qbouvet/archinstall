@@ -1,5 +1,17 @@
+
+#
+#   ZFS
+#   https://wiki.archlinux.org/index.php/ZFS#Embed_the_archzfs_packages_into_an_archiso
+#
+linux-headers
+archzfs-linux
+
+
+#
+#    Defaults
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
+#
 alsa-utils
 amd-ucode
 arch-install-scripts

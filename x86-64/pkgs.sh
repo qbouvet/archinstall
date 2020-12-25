@@ -15,7 +15,7 @@
 
 pacstrap=(
 	base base-devel 
-	linux-lts linux-lts-headers linux-firmware
+	linux-lts linux-lts-headers 
 	sudo git screen nano 	# Screen: https://gist.github.com/zigmoo/b67b11cd7bc8a5c66a44b91fcf37898e
 )
 
@@ -47,6 +47,7 @@ apple=(
 
 system=(
   # Core services
+    linux-firmware
     systemd-swap ntp tlp 
     lm_sensors xsensors powertop
   # CLI utilities (Core)
@@ -70,15 +71,13 @@ system=(
     gparted gnome-disk-utility 
     htop iftop s-tui stress
   # X.org
-    xorg-server xorg-xinit xorg-xauth xorg-xrandr	# Core stuff
+    xorg-server xorg-xinit xorg-xauth xorg-xrandr	  # Core stuff
     xorg-setxkbmap                                  # Keyboard layout 
     xorg-xmodmap xorg-xinput  	                    # Customize Kb layout (old way)
     xorg-xkbutils xorg-xkbevd xorg-xkbcomp          # Customize Kb layout (modern way)
-    # xorg-xhost xorg-xinput xorg-xev         		# ? ...
-    # xorg-xset xorg-xbacklight			      		# ? ...  
-    xrandr-invert-colors 							# AUR
-  #  
-    
+    # xorg-xhost xorg-xinput xorg-xev         		  # ? ...
+    # xorg-xset xorg-xbacklight			      		      # ? ...  
+    xrandr-invert-colors 							              # AUR   
 )
 
 #
