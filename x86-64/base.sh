@@ -1,9 +1,26 @@
 #!/usr/bin/env bash
 
-source ${wd}/utils/f.sh
+
+# ----- Prelude
+
+# Usual bash flags
+set -euo pipefail   # Exit on 1/ nonzero exit code 2/ unassigned variable 3/ pipe error
+shopt -s nullglob   # Allow null globs
+#set -o xtrace      # Show xtrace  
+ 
+source $wd/config.sh
+source $wd/utils/f.sh
 
 export LANG=C # locale errors when building mandb
 
+
+# ----- Pacman
+
+pacman-key --init
+pacman-key --populate archlinux 
+pacman -Sy
+pacman --noprogressbar --noconfirm -Syu
+pacman --noprogressbar --noconfirm -S pacutils
 
 
 # ----- Time
@@ -19,21 +36,31 @@ f.overwrite "/etc/locale.conf" \
 locale-gen
 
 
+# ----- Hostname 
+
+f.overwrite "/etc/hostname" "${hostname}"
+
 
 # ----- Users
 
 printf "root\nroot" | passwd "root"
 
-user="quentin"
-useradd -m -g users -G wheel "$user"
-printf "$user\n$user" | passwd "$user"
+for user in ${users[@]}
+do 
+  if ! [[ "$(grep "$user" /etc/passwd)" ]] 
+  then 
+    useradd -m -g users -G wheel "$user"
+  fi 
+  printf "$user\n$user" | passwd "$user"
+done 
 f.uncomment "/etc/sudoers" \
   " %wheel ALL=(ALL) ALL"
 
-useradd -M "installer"
-f.append "/etc/sudoers" \
-  "\n\ninstaller ALL=(ALL) NOPASSWD:ALL"
 
+# ----- Network
+
+pacman --noconfirm -S networkmanager
+systemctl enable NetworkManager
 
 
 # ----- SSH
@@ -46,6 +73,7 @@ f.append "/etc/ssh/sshd_config" \
 f.overwrite "/etc/host.allow" \
   "sshd : ALL : allow"
 
+systemctl enable sshd
 
 
 # ----- Swap
@@ -53,44 +81,11 @@ f.overwrite "/etc/host.allow" \
 pacman --noconfirm -S systemd-swap
 mkdir -p /var/lib/systemd-swap/swapfc
 systemctl enable systemd-swap
-f.overwrite "/etc/systctl.d/99-sysctl.conf" \
+f.overwrite "/etc/sysctl.d/99-sysctl.conf" \
   "vm.swappiness=30"
-#f.append "/etc/systctl.d/99-sysctl.conf" \
+#f.append "/etc/sysctl.d/99-sysctl.conf" \
 #  "\nvm.vfs_cache_pressure=$vfs_cache_pressure"
-f.append "/etc/systctl.d/99-sysctl.conf" \
+f.append "/etc/sysctl.d/99-sysctl.conf" \
   "\nvm.dirty_background_ratio=1"
-f.append "/etc/systctl.d/99-sysctl.conf" \
+f.append "/etc/sysctl.d/99-sysctl.conf" \
   "\nvm.dirty_ratio=50"
-
-
-
-# ----- Packages
-
-pacman-key --init
-pacman-key --populate archlinux 
-pacman --noprogressbar --noconfirm -Syu
-pacman --noprogressbar --noconfirm -S pacutils
-
-# yay
-pushd /tmp
-sudo -u installer git clone https://aur.archlinux.org/yay.git
-cd yay 
-pacman --noprogressbar --noconfirm -S go 
-sudo -u quentin makepkg -s
-pacman --noconfirm -U *.zst
-popd
-
-sudo -u installer yay -Syu --noconfirm --sudoloop --batchinstall \
-  --removemake \
-  --noredownload --norebuild \
-  --answerdiff None --answerclean None --answeredit None --answerupgrade None \
-  $($wd/pkgs.sh amd system)
-
-
-
-# ----- Remove installer user
-
-f.comment "/etc/sudoers" \
-  "installer ALL=(ALL) NOPASSWD:ALL""
-
-userdel installer

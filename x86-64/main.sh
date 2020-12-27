@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 if [ $# -gt 0 ] && { [ "$1" == "-h" ] || [ "$1" == "--help" ] ;} ; then
 printf "
 
@@ -15,6 +16,24 @@ printf "
   3/ \$ screen -S install
   
   3/ ./$0
+
+  TODO: 
+    * Un-Hardcode the disk name
+    *----
+    * Make it EFI/BIOS-agnostic
+    #----
+    * Add swap partition
+    * Is there anything userful here ? https://github.com/danboid/ALEZ/blob/master/alez.sh
+    * Use reflector for pacman DL speedup
+
+
+  Done: 
+    * Works       <<< base.sh/users
+    * Works       <<< Check SSH access
+    * Works       <<< Check network connectivity
+    * Works       <<< Check unattended boot works
+    *----
+    * Draft version
   
 "
 return 0
@@ -44,65 +63,58 @@ source "${wd}/utils/aa.sh"
 declare -A params
 
 params["stage"]="format"
-params["noconfirm"]="false"
+params["unattended"]="false"
 params["reportfile"]="$wd/report.txt"
-params["restoredir"]=$(pwd)             # just want to show this
-params["workdir"]=$wd                   # just want to show this
 
 aa.argparse params ${@:1}
 
 
+
+# ----- Constants 
+
+# Nothing yet
+
+
+
 # ----- Dispatch to correct stage
 
-# case ${params["stage"]} in 
-
-#     ("populate") \
-#         ${wd}/format.sh
-#         ${wd}/pacstrap.sh
-#         ${wd}/${0} --stage "prep-chroot"
-#         ;;
-#     ("prep-chroot") \
-#         mkdir -p /mnt/install
-#         cp -a ./* /mnt/install
-#         arch-chroot /mnt /install/${0} --stage "in-chroot"
-#         ;;
-#     ("in-chroot") \
-#         ${wd}/base.sh
-#         ${wd}/bootloader.sh
-#         ;;
-#     (*) \
-#         printf "Error: Wrong stage: ${params["stage"]}"
-# esac
-
+# User interaction
 aa.pprint params
-read
+if ! [[ ${params["unattended"]} == "true" ]]
+then 
+  read
+fi
 
-# This version does not pass exported variables through chroot. The old version does,
-# as the entire script is run again in chroot. This is not necessarily a problem,
-# source config.sh again
+# Copy scripts to chroot
+if [[ -d "/mnt/install" ]]
+then 
+  cp -a /install/* /mnt/install
+fi
+
 case ${params["stage"]} 
 in 
     ("format") \
         ${wd}/format.sh
-        ${0} --stage "pacstrap"
+        ${0} --stage "pacstrap"   --unattended ${params["unattended"]} --reportfile ${params["reportfile"]}
         ;;
     ("pacstrap") \
         ${wd}/pacstrap.sh
-        ${0} --stage "base"
+        ${0} --stage "base"       --unattended ${params["unattended"]} --reportfile ${params["reportfile"]}
         ;;
     ("base") \
         arch-chroot /mnt ${wd}/base.sh
-        ${0} --stage "bootloader"
+        ${0} --stage "bootloader" --unattended ${params["unattended"]} --reportfile ${params["reportfile"]}
         ;;
     ("bootloader") \
         arch-chroot /mnt ${wd}/bootloader.sh
-        ${0} --stage "done"
+        ${0} --stage "yay"        --unattended ${params["unattended"]} --reportfile ${params["reportfile"]}
+        ;;
+    ("yay") \
+        arch-chroot /mnt ${wd}/yay.sh
+        ${0} --stage "done"       --unattended ${params["unattended"]} --reportfile ${params["reportfile"]}
         ;;
     (*) \
-        printf "Error: Wrong stage: ${params["stage"]}"
-        exit 1
+        printf "Stage: ${params["stage"]}, exiting normally\n"
+        exit 0
         ;;
 esac
-
-echo "Installation complete"
-exit 0

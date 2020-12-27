@@ -45,18 +45,18 @@ apple=(
 #	Core packages
 #
 
-system=(
-  # Core services
+core=(
+  # Core packages
     linux-firmware
     systemd-swap ntp tlp 
     lm_sensors xsensors powertop
-  # CLI utilities (Core)
+  # Core CLI utilities
     sudo nano git git-lfs gnu-netcat wget 
     openconnect openssh 
     pacman-contrib
-  # FS & Disks 
+  # Filesystems and disks
     udisks2 nvme-cli smartmontools hdparm
-    exfat-utils ntfs-3g f2fs-tools dosfstools fatresize apfsprogs-git 
+    exfat-utils ntfs-3g f2fs-tools dosfstools fatresize 
     ext4magic e2fsprogs    # badblocks, recovery
   # Wireless, network
     networkmanager bluez
@@ -67,9 +67,16 @@ system=(
     nmap par2cmdline pigz unrar p7zip    
   # System management
     screen shellcheck 
-    sshfs sshuttle python36
+    sshfs
     gparted gnome-disk-utility 
     htop iftop s-tui stress
+)
+
+core_aur=(
+  # Filesystems and disks
+    apfsprogs-git # AUR
+  # System Management  
+    sshuttle python36
   # X.org
     xorg-server xorg-xinit xorg-xauth xorg-xrandr	  # Core stuff
     xorg-setxkbmap                                  # Keyboard layout 
@@ -79,6 +86,7 @@ system=(
     # xorg-xset xorg-xbacklight			      		      # ? ...  
     xrandr-invert-colors 							              # AUR   
 )
+
 
 #
 #	User applications
