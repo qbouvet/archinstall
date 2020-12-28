@@ -60,7 +60,7 @@ sudo -u "$uinstaller" yay -Syu --noconfirm --sudoloop --batchinstall \
   --removemake \
   --noredownload --norebuild \
   --answerdiff None --answerclean None --answeredit None --answerupgrade None \
-  $packages
+  $($wd/pkgs.sh $packages)
 
 
 # ----- Cleanup

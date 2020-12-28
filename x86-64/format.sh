@@ -16,10 +16,9 @@ source $wd/utils/f.sh
 
 if [[ $firmware_interface != "efi" ]]
 then 
-  echo "BIOS detected."
-  echo "Only EFI installation is supported."
-  echo "Exiting"
-  exit 1
+  printf "\n  Using BIOS firmware interface\n"
+else 
+  printf "\n  Using UEFI firmware interface\n"
 fi
 
 if ! modprobe zfs
@@ -29,9 +28,9 @@ then
   exit 1
 fi
 
-echo "Installing to:"
-echo "  > $install_disk"
-echo "Please confirm..."
+printf "\nInstalling to:\n"
+printf "  > $install_disk\n"
+printf "Please confirm...\n"
 read
 
 if ! [[ -e "$install_disk" ]] 
@@ -48,13 +47,11 @@ fi
 
 printf "\n  Reading disk info\n"
 
-bdev=$(\
-  readlink -f "$install_disk" \
-  | sed 's|/dev/||' \
-)
+bdev=$(readlink -f "$install_disk")
+
 secsize=$(\
   lsblk --noheadings -o NAME,LOG-SEC \
-  | grep "$bdev" \
+  | grep $(echo $bdev | sed 's|/dev/||') \
   | head -n 1 \
   | awk '{print $2;}' \
 )
@@ -65,20 +62,20 @@ mib=$((1024*1024))      # 1 MiB
 mibsec=$((mib/secsize)) # How many sectors for 1MiB
 
 disk_start="2048"       
-disk_max=$(blockdev --getsize /dev/$bdev)  
-disk_mib_blocks=$((disk_max/mibsec))      # integer division -> how many "1MiB sector groups" we have
-disk_end=$((mibsec*disk_mib_blocks))      # MiB-aligned disk end
+disk_max=$(blockdev --getsize $bdev)
+disk_mib_blocks=$((disk_max/mibsec))        # integer division -> how many "1MiB sector groups" we have
+disk_end=$((mibsec*disk_mib_blocks))        # MiB-aligned disk end
 
-if [[ $(( (disk_end/mibsec)*mibsec)) -ne $disk_end ]]
+if [[ $(( (disk_end/mibsec)*mibsec )) -ne $disk_end ]]
 then 
   echo "  Error while computing disk values"
   exit 1
 fi
 
-esp_start=${disk_start}
-esp_end=$((esp_start +128*mib/secsize -1))
+fip_start=${disk_start}                     # Firmware interface partition
+fip_end=$((fip_start +128*mib/secsize -1))  # ESP for UEFI, BIOS-boot for BIOS
 
-root_start=$((esp_end +1))
+root_start=$((fip_end +1))
 root_end=$((disk_end -swap_size*mib/secsize -1))
 
 swap_start=$((root_end +1))
@@ -90,9 +87,18 @@ parted --script "$install_disk" \
   mklabel "gpt"  
 
 # EFI System Partition
-parted --script "$install_disk" \
-  mkpart primary "${disk_start}s" "${esp_end}s" \
-  set "1" "boot" "on" 
+if [[ "$firmware_interface" == "efi" ]]
+then 
+  parted --script "$install_disk" \
+    mkpart primary "${disk_start}s" "${fip_end}s" \
+    set "1" "boot" "on" 
+  sync; sleep 1s; # Weird behaviour
+  mkfs.fat -F 32 "${install_disk}-part1"  
+else 
+  parted --script "$install_disk" \
+    mkpart primary "${disk_start}s" "${fip_end}s" \
+    set "1" "bios_grub" "on" 
+fi
 
 # Future ZFS pool containing /, /boot, ...
 parted --script "$install_disk" \
@@ -101,18 +107,8 @@ parted --script "$install_disk" \
 # Swap Space
 parted --script "$install_disk" \
   mkpart primary "${swap_start}s" "${swap_end}" 
-
 sync; sleep 1s; # Weird behaviour
-
-
-# ----- Formatting  
-
-printf "\n  Formatting\n"
-
-mkfs.fat -F 32 "${install_disk}-part1"
-
 mkswap "${install_disk}-part3"
-
 swapon "${install_disk}-part3"
 
 
@@ -182,8 +178,11 @@ zpool import -d /dev/disk/by-id -R /mnt zroot -N
 zfs mount zroot/rootfs
 zfs mount -a  
 
-mkdir -p /mnt/boot/EFI
-mount "${install_disk}-part1" /mnt/boot/EFI
+if [[ "$firmware_interface" == "efi" ]]
+then 
+  mkdir -p /mnt/boot/EFI \
+  mount "${install_disk}-part1" /mnt/boot/EFI
+fi
 
 
 

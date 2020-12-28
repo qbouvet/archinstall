@@ -24,6 +24,8 @@ printf "
 
   TODO: 
     * Add a BIOS version (GPT+BIOS)
+    * Add a drop-in file tree feature
+    * Add ssh public keys
     *----
     * Use reflector for pacman DL speedup
     * Is there anything userful here ? https://github.com/danboid/ALEZ/blob/master/alez.sh

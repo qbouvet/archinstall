@@ -19,13 +19,13 @@ fi
 
 # ----- Formatting
 
-export install_disk="/dev/disk/by-id/ata-SAMSUNG_HM080II_S0BRJ30LA51793" #ata-VBOX_HARDDISK_VBfef6bb2e-1a8ff6e1"
+export install_disk="/dev/disk/by-id/ata-ST500LT012-1DG142_W3P9H10M"    #ata-VBOX_HARDDISK_VBfef6bb2e-1a8ff6e1"
 export swap_size="8192" # MiB
 
 
 # ----- Other stuff
 
-export hostname="rv515"
+export hostname="e6400"
 export timezone="/usr/share/zoneinfo/Europe/Zurich"
 
 
@@ -33,7 +33,6 @@ export timezone="/usr/share/zoneinfo/Europe/Zurich"
 
 export users=(
   quentin
-  demosthene
 )
 
 
@@ -47,8 +46,7 @@ export use_systemd_swap="false"
 
 # ----- Packages
 
-export packages=$( \
-  pkgs.sh \
-    cpu_amd gpu_amd \
-    core \
+export packages=(
+  intelcpu nvidiagpu \
+  core \
 )

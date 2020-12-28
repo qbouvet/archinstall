@@ -45,15 +45,28 @@ mkinitcpio -P
 
 # Only grub allows /boot in zpool, so we use grub
 
-pacman -S --noconfirm grub efibootmgr
+pacman -S --noconfirm grub 
+
+if [[ $firmware_interface == "efi" ]]
+then 
+  pacman -S --noconfirm efibootmgr
+fi
 
 # !! important
 export ZPOOL_VDEV_NAME_PATH=1 
 
-grub-install \
-  --target=x86_64-efi \
-  --efi-directory=/boot/EFI \
-  --bootloader-id=GRUB
+
+if [[ $firmware_interface == "efi" ]]
+then 
+  grub-install \
+    --target=x86_64-efi \
+    --efi-directory=/boot/EFI \
+    --bootloader-id=GRUB
+else 
+  grub-install \
+    --target=i386-pc \
+    $(readlink -f "$install_disk")
+fi
 
 # Disable incompatible entries
 mkdir -p /etc/grub.d/disabled
