@@ -19,7 +19,7 @@ fi
 
 # ----- Formatting
 
-export install_disk="/dev/disk/by-id/ata-VBOX_HARDDISK_VBfef6bb2e-1a8ff6e1"
+export install_disk="/dev/disk/by-id/ata-SAMSUNG_HM080II_S0BRJ30LA51793" #ata-VBOX_HARDDISK_VBfef6bb2e-1a8ff6e1"
 export swap_size="8192" # MiB
 
 
@@ -39,7 +39,16 @@ export users=(
 
 # ----- Swap
 
-export swappiness="60";           # default: 60
-export vfs_cache_pressure="250"
+export swappiness="60";           # Default: 60
+export vfs_cache_pressure="100"   # Default: ?
 
 export use_systemd_swap="false"
+
+
+# ----- Packages
+
+export packages=$( \
+  pkgs.sh \
+    cpu_amd gpu_amd \
+    core \
+)

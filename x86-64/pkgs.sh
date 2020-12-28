@@ -24,15 +24,19 @@ pacstrap=(
 #	Vendor-specific packages
 #
 
-amd=(
+amdcpu=(
     amd-ucode nct6775-master-dkms-git
 )
 
-intel=(  
+amdgpu=(
+    mesa xf86-video-ati mesa-vdpau 
+)
+
+intelcpu=(  
     intel-ucode thermald 
 )
 
-nvidia=( 
+nvidiagpu=( 
     nvidia-dkms nvidia-settings 
 )
 
@@ -57,7 +61,8 @@ core=(
   # Filesystems and disks
     udisks2 nvme-cli smartmontools hdparm
     exfat-utils ntfs-3g f2fs-tools dosfstools fatresize 
-    ext4magic e2fsprogs    # badblocks, recovery
+    ext4magic e2fsprogs     # badblocks, recovery
+    apfsprogs-git           # AUR
   # Wireless, network
     networkmanager bluez
   # Sound
@@ -70,13 +75,7 @@ core=(
     sshfs
     gparted gnome-disk-utility 
     htop iftop s-tui stress
-)
-
-core_aur=(
-  # Filesystems and disks
-    apfsprogs-git # AUR
-  # System Management  
-    sshuttle python36
+    sshuttle python36           # AUR
   # X.org
     xorg-server xorg-xinit xorg-xauth xorg-xrandr	  # Core stuff
     xorg-setxkbmap                                  # Keyboard layout 

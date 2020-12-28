@@ -7,11 +7,16 @@ printf "
     ===========
 
   1/ Transfer files: 
-      $ git clone https://github.com/qbouvet/install-arch.git
+        $ pacman --noconfirm -Sy git
+        $ git clone https://github.com/qbouvet/install-arch.git /install
       or
-      $ ip=192.168.1.13; ssh root@$ip 'mkdir -p /install'; scp -r ./* root@$ip:/install/
-
-  2/ \$ screen -S install
+        $ curl -L -O github.com/qbouvet/install-arch.git
+        $ pacman -Sy unzip
+        $ unzip master.zip
+        $ mkdir -p /install
+        $ cp -a install-arch-master/* /install/
+      or
+        $ ip=192.168.1.13; ssh root@$ip 'mkdir -p /install'; scp -r ./* root@$ip:/install/
 
   3/ $ nano /install/x86_64/config.sh
   

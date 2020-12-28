@@ -79,10 +79,10 @@ f.overwrite "/etc/sysctl.d/99-sysctl.conf" \
   "vm.swappiness=30"
 #f.append "/etc/sysctl.d/99-sysctl.conf" \
 #  "\nvm.vfs_cache_pressure=$vfs_cache_pressure"
-f.append "/etc/sysctl.d/99-sysctl.conf" \
-  "\nvm.dirty_background_ratio=1"
-f.append "/etc/sysctl.d/99-sysctl.conf" \
-  "\nvm.dirty_ratio=50"
+#f.append "/etc/sysctl.d/99-sysctl.conf" \
+#  "\nvm.dirty_background_ratio=1"
+#f.append "/etc/sysctl.d/99-sysctl.conf" \
+#  "\nvm.dirty_ratio=50"
 
 if [[ "$use_systemd_swap" == "true" ]]
 then 

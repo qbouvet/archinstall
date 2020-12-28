@@ -22,7 +22,7 @@ then
   exit 1
 fi
 
-if ! [[ $(modprobe zfs) ]]
+if ! modprobe zfs
 then
   echo "Failed to load zfs."
   echo "Exiting"
@@ -34,8 +34,19 @@ echo "  > $install_disk"
 echo "Please confirm..."
 read
 
+if ! [[ -e "$install_disk" ]] 
+then 
+  echo "Not a valid disk: "
+  echo "  $install_disk"
+  echo "(did you include '/dev/disk/by-id' in the path ?)"
+  echo "Exiting"
+  exit 1
+fi
+
 
 # ----- Partitioning
+
+printf "\n  Reading disk info\n"
 
 bdev=$(\
   readlink -f "$install_disk" \
@@ -43,15 +54,26 @@ bdev=$(\
 )
 secsize=$(\
   lsblk --noheadings -o NAME,LOG-SEC \
-  | grep "$blockdev" \
+  | grep "$bdev" \
   | head -n 1 \
   | awk '{print $2;}' \
 )
 
-mib=$((1024*1024))
+printf "\n  Computing disk values\n"
 
-disk_start="2048"
-disk_end=$(blockdev --getsize /dev/$bdev)
+mib=$((1024*1024))      # 1 MiB
+mibsec=$((mib/secsize)) # How many sectors for 1MiB
+
+disk_start="2048"       
+disk_max=$(blockdev --getsize /dev/$bdev)  
+disk_mib_blocks=$((disk_max/mibsec))      # integer division -> how many "1MiB sector groups" we have
+disk_end=$((mibsec*disk_mib_blocks))      # MiB-aligned disk end
+
+if [[ $(( (disk_end/mibsec)*mibsec)) -ne $disk_end ]]
+then 
+  echo "  Error while computing disk values"
+  exit 1
+fi
 
 esp_start=${disk_start}
 esp_end=$((esp_start +128*mib/secsize -1))
@@ -61,6 +83,8 @@ root_end=$((disk_end -swap_size*mib/secsize -1))
 
 swap_start=$((root_end +1))
 swap_end="100%"
+
+printf "\n  Partitioning\n"
 
 parted --script "$install_disk" \
   mklabel "gpt"  
@@ -78,19 +102,23 @@ parted --script "$install_disk" \
 parted --script "$install_disk" \
   mkpart primary "${swap_start}s" "${swap_end}" 
 
+sync; sleep 1s; # Weird behaviour
+
 
 # ----- Formatting  
 
-mkfs.fat -F 32 "$install_disk-part1"
+printf "\n  Formatting\n"
 
-mkswap "$install_disk-part3"
+mkfs.fat -F 32 "${install_disk}-part1"
 
-swapon "$install_disk-part3"
+mkswap "${install_disk}-part3"
+
+swapon "${install_disk}-part3"
 
 
 # ----- ZFS Pools
 
-echo "  zpool"
+printf "\n  Creating Zpools\n"
 
 zfs_opts_default=" \
   -o ashift=12             \
@@ -105,23 +133,7 @@ zfs_opts_default=" \
   -O compression=lz4       \
 "
 
-zfs_opts_grub_compat_v1=" \
-  -d \
-  -o feature@async_destroy=enabled \
-  -o feature@bookmarks=enabled \
-  -o feature@embedded_data=enabled \
-  -o feature@empty_bpobj=enabled \
-  -o feature@enabled_txg=enabled \
-  -o feature@extensible_dataset=enabled \
-  -o feature@filesystem_limits=enabled \
-  -o feature@hole_birth=enabled \
-  -o feature@large_blocks=enabled \
-  -o feature@lz4_compress=enabled \
-  -o feature@spacemap_histogram=enabled \
-  -o feature@zpool_checkpoint=enabled \
-"
-
-zfs_opts_grub_compat_v2=" \
+zfs_opts_grub_compat=" \
   -d \
   -o feature@allocation_classes=enabled \
   -o feature@async_destroy=enabled      \
@@ -143,23 +155,24 @@ zfs_opts_grub_compat_v2=" \
 "
 
 # Single pool with grub compatible options
-zpool create \
+#  -f if script runs several times, old pool gets detected in spite of formatting
+zpool create -f \
   ${zfs_opts_default} \
-  ${zfs_opts_grub_compat_v2} \
+  ${zfs_opts_grub_compat} \
   -R /mnt \
-  zroot "/dev/disk/by-id/ata-VBOX_HARDDISK_VBfef6bb2e-1a8ff6e1-part2"
+  zroot "${install_disk}-part2"
 
 
 # ----- ZFS Datasets
 
-echo "  datasets"
+printf "\n  Creating Partitioning\n"
 
 zfs create -o mountpoint=/     -o canmount=noauto      zroot/rootfs
 
 
 # ----- Validate ZFS config and mount datasets
 
-echo "  validation & mount"
+printf "\n  Validating ZFS and mounts\n"
 
 # Validate configuration by exporting and re-importing zpools
 zpool export zroot
@@ -168,11 +181,6 @@ zpool import -d /dev/disk/by-id -R /mnt zroot -N
 # Manually mount rootfs dataset, then mount all other
 zfs mount zroot/rootfs
 zfs mount -a  
-
-
-# ----- Mount additional partitions (ESP)
-
-echo "  ESP"
 
 mkdir -p /mnt/boot/EFI
 mount "${install_disk}-part1" /mnt/boot/EFI

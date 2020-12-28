@@ -31,7 +31,7 @@ trap.stack "
 
 # ----- Install yay
 
-# Then again, we'd ideally want a dir+uuid
+# Again, we'd ideally want a dir+uuid
 # But this works well enough
 
 if ! [[ -e /opt/build ]] 
@@ -60,7 +60,7 @@ sudo -u "$uinstaller" yay -Syu --noconfirm --sudoloop --batchinstall \
   --removemake \
   --noredownload --norebuild \
   --answerdiff None --answerclean None --answeredit None --answerupgrade None \
-  $($wd/pkgs.sh amd core core_aur)
+  $packages
 
 
 # ----- Cleanup
