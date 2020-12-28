@@ -17,19 +17,16 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
 fi
 
 
-
 # ----- Formatting
 
-export blockdev="/dev/sda"          # !! needs a p when mmcblk
-export is_efi="true"
-
+export install_disk="/dev/disk/by-id/ata-VBOX_HARDDISK_VBfef6bb2e-1a8ff6e1"
+export swap_size="8192" # MiB
 
 
 # ----- Other stuff
 
 export hostname="rv515"
 export timezone="/usr/share/zoneinfo/Europe/Zurich"
-
 
 
 # ----- Users and passwords
@@ -40,8 +37,9 @@ export users=(
 )
 
 
-
 # ----- Swap
 
-export swappiness="60";
+export swappiness="60";           # default: 60
 export vfs_cache_pressure="250"
+
+export use_systemd_swap="false"

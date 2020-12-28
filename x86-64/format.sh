@@ -14,40 +14,78 @@ source $wd/utils/f.sh
 
 # ----- Pre-flight check
 
-# Check disk
+if [[ $firmware_interface != "efi" ]]
+then 
+  echo "BIOS detected."
+  echo "Only EFI installation is supported."
+  echo "Exiting"
+  exit 1
+fi
 
-modprobe zfs
+if ! [[ $(modprobe zfs) ]]
+then
+  echo "Failed to load zfs."
+  echo "Exiting"
+  exit 1
+fi
 
-# Check BIOS/EFI
-
-# ...
+echo "Installing to:"
+echo "  > $install_disk"
+echo "Please confirm..."
+read
 
 
 # ----- Partitioning
 
-# Wipe the disk
+bdev=$(\
+  readlink -f "$install_disk" \
+  | sed 's|/dev/||' \
+)
+secsize=$(\
+  lsblk --noheadings -o NAME,LOG-SEC \
+  | grep "$blockdev" \
+  | head -n 1 \
+  | awk '{print $2;}' \
+)
 
-sector_size=512
 mib=$((1024*1024))
-esp_sector_start=2048
-esp_sector_end=$((2048 +128*mib/sector_size -1))
-# No separate boot partition
-#boot_sector_start=$((esp_sector_end+1))
-#boot_sector_end=$((boot_sector_start +512*mib/sector_size -1))
 
-parted --script "/dev/sda" \
+disk_start="2048"
+disk_end=$(blockdev --getsize /dev/$bdev)
+
+esp_start=${disk_start}
+esp_end=$((esp_start +128*mib/secsize -1))
+
+root_start=$((esp_end +1))
+root_end=$((disk_end -swap_size*mib/secsize -1))
+
+swap_start=$((root_end +1))
+swap_end="100%"
+
+parted --script "$install_disk" \
   mklabel "gpt"  
 
 # EFI System Partition
-parted --script "/dev/sda" \
-  mkpart primary "${esp_sector_start}s" "${esp_sector_end}s" \
+parted --script "$install_disk" \
+  mkpart primary "${disk_start}s" "${esp_end}s" \
   set "1" "boot" "on" 
 
-mkfs.fat -F 32 /dev/sda1  
-
 # Future ZFS pool containing /, /boot, ...
-parted --script "/dev/sda" \
-  mkpart primary "$((esp_sector_end+1))s" "100%" 
+parted --script "$install_disk" \
+  mkpart primary "${root_start}s" "${root_end}s"
+
+# Swap Space
+parted --script "$install_disk" \
+  mkpart primary "${swap_start}s" "${swap_end}" 
+
+
+# ----- Formatting  
+
+mkfs.fat -F 32 "$install_disk-part1"
+
+mkswap "$install_disk-part3"
+
+swapon "$install_disk-part3"
 
 
 # ----- ZFS Pools
@@ -137,4 +175,68 @@ zfs mount -a
 echo "  ESP"
 
 mkdir -p /mnt/boot/EFI
-mount /dev/sda1 /mnt/boot/EFI
+mount "${install_disk}-part1" /mnt/boot/EFI
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ----- Legacy stuff
+
+# install_disk=""
+
+# disks=()
+# parts=()
+# for e in /dev/disk/by-id/*
+# do
+#   echo $e
+#   if [[ "$e" =~ .*-part[0-9]+ ]]
+#   then 
+#     parts+=("$e")
+#   else 
+#     disks+=("$e")
+#   fi 
+# done
+
+# case ${#disks[@]} 
+# in
+#   0)
+#     echo "No disk detecting. Aborting"
+#     exit 1
+#     ;;
+#   1)
+#     install_disk="${disks[0]}"
+#     echo "One disk detected. "
+#     ;;
+#   *)
+#     echo "Several disks detected. Select one"
+#     declare -i i; i=0
+#     while [[ i -lt ${#disks[@]} ]]
+#     do 
+#       echo "  $i  -  ${disks[i]}"
+#       i=$((i+1))
+#     done 
+#     echo "> "; read i
+#     install_disk="${disks[i]}"
+#     ;;
+# esac

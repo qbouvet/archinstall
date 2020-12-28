@@ -11,8 +11,6 @@ shopt -s nullglob   # Allow null globs
 source $wd/config.sh
 source $wd/utils/f.sh
 
-export LANG=C # locale errors when building mandb
-
 
 # ----- Pacman
 
@@ -23,20 +21,19 @@ pacman --noprogressbar --noconfirm -Syu
 pacman --noprogressbar --noconfirm -S pacutils
 
 
-# ----- Time
+# ----- Time, locale, hostname
 
 ln -sf "$timezone" /etc/localtime
 timedatectl set-ntp true
+
 pacman --noconfirm -S ntp
 systemctl enable ntpd.service
+
 f.uncomment "/etc/locale.gen" \
   "en_US.UTF-8 UTF-8"
 f.overwrite "/etc/locale.conf" \
   "LANG=en_US.UTF-8"
 locale-gen
-
-
-# ----- Hostname 
 
 f.overwrite "/etc/hostname" "${hostname}"
 
@@ -78,9 +75,6 @@ systemctl enable sshd
 
 # ----- Swap
 
-pacman --noconfirm -S systemd-swap
-mkdir -p /var/lib/systemd-swap/swapfc
-systemctl enable systemd-swap
 f.overwrite "/etc/sysctl.d/99-sysctl.conf" \
   "vm.swappiness=30"
 #f.append "/etc/sysctl.d/99-sysctl.conf" \
@@ -89,3 +83,10 @@ f.append "/etc/sysctl.d/99-sysctl.conf" \
   "\nvm.dirty_background_ratio=1"
 f.append "/etc/sysctl.d/99-sysctl.conf" \
   "\nvm.dirty_ratio=50"
+
+if [[ "$use_systemd_swap" == "true" ]]
+then 
+  pacman --noconfirm -S systemd-swap
+  mkdir -p /var/lib/systemd-swap/swapfc
+  systemctl enable systemd-swap
+fi

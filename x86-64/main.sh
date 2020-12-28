@@ -7,27 +7,26 @@ printf "
     ===========
 
   1/ Transfer files: 
+      $ git clone https://github.com/qbouvet/install-arch.git
+      or
       $ ip=192.168.1.13; ssh root@$ip 'mkdir -p /install'; scp -r ./* root@$ip:/install/
-      or 
-      curl / git
 
-  2/ Configure stuff in config.sh
+  2/ \$ screen -S install
 
-  3/ \$ screen -S install
+  3/ $ nano /install/x86_64/config.sh
   
-  3/ ./$0
+  4/ ./$0
 
   TODO: 
-    * Un-Hardcode the disk name
+    * Add a BIOS version (GPT+BIOS)
     *----
-    * Make it EFI/BIOS-agnostic
-    #----
-    * Add swap partition
-    * Is there anything userful here ? https://github.com/danboid/ALEZ/blob/master/alez.sh
     * Use reflector for pacman DL speedup
-
+    * Is there anything userful here ? https://github.com/danboid/ALEZ/blob/master/alez.sh
 
   Done: 
+    * Done        <<< Add swap partition
+    * Done        <<< Un-Hardcode the disk name
+    *----
     * Works       <<< base.sh/users
     * Works       <<< Check SSH access
     * Works       <<< Check network connectivity
@@ -72,7 +71,13 @@ aa.argparse params ${@:1}
 
 # ----- Constants 
 
-# Nothing yet
+firmware_interface="bios"
+[ -d /sys/firmware/efi ] && firmware_interface="efi"
+export firmware_interface
+
+export LANG="C"       # prevent locale errors when building mandb
+
+
 
 
 

@@ -37,12 +37,13 @@ mkinitcpio -P
 
 # ----- Mount ZFS pools at boot
 
-
+# For some reason works without:
+# https://wiki.archlinux.org/index.php/Install_Arch_Linux_on_ZFS#Configure_systemd_ZFS_mounts
 
 
 # ----- Bootloader
 
-# Only grub allows to have /boot in the zpool, so we choose grub
+# Only grub allows /boot in zpool, so we use grub
 
 pacman -S --noconfirm grub efibootmgr
 
