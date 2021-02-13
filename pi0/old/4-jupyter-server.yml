@@ -1,0 +1,21 @@
+---
+install-packages: jupyterhub
+
+create-files: 
+    - /etc/systemd/system/jupyterlab.service
+
+
+# If user exists, passwords are ignored
+users:
+    - u1: 
+      uname: quentin
+      passw: *
+    - u1: 
+      uname: eloise
+      passw: pYthon@251
+    - u2:
+      uname: laurence
+      passw: pYthon@251
+
+admins: u1
+...
