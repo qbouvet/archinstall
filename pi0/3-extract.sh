@@ -56,7 +56,7 @@ mkdir -p ${rootmnt}/install
 
 function cp_files () { 
     pushd "${__dir}/data" > /dev/null
-    report.append "The following arbitrary files have been copied over:\n"
+    report_append "The following arbitrary files have been copied over:\n"
     for filename in *
     do
         if [ "${filename:0:3}" == "___" ]
@@ -65,7 +65,7 @@ function cp_files () {
           newpath=${newpath//___/\/}    # replace all subsequent '___' by '/'
           mkdir -p "$(dirname "${rootmnt}/${newpath}")"
           cp "$filename" "${rootmnt}/${newpath}"
-          report.append "  - $newpath\n"
+          report_append "  - $newpath\n"
         else
           printf "    Skipping $filename\n"
         fi

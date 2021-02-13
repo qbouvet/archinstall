@@ -4,12 +4,12 @@ printf '
 
   Example: 
     $ source report.sh
-    $ report.setfile "/tmp/report"
-    $ report.append "hello"
-    $ report.produce 
+    $ report_setfile "/tmp/report"
+    $ report_append "hello"
+    $ report_produce 
     > hello    
-    $ report.clear
-    $ report.produce 
+    $ report_clear
+    $ report_produce 
     > 
 '
 exit 0
@@ -25,24 +25,24 @@ fi
 #
 report_file="/tmp/report.txt"
 
-function report.setfile () {
+function report_setfile () {
     local new_report_file="$1"
     printf "Report.into $new_report_file\n"
     report_file="$new_report_file"
 }
 
-function report.append () {
+function report_append () {
     local content="$1"
     mkdir -p "$(dirname report_file)"; touch "$report_file"
     printf "$1" >> "$report_file"
 }
 
-function report.produce () {
+function report_produce () {
     mkdir -p "$(dirname report_file)"; touch "$report_file"
     cat "$report_file"
 }
 
-function report.clear () {
+function report_clear () {
     mkdir -p "$(dirname report_file)"; touch "$report_file"
     printf "" > "$report_file"
 }

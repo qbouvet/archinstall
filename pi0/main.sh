@@ -43,7 +43,7 @@ params["unattended"]="false"
 params["reportfile"]="$wd/report.txt"
 params["check_blockdev"]="false"
 
-aa.argparse params ${@:1}
+aa_argparse params ${@:1}
 
 
 # ----- Sanity checks 
@@ -75,7 +75,7 @@ fi
 # ----- Dispatch stage
 
 # User interaction
-aa.pprint params
+aa_pprint params
 if ! [[ ${params["unattended"]} == "true" ]]
 then 
   echo "[enter] to proceed"

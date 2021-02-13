@@ -4,9 +4,9 @@ printf '
 
   Example: 
     $ source f.sh
-    $ f.overwrite /etc/locale.conf "LANG=en_US.UTF-8"
-    $ f.uncomment /etc/locale.gen  "en_US.UTF-8"
-    $ f.append    /etc/sudoers     "\n\n%wheel ALL=(ALL) ALL"
+    $ f_overwrite /etc/locale.conf "LANG=en_US.UTF-8"
+    $ f_uncomment /etc/locale.gen  "en_US.UTF-8"
+    $ f_append    /etc/sudoers     "\n\n%wheel ALL=(ALL) ALL"
 '
 exit 0
 fi
@@ -20,7 +20,7 @@ fi
 #
 #    Overwrite the content of a file
 #
-function f.overwrite () {
+function f_overwrite () {
     _file="$1"
     _text="$2"
     printf "$_text" | sed 's:    ::g' > "$_file"
@@ -29,7 +29,7 @@ function f.overwrite () {
 #
 #   Append to the last line (!: No new line)
 #
-function f.append () {
+function f_append () {
     # https://unix.stackexchange.com/questions/20573/sed-insert-text-after-the-last-line
     _file="$1"
     shift
@@ -43,7 +43,7 @@ function f.append () {
 #
 #   Find and comment all instances
 #
-function f.comment () {
+function f_comment () {
     _file="$1"
     _text1="$2"
     _text2="#$2"
@@ -53,7 +53,7 @@ function f.comment () {
 #
 #   Find and uncomment all instances
 #
-function f.uncomment () {
+function f_uncomment () {
     # Find and uncomment all instances
     _file="$1"
     _text1="#$2"
@@ -65,7 +65,7 @@ function f.uncomment () {
 #   Replace all lines containing the pattern in $2 by 
 #   the raw text line in $3
 #
-function f.replaceLine () {
+function f_replaceLine () {
     _file="$1"
     _text1="$2"
     _text2="$3"
@@ -77,7 +77,7 @@ function f.replaceLine () {
 #
 #   Append as new line at the end of a file
 #
-function f.newlineAppend () {
+function f_newlineAppend () {
     _file="$1"
     _text="$2"
     printf "$_text" | sed 's:    ::g' >> "$_file"
