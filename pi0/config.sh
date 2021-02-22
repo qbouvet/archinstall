@@ -21,7 +21,7 @@ fi
 
 # ----- SD Card block device
 
-export blockdev="/dev/sde"          # !! If mmcblk, needs a 'p'
+export blockdev="/dev/sdd"          # !! If mmcblk, needs a 'p'
 export swapsize="2048"  
 
 

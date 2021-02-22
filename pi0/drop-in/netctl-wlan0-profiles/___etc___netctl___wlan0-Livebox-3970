@@ -1,0 +1,7 @@
+Description='Netctl wireless profile for WPA-PSK connection to SSID "Livebox-3970" over interface "wlan0" '
+Interface=wlan0
+Connection=wireless
+Security=wpa
+IP=dhcp
+ESSID=Livebox-3970
+Key=\"154c55855daceb1f61d47b12e34734027ff81db0dbad216947ad6a9e49f2dc0a

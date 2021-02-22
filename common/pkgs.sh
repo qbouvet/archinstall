@@ -24,7 +24,7 @@ sffpc=(
   amd-ucode nct6775-master-dkms-git   # AMD CPU 
   nvidia-dkms nvidia-settings         # Nvidia GPU
 )
-9470m=(
+hp9470m=(
   intel-ucode thermald                # Intel CPU 
 )
 rv515=(
@@ -48,27 +48,33 @@ pi4=()
 
 # ----- Temporary
 
-export pizero_apps=(
+export pizero=(
+  # Network (including usb gadget)
+    dnsmasq wpa_supplicant dhcpcd
+    #netctl networkmanager    # Installed in their respective setup function
+  # base / base-devel minimal equivalent
+    # autoconf automake binutils fakeroot gcc make patch sudo 
+    autoconf automake binutils bison file findutils flex gawk gcc gettext 
+    grep groff gzip libtool m4 make pacman patch pkgconf sed sudo texinfo which
+  # Base / base-devel & not-minimal core stuff
+  	base base-devel           # Note: no 'linux-lts linux-lts-headers'
+	  sudo git nano wget screen # cheatsheet: https://gist.github.com/zigmoo/b67b11cd7bc8a5c66a44b91fcf37898e
+    # man-db man-pages        # Save time
+    pacman-contrib pacutils pacman-mirrorlist
+    ntp fake-hwclock
+    htop
+  # Needed for yay  
+    #po4a    # for fakeroot-tcp
+    #go      # for yay
+  # 3g modem
+    #modemmanager usb_modeswitch
   # Applications  
-    pi-bluetooth                                # Powersave feature, maybe
-    networkmanager
-  # ...  
-    modemmanager usb_modeswitch
+    #pi-bluetooth #doesnt exist                                # Powersave feature, maybe
+    
 )
 
 
 # -----	Core packages
-
-core_minimal=(
-  # base / base-devel minimal equivalent
-    pacman-mirrorlist
-    autoconf automake binutils bison file findutils flex gawk gcc gettext grep groff gzip libtool m4 make pacman patch pkgconf sed sudo texinfo which
-    # autoconf automake binutils fakeroot gcc make patch sudo 
-  # Other core stuff
-    man-db man-pages git pacman-contrib pacutils ntp fake-hwclock dnsmasq wget htop 
-    po4a    # for fakeroot-tcp
-    go      # for yay
-)
 
 core=(
   # Core packages

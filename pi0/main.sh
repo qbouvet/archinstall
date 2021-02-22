@@ -100,16 +100,13 @@ in
         ${wd}/3-extract.sh
         next="base"
         ;;
-    ("pacstrap") \
-        ${wd}/4-pacstrap.sh
-        next="finish"
-        ;;
     ("base") \
-        arch-chroot "${rootmnt}" /install/pi0/5-base.sh  # Absolute path, in chroot dir !!!
+        arch-chroot "${rootmnt}" /install/pi0/4-base.sh  # Absolute path, in chroot dir !!!
         next="finish"
         ;;
     ("yay") \
-        arch-chroot "${rootmnt}" /install/pi0/6-yay.sh   # Absolute path, in chroot dir !!!
+        # !! skipping this one for now
+        arch-chroot "${rootmnt}" /install/pi0/5-yay.sh   # Absolute path, in chroot dir !!!
         next="finish"
         ;;
     (*) \

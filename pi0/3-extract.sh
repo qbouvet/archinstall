@@ -51,25 +51,3 @@ mkdir -p ${rootmnt}/install
 
 
 
-
-# -----  Keep that for later // drop-ins
-
-function cp_files () { 
-    pushd "${__dir}/data" > /dev/null
-    report_append "The following arbitrary files have been copied over:\n"
-    for filename in *
-    do
-        if [ "${filename:0:3}" == "___" ]
-        then
-          newpath=${filename/___/}      # remove the first '___'
-          newpath=${newpath//___/\/}    # replace all subsequent '___' by '/'
-          mkdir -p "$(dirname "${rootmnt}/${newpath}")"
-          cp "$filename" "${rootmnt}/${newpath}"
-          report_append "  - $newpath\n"
-        else
-          printf "    Skipping $filename\n"
-        fi
-    done
-    popd > /dev/null
-    sync
-}

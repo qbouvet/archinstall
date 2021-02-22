@@ -4,16 +4,22 @@
 #   Minimum for camera use
 gpu_mem=128
 
+#   For usb-gadget ethernet
+#   Note: also need modifications to cmdline.txt
+dtoverlay=dwc2
+
+#   Static IP 
+#   -> For usb-gadget-ethernet ?
+#ip=192.168.0.10
+
 #   Used as kernel command line 
+#   -> replaces cmdline.txt ? 
 #cmdline=
 
 #   Together with the raspberry PI B+ a new config.txt setting was introduced
 #   Probably no effect on pi 3/4
-max_usb_current=1
+#max_usb_current=1
 
 #   Tell the RPi3B to start in ARMv8-mode
 #   Probably no effect on pi3 B+
 #arm_control=0x200
-
-#   Static IP (?) 
-#ip=192.168.0.10
