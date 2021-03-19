@@ -31,8 +31,6 @@ source "${wd}/../common/utils/aa.sh"            # Associative arrays
 source "${wd}/../common/utils/f.sh"             # File operations helpers
 source "${wd}/../common/utils/trapstack.sh"     # Stack data structure for bash TRAP
 
-source "${wd}/../common/others.sh"              # ???
-
 
 # ----- CLI parameters
 
@@ -110,7 +108,9 @@ in
         next="finish"
         ;;
     (*) \
-        printf "Stage: ${params["stage"]}, exiting normally\n"
+        printf "Stage: ${params["stage"]}\n"
+        printf "Everything went well, here is a qemu-chroot shell\n"
+        arch-chroot "${rootmnt}" bash
         exit 0
         ;;
 esac

@@ -19,5 +19,8 @@ TODO
  * Configure yay 
  * Configure pacman hooks (clean pkg cache, ...)
  * Debug scheduled scripts functionality
+ * cleanup pkgs.sh
+ * move drop-in to common
  * Configure swap with systemd swap
  * Use ZFS instead of ext4
+ * Move more stuff to common, eg. by using a $targetdev parameter to dispatch calls

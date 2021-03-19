@@ -42,20 +42,22 @@ macbookair=(
 pi0=(
   firmware-raspberrypi libbcm2835
 )
-pi3=()
+pi3=(
+  firmware-raspberrypi libbcm2835
+)
 pi4=()
 
 
 # ----- Temporary
 
 export pizero=(
-  # Network (including usb gadget)
-    dnsmasq wpa_supplicant dhcpcd
-    #netctl networkmanager    # Installed in their respective setup function
   # base / base-devel minimal equivalent
     # autoconf automake binutils fakeroot gcc make patch sudo 
     autoconf automake binutils bison file findutils flex gawk gcc gettext 
     grep groff gzip libtool m4 make pacman patch pkgconf sed sudo texinfo which
+  # Network (including usb gadget)
+    dnsmasq wpa_supplicant dhcpcd
+    #netctl networkmanager    # Installed in their respective setup function
   # Base / base-devel & not-minimal core stuff
   	base base-devel           # Note: no 'linux-lts linux-lts-headers'
 	  sudo git nano wget screen # cheatsheet: https://gist.github.com/zigmoo/b67b11cd7bc8a5c66a44b91fcf37898e
@@ -66,11 +68,22 @@ export pizero=(
   # Needed for yay  
     #po4a    # for fakeroot-tcp
     #go      # for yay
-  # 3g modem
-    #modemmanager usb_modeswitch
-  # Applications  
-    #pi-bluetooth #doesnt exist                                # Powersave feature, maybe
-    
+)
+
+pi3=(
+  # base, base-devel, or minimal equivalent
+    # autoconf automake binutils fakeroot gcc make patch sudo 
+    autoconf automake binutils bison file findutils flex gawk gcc gettext 
+    grep groff gzip libtool m4 make pacman patch pkgconf sed sudo texinfo which
+  # Other core stuff
+    base base-devel
+    man-db man-pages git wget ntp fake-hwclock htop 
+    pacman-contrib pacutils pacman-mirrorlist
+    po4a go      # fakeroot-tcp, yay
+  # Networking (?)
+    dnsmasq  wpa_supplicant dhcpcd
+  # CLI utilities 
+    screen sshfs python
 )
 
 

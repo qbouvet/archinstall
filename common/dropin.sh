@@ -29,7 +29,7 @@ function __remove_trailing_slashes () {
 
 function di_setsrcdir () {
     local new_dropin_srcdir="$(__remove_trailing_slashes $1)"
-    printf "\nNew srcdir: ${new_dropin_srcdir}"
+    printf "Drop-in: New srcdir: ${new_dropin_srcdir}\n"
     dropin_srcdir="${new_dropin_srcdir}"
 }
 

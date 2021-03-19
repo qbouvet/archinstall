@@ -49,7 +49,7 @@ function manual_aur_install () {
     chmod 777 -R "$_builddir/$_package"
     cd "$_package"
     printf "\n\nBuilding...\n"
-    sudo -u "$_user" makepkg "${@:2}"
+    sudo -u "$_user" makepkg -s "${@:2}"
     printf "\n\n... Installing\n"
     if [[ -x $(which pacinstall) ]]; then
         pacinstall --file "$_package"*.tar.xz \
@@ -63,6 +63,7 @@ function manual_aur_install () {
 
 function yay_setup () { #   Requires sudo / pacman
   # Fakeroot doesn't work under qemu chroot
+  # The alternative is takeroot-tcp, but you need fakeroot to build it from AUR
     # https://archlinuxarm.org/forum/viewtopic.php?f=57&t=14466
     # https://aur.archlinux.org/packages/fakeroot-tcp/
     # https://www.reddit.com/r/archlinux/fComments/7rycmu/cannot_build_fakeroottcp_without_fakeroot/
