@@ -1,0 +1,15 @@
+# /etc/systemd/system/run-at-boot.sh.service
+
+[Unit]
+Description=Starts /root/run-at-boot.sh at boot.
+
+[Service]
+Type=forking
+ExecStart=/bin/bash /root/run-at-boot.sh
+TimeoutSec=0
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+# Doesn't work - wait manually in /autostart.sh
+#After=network.target NetworkManager.service

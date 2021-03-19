@@ -1,0 +1,7 @@
+Description='Netctl wireless profile for WPA-PSK connection to SSID "qbvt.net" over interface "wlan0" '
+Interface=wlan0
+Connection=wireless
+Security=wpa
+IP=dhcp
+ESSID=qbvt.net
+Key=\"ec7fead7f34f8598df37053dc73d85fececccf39c603b175bcf622b61ae8e8d1
