@@ -21,13 +21,13 @@ fi
 
 # ----- SD Card block device
 
-export blockdev="/dev/sdd"          # !! If mmcblk, needs a 'p'
-export swapsize="2048"  
+export blockdev="/dev/sde"          # !! If mmcblk, needs a 'p'
+export swapsize="1024M"  
 
 
 # ----- Image to install
 
-export alarm_archive="ArchLinuxARM-rpi-latest.tar.gz"
+export alarm_archive="ArchLinuxARM-rpi-armv7-latest.tar.gz"
 export alarm_archive_url="http://os.archlinuxarm.org/os/$alarm_archive"
 export alarm_archive_md5="$alarm_archive_url.md5"
 

@@ -60,4 +60,5 @@ function di_drop () {
         cp "${dropin_srcdir}/${dropin_prefix}/${__filename}" "${dropin_target}/${newpath}"
         printf "\n-> ${dropin_target}/${newpath}"
     done
+    printf "\n"
 }
